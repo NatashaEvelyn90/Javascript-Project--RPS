@@ -1,5 +1,38 @@
-body {
-    background-image: url("../Media/ezgif-138f711b4b1909.gif");
+
+
+.backImg {
+    background-image: url("../Media/flower-4349.gif");
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 0.7;
+    width: -webkit-fill-available;
+    position: fixed;
+    z-index: -99;
+}
+
+.backSmImg {
+    background-color: black;
+    position: fixed;
+    z-index: -99;
+}
+
+.gameTitle {
+    /* color: transparent;
+    border: 3px solid pink; */
+    font-size: 400px;
+    font-family: "Kode Mono", monospace;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: rgba(255, 192, 203, 0.539);
+    color: transparent;
+}
+
+.mainButton {
+    border: 4px solid orangered;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+}
+
+a:link {
+    text-decoration: none;
 }
