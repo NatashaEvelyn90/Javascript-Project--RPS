@@ -1,38 +1,132 @@
 
-
 .backImg {
-    background-image: url("../Media/flower-4349.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.7;
-    width: -webkit-fill-available;
-    position: fixed;
+   opacity: 0.7;
+    width: 100%;
+    max-width: -webkit-fill-available;
+    height: 100%;
+    position: absolute;
     z-index: -99;
 }
 
-.backSmImg {
+/* Yes or No */
+header {
     background-color: black;
     position: fixed;
-    z-index: -99;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    
 }
 
+.largeLoading {
+    color: red;
+    margin-top: 300px;
+}
+
+.yesBtn {
+    background-color: rgb(41, 197, 38);
+    color: white;
+    font-size: xx-large;
+    width: 75px;
+    height: 75px;
+    border-radius: 18px;
+}
+
+.noBtn {
+    background-color: #840419;
+    color: white;
+    font-size: xx-large;
+    width: 75px;
+    height: 75px;
+    border-radius: 18px;
+}
+
+strong {
+    color: #840419b3;
+    animation: letterR 5s ease-in-out 0s infinite normal none;
+}
+
+@keyframes letterR {
+  0%,
+  50%,
+  100% {
+	opacity: 1;
+  }
+
+  25%,
+  75% {
+	opacity: 0;
+  }
+}
+
+
 .gameTitle {
-    /* color: transparent;
-    border: 3px solid pink; */
     font-size: 400px;
     font-family: "Kode Mono", monospace;
     -webkit-text-stroke-width: 5px;
-    -webkit-text-stroke-color: rgba(255, 192, 203, 0.539);
-    color: transparent;
+    -webkit-text-stroke-color: rgba(203, 115, 130, 0.539);
+    color: rgba(255, 192, 203, 0.539);
+    
 }
 
 .mainButton {
-    border: 4px solid orangered;
+    border: 4px solid #cb738289;
     width: 60px;
     height: 60px;
-    background-color: transparent;
+    background-color: #ffc0cb89;
+    border-radius: 16px;
+    &:hover {
+        background-color: rgba(240, 128, 128, 0.555);
+        color: #cb7382;
+        text-decoration: underline;
+    }
 }
 
 a:link {
     text-decoration: none;
+    color: rgba(96, 8, 23, 0.747);
+    &:hover {
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+ .backSmImg {
+    position: absolute;
+    width: 100%;
+    height: -webkit-fill-available;
+ }
+
+.smallLoading {
+    margin-top: 300px;
+    color: red;
+}
+
+ .smallTitle {
+    background-color: black;
+    height: 736px;
+ }
+
+header {
+    background-color: black;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    max-height: -webkit-fill-available;
+   
+    
+}
+
+.gameTitle {
+    font-size: 150px;
+}
+
+.mainMenu {
+    text-align: center;
+}
+
+.mainButton {
+    position: relative;
+}
+
 }

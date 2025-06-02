@@ -10,3 +10,15 @@
 //? Figure out if it is possible for you to "Select your opponent" 
 //* Add a secret card "Alligator" as that would be an instant win. Figure out how to add it into the game.
 
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("no");
+const titleMusic = document.getElementById("titleMusic");
+const startGame = document.getElementById("mainStart");
+const battleTheme = document.getElementById("battleMusic");
+
+yesBtn.addEventListener("click", gameMenu);
+
+function gameMenu() {
+    titleMusic.play();
+    document.querySelector("header").style.display = "none";
+}
