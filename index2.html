@@ -1,15 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ready to play></title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Game Menu Animation</title>
+<style>
+  .barzLgOne, .barzLgTwo {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    position: absolute;
+    opacity: 0;
+    z-index: 3;
+  }
+
+  .barzLgOne {
+    top: 0;
+    transform: translateY(-100%);
+  }
+
+  .barzLgTwo {
+    bottom: 0;
+    transform: translateY(100%);
+  }
+
+  @keyframes slideTop {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideBottom {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .backImg {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 2s ease;
+    position: relative;
+    z-index: 1;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Are you over the age of 18?</h1>
-        <button class="yes" id="yes">YEAH!</button>
-        <button class="no" id="no">NO</button>
-    </header>
+
+<section class="mainGameMenu" id="mainGameMenu"> 
+  <div class="barzLgOne" id="barzLgOne" hidden></div>
+  <img src="https://via.placeholder.com/800x400?text=Background+Image" alt="animated gif of a pink flower" class="backImg d-none d-sm-block" />
+  <div class="d-none d-sm-block">
+    <div class="d-flex flex-row-reverse justify-content-around align-items-center">
+      <div class="gameTitle col-sm-5 text-end fw-bold"><strong>R</strong>PS</div>              
+      <div class="row-reverse flex-wrap">
+        <button class="mainButton mainStart col-sm-12 mb-3" id="mainStart">START</button>
+        <button class="mainButton credits col-sm-12" id="credits">Credits</button>               
+      </div>
+    </div>
+  </div>
+
+  <div class="barzLgTwo" id="barzLgTwo" hidden></div>
+  <div class="mainTextLg"></div>
+</section>
+
+<audio id="titleMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop autoplay></audio>
+
+<script>
+  const titleMusic = document.getElementById("titleMusic");
+  const startGame = document.getElementById("mainStart");
+  const movieBarOne = document.getElementById("barzLgOne");
+  const movieBarTwo = document.getElementById("barzLgTwo");
+  const bgImage = document.querySelector(".backImg");
+
+  startGame.addEventListener("click", startSequence);
+
+  function startSequence() {
+    console.log("Start clicked");
+    // Stop music and reset
+    titleMusic.pause();
+    titleMusic.currentTime = 0;
+
+    // Fade out bg image smoothly
+    bgImage.style.opacity = "0";
+
+    // Show bars and reset transform + opacity so animation triggers
+    movieBarOne.removeAttribute("hidden");
+    movieBarTwo.removeAttribute("hidden");
+
+    movieBarOne.style.transform = "translateY(-100%)";
+    movieBarOne.style.opacity = "0";
+    movieBarTwo.style.transform = "translateY(100%)";
+    movieBarTwo.style.opacity = "0";
+
+    // Slight delay to ensure style changes applied before animating
+    setTimeout(() => {
+      movieBarOne.style.animation = "slideTop 1s ease forwards";
+      movieBarTwo.style.animation = "slideBottom 1s ease forwards";
+    }, 50);
+
+    // Optional: Remove background image after fade out finishes (2 seconds)
+    setTimeout(() => {
+      bgImage.remove();
+    }, 2000);
+  }
+</script>
+
 </body>
 </html>

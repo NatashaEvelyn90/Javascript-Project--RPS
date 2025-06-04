@@ -1,14 +1,18 @@
+/* Main menu Large */
 
-.backImg {
+/* wallpaper bg */
+.backImg { 
    opacity: 0.7;
     width: 100%;
     max-width: -webkit-fill-available;
     height: 100%;
     position: absolute;
     z-index: -99;
+    transition: opacity 2s ease-in-out;
 }
 
-/* Yes or No */
+
+/* Yes or No popup */
 header {
     background-color: black;
     position: fixed;
@@ -18,9 +22,8 @@ header {
     
 }
 
-.largeLoading {
+.loadingText {
     color: red;
-    margin-top: 300px;
 }
 
 .yesBtn {
@@ -41,6 +44,16 @@ header {
     border-radius: 18px;
 }
 
+.refreshBtn {
+    background-color: #110484;
+    color: white;
+    font-size: xx-large;
+    width: 130px;
+    height: 75px;
+    border-radius: 18px;
+
+}
+
 strong {
     color: #840419b3;
     animation: letterR 5s ease-in-out 0s infinite normal none;
@@ -59,7 +72,6 @@ strong {
   }
 }
 
-
 .gameTitle {
     font-size: 400px;
     font-family: "Kode Mono", monospace;
@@ -74,22 +86,52 @@ strong {
     width: 60px;
     height: 60px;
     background-color: #ffc0cb89;
+    color: #600817be;
     border-radius: 16px;
     &:hover {
         background-color: rgba(240, 128, 128, 0.555);
-        color: #cb7382;
-        text-decoration: underline;
-    }
-}
-
-a:link {
-    text-decoration: none;
-    color: rgba(96, 8, 23, 0.747);
-    &:hover {
         color: white;
     }
 }
 
+
+/* After clicking "start" button */
+
+.blackBarTop {
+    width: 100%;
+    height: 0px;
+    box-sizing: border-box;
+    z-index: 3;
+    position: absolute;
+    opacity: 0;
+    animation: slideTop 5s forwards;
+}
+
+.blackBarBottom {
+    width: 100%;
+    height: 0px;
+    box-sizing: border-box;
+    z-index: 3;
+    position: absolute;
+    opacity: 0;
+    animation: slideBottom 5s forwards;
+}
+
+@keyframes slideTop {
+    100% {border-block: 50px solid black; opacity: 1;}
+}
+
+@keyframes slideBottom {
+    100% {border-block: 72px solid black; opacity: 1;}
+}
+
+.textAge {
+    font-size: 75px;
+    margin-top: 250px;
+    color: blue;
+}
+
+/* small section */
 @media only screen and (max-width: 575px) {
  .backSmImg {
     position: absolute;
@@ -97,9 +139,17 @@ a:link {
     height: -webkit-fill-available;
  }
 
-.smallLoading {
-    margin-top: 300px;
+.loadingText {
+    font-size: 30px;
+    margin-top: 30px;
     color: red;
+}
+
+.textAge {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    color: blue;
 }
 
  .smallTitle {

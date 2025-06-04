@@ -11,47 +11,70 @@
     <title>Let's Rock!</title>
 </head>
 <body>
-
-    
     <header class="headers">
-        <h1 class="text-center largeLoading d-sm-block d-none">Are you over the age of 18?</h1>
-        <h1 class="text-center smallLoading d-block d-sm-none">Are you over the age of 18?</h1>
+        <h1 class="textAge" id="textAge"></h1>
+        <h1 class="text-center loadingText" id="loadingText"></h1>
+        
         <div class="d-flex justify-content-center">
             <button class="yesBtn me-4" id="yesBtn">Y</button>
-            <button class="noBtn" id="noBtn">N</button>
+            <button class="noBtn me-4" id="noBtn">N</button>
+            <button class="refreshBtn" id="refreshBtn">Refresh</button>
         </div>
     </header>
     
     <main>
         <!-- small section -->
-        <img src="./Media/decorative-10389.gif" alt="sparkly animated image" class="backSmImg bColor d-sm-none d-block">
-        <div class="smallTitle d-block d-sm-none">
-            <div class="d-block d-sm-none">
-                <div class="gameTitle text-center">RPS</div>
-                <div class="mainMenu">
-                    <button class="mainButton col-6 mb-3"><a href="#" id="mainStart">START</a></button>
-                    <button class="mainButton col-6"><a href="#" id="credits">Credits</a></button>
-                </div>
-            </div>
-        </div>
+         <section>
+            <!-- <div class="blackBarTop"  id="blackBarTop"></div> -->
+             <img src="./Media/decorative-10389.gif" alt="sparkly animated image" class="backSmImg bColor d-sm-none d-block">
+             <div class="smallTitle d-block d-sm-none">
+                 <div class="d-block d-sm-none">
+                     <div class="gameTitle text-center"><strong>R</strong>PS</div>
+                     <div class="mainMenu">
+                         <button class="mainButton mainStart col-6 mb-3" id="mainStart">START</button>
+                         <button class="mainButton credits col-6" id="credits">Credits</button>
+                     </div>
+                 </div>
+             </div>
+             <!-- <div class="blackBarBottom"  id="blackBarBottom"></div> -->
+             <div class="mainText"></div>
+         </section>
         
         <!-- large section -->
-        <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="backImg d-none d-sm-block">
-        <div class="d-none d-sm-block">
-            <div class="d-flex flex-row-reverse justify-content-around align-items-center">
-                    <div class="gameTitle col-sm-5 text-end fw-bold"><strong>R</strong>PS</div>              
-                    <div class=" row-reverse flex-wrap">
-                        <button class="mainButton col-sm-12 mb-3"><a href="#" class="mainStart">START</a></button>
-                        <button class="mainButton col-sm-12"><a href="#" class="credits">Credits</a></button>               
-                    </div>
-            </div>
-        </div>
 
-        <!-- small -->
+         <section> 
+            <div class="blackBarTop"  id="movieTop"></div>
+             <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="backImg d-none d-sm-block">
+             <div class="d-none d-sm-block">
+                 <div class="d-flex flex-row-reverse justify-content-around align-items-center">
+                         <div class="gameTitle col-sm-5 text-end fw-bold"><strong>R</strong>PS</div>              
+                         <div class=" row-reverse flex-wrap">
+                             <button class="mainButton mainStart col-sm-12 mb-3" id="mainStart">START</button>
+                             <button class="mainButton credits col-sm-12" id="credits">Credits</button>               
+                         </div>
+                 </div>
+             </div>
+
+             <!-- <div class="appreciation" id="appreciation" hidden>
+                Music: <span class="staff" id="staff"></span><br>
+                Game Design: <span class="staff" id="staff"></span><br>
+                Art: <span class="staff" id="staff"></span><br>
+             </div> -->
+
+             <div class="blackBarBottom"  id="movieBottom"></div>
+             <div class="mainTextLg"></div>
+         </section>
+
+         <section class="mainGameScores" id="mainGameScores" hidden>
+            <div class="scoreDisplay" id="scoreDisplay">
+                YOU: <span class="playerScore" id="playerScore">0</span>
+                OPPONENT: <span class="opponentScore" id="opponentScore">0</span>
+            </div>
+         </section>
     </main>
     <footer>
         <audio id="titleMusic" src="./Media/R-P-S Menu theme.m4a" type="m4a" loop></audio>
-        <audio id="battleMusic" src="./Media/R-P-S.m4a" type="m4a" hidden="hidden" loop></audio>
+        <audio id="battleMusic" src="./Media/R-P-S.m4a" type="m4a" hidden="hidden"></audio>
     </footer>
     <script src="./JS/app.js"></script>
 </body>
