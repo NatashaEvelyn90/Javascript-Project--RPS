@@ -11,7 +11,8 @@
     <title>Let's Rock!</title>
 </head>
 <body>
-    <header class="headers">
+    <!-- Yes or No buttons -->
+    <!-- <header class="headers">
         <h1 class="textAge" id="textAge"></h1>
         <h1 class="text-center loadingText" id="loadingText"></h1>
         
@@ -20,7 +21,7 @@
             <button class="noBtn me-4" id="noBtn">N</button>
             <button class="refreshBtn" id="refreshBtn">Refresh</button>
         </div>
-    </header>
+    </header> -->
     
     <main>
         <!-- small section -->
@@ -40,37 +41,97 @@
              <div class="mainText"></div>
          </section>
         
-        <!-- large section -->
-
+         <!-- large section -->
+         
          <section> 
-            <div class="blackBarTop"  id="movieTop"></div>
-             <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="backImg d-none d-sm-block">
+             <div class="blackBarTop"  id="movieTop" hidden></div>
+             <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="backImg d-none d-sm-block" id="flowerImg">
+             <img src="./Media/bokeh-2072271.jpg" alt="" class="backImg" id="bubbleImg" hidden>
              <div class="d-none d-sm-block">
                  <div class="d-flex flex-row-reverse justify-content-around align-items-center">
-                         <div class="gameTitle col-sm-5 text-end fw-bold"><strong>R</strong>PS</div>              
-                         <div class=" row-reverse flex-wrap">
-                             <button class="mainButton mainStart col-sm-12 mb-3" id="mainStart">START</button>
-                             <button class="mainButton credits col-sm-12" id="credits">Credits</button>               
-                         </div>
-                 </div>
+                     <div class="gameTitle col-sm-5 text-end fw-bold"><strong>R</strong>PS</div>              
+                     <div class=" row-reverse flex-wrap">
+                         <button class="mainButton mainStart col-sm-12 mb-3" id="mainStart" onclick="start()">START</button>
+                         <button class="mainButton credits col-sm-12" id="credits">Credits</button>               
+                        </div>
+                    </div>
              </div>
-
+             
              <!-- <div class="appreciation" id="appreciation" hidden>
-                Music: <span class="staff" id="staff"></span><br>
-                Game Design: <span class="staff" id="staff"></span><br>
-                Art: <span class="staff" id="staff"></span><br>
-             </div> -->
+                 Music: <span class="staff" id="staff"></span><br>
+                 Game Design: <span class="staff" id="staff"></span><br>
+                 Art: <span class="staff" id="staff"></span><br>
+                </div> -->
+                    <div class="blackBarBottom"  id="movieBottom" hidden></div>
+                    <div class="mainTextLg"></div>
+                </section>
+                
+        <!-- card Design Section -->
+         <section class="cards" hidden>
+            <div class="container">
 
-             <div class="blackBarBottom"  id="movieBottom"></div>
-             <div class="mainTextLg"></div>
-         </section>
+                <!-- ROCK -->
+                <div class="box">
+                  <span></span>
+                  <div class="content">
+                    <h2>ROCK</h2>
+                    <img src="" alt="">
+                  </div>
+                </div>
 
-         <section class="mainGameScores" id="mainGameScores" hidden>
-            <div class="scoreDisplay" id="scoreDisplay">
-                YOU: <span class="playerScore" id="playerScore">0</span>
-                OPPONENT: <span class="opponentScore" id="opponentScore">0</span>
+                <!-- PAPER -->
+                <div class="box">
+                  <span></span>
+                  <div class="content">
+                    <h2>PAPER</h2>
+                    <img src="" alt="">
+                  </div>
+                </div>
+
+                <!-- SCISSORS -->
+                <div class="box">
+                  <span></span>
+                  <div class="content">
+                    <h2>SCISSORS</h2>
+                    <img src="" alt="">
+                  </div>
+                </div>
+
+                <!-- ALLIGATOR -->
+                <div class="box" hidden>
+                  <span></span>
+                  <div class="content">
+                    <h2>ALLIGATOR</h2>
+                    <img src="" alt="">
+                  </div>
+                </div>
+
             </div>
          </section>
+
+         <!-- Timer Design section -->
+         <section class="timer" hidden>
+            <button class="yesGameStart yesBtn" id="yesGameStart" onclick="beginBattle()">YES</button>
+            <button class="noGameStart noBtn" id="noGameStart">NO</button>
+            <div class="countdownTime" id="countdownTime">02:00</div>
+         </section>
+
+
+         <!-- Scoring Section -->
+         <section class="mainGameScores d-flex justify-content-between" id="mainGameScores" >
+            <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay" >
+                <div class="youText ms-3"  id="youText">
+                    <span class="me-3 playerName">PLAYER</span> <span class="playerScore d-flex justify-content-center me-3" id="playerScore">0</span>
+                </div>
+            </div>
+
+            <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay">
+                <div class="opponentText" id="opponentText">
+                    <span class="ms-3 me-3 opponentName">OPPONENT</span> <span class="opponentScore d-flex justify-content-center" id="opponentScore">0</span>
+                </div>
+            </div>
+         </section>
+
     </main>
     <footer>
         <audio id="titleMusic" src="./Media/R-P-S Menu theme.m4a" type="m4a" loop></audio>

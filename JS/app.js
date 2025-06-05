@@ -14,20 +14,20 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const titleMusic = document.getElementById("titleMusic");
 const ageVerify = document.querySelector("#loadingText");
-
-
-const startGame = document.getElementById("mainStart");
+const noBattle = document.getElementById("noGameStart");
 const battleTheme = document.getElementById("battleMusic");
+
+
+const topBar = document.getElementById("movieTop");
+const bottomBar = document.getElementById("movieBottom");
 const creditsBtn = document.getElementById("credits");
 const bgImage = document.querySelector(".backImg");
 
 //! When the window first opens
 //? This code runs and asks an 'Age Verification' question
 window.onload = function(){
+    const fresh = document.getElementById("refreshBtn").style.display = "none";
     ageVerify.innerText = "Are you over the Age of 18?";
-    let fresh = document.getElementById("refreshBtn").style.display = "none";
-    const TopBar = document.getElementById("movieTop").style.display = "none";
-    const bottomBar = document.getElementById("movieBottom").style.display = "none";
 }
 
 //! Clicking the "YES" button
@@ -41,27 +41,28 @@ function gameMenu() {
 // When pressing "CREDITS" button
 // creditsBtn.addEventListener("click", showCredits);
 // function showCredits() {
-//     titleMusic.play();
-//     document.getElementById("appreciation").removeAttribute("hidden");
-//     const creditSpans = document.querySelectorAll("#appreciation .staff");
-//     creditSpans[0].innerText = "Natasha E.";
-//     creditSpans[1].innerText = "Natasha E.";
-//     creditSpans[2].innerText = "Natasha E.";
-// }
-
-//! Clicking the "START" button on the menu:
-startGame.addEventListener("click", start);
-function start() {
-    titleMusic.pause();
-    titleMusic.currentTime = 0;
-    topBar.style.display = "block";
-    bottomBar.style.display = "block";
-}
-
-//! When clicking the "NO" button:
-noBtn.addEventListener("click", tooBad);
-function tooBad() {    
-    const message = document.getElementById("textAge");
+    //     titleMusic.play();
+    //     document.getElementById("appreciation").removeAttribute("hidden");
+    //     const creditSpans = document.querySelectorAll("#appreciation .staff");
+    //     creditSpans[0].innerText = "Natasha E.";
+    //     creditSpans[1].innerText = "Natasha E.";
+    //     creditSpans[2].innerText = "Natasha E.";
+    // }
+    
+    //! Clicking the "START" button on the menu:
+    const startGame = document.getElementById("mainStart");
+    startGame.addEventListener("click", start);
+    function start() {
+        titleMusic.pause();
+        titleMusic.currentTime = 0;
+        document.querySelector("#movieTop").removeAttribute('hidden');
+        document.querySelector("#movieBottom").removeAttribute('hidden');
+    }
+    
+    //! When clicking the "NO" button:
+    noBtn.addEventListener("click", tooBad);
+    function tooBad() {    
+        const message = document.getElementById("textAge");
         message.innerText = "Not old enough!";
         message.style.textAlign = "center";
         document.querySelector("#yesBtn").style.display = "none";
@@ -69,16 +70,36 @@ function tooBad() {
         document.querySelector("#loadingText").style.display = "none";
         document.querySelector("#refreshBtn").style.display = "block";
         ageVerify.style.marginTop = "30px";
-}
-
- //! If you click "NO", "REFRESH" will be there   
+    }
+    
+    //! If you click "NO", "REFRESH" will be there   
     const refreshBtn = document.getElementById("refreshBtn");
     refreshBtn.addEventListener("click", reload)
     function reload() {
         window.location.reload()
     };
-
-
+    
+    //! Countdown TIMER
+    
+    const yesBattle = document.getElementById("yesGameStart");
+    yesBattle.addEventListener("click", beginBattle);
+    function beginBattle() {
+    battleTheme.play();
+    const countdownDisplay = document.getElementById("countdownTime");
+    let counter = 0200; // Starting number
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    const interval = setInterval(() => {
+      counter--;
+      countdownDisplay.textContent = counter;
+    
+      if (counter <= 0) {
+        clearInterval(interval);
+        countdownDisplay.textContent = "TIME'S UP";
+      }
+    }, 1000); // Update every 1000 milliseconds (1 second)
+}
 
 
 
