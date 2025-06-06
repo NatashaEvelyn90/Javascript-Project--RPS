@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Yes or No buttons -->
-    <!-- <header class="headers">
+    <header class="headers">
         <h1 class="textAge" id="textAge"></h1>
         <h1 class="text-center loadingText" id="loadingText"></h1>
         
@@ -21,12 +21,12 @@
             <button class="noBtn me-4" id="noBtn">N</button>
             <button class="refreshBtn" id="refreshBtn">Refresh</button>
         </div>
-    </header> -->
+    </header>
     
     <main>
         <!-- small section -->
          <section>
-            <!-- <div class="blackBarTop"  id="blackBarTop"></div> -->
+            <!-- <div class="blackBarTop"  id="movieTop"></div> -->
              <img src="./Media/decorative-10389.gif" alt="sparkly animated image" class="backSmImg bColor d-sm-none d-block">
              <div class="smallTitle d-block d-sm-none">
                  <div class="d-block d-sm-none">
@@ -37,12 +37,11 @@
                      </div>
                  </div>
              </div>
-             <!-- <div class="blackBarBottom"  id="blackBarBottom"></div> -->
+             <!-- <div class="blackBarBottom"  id="movieTop"></div> -->
              <div class="mainText"></div>
          </section>
         
          <!-- large section -->
-         
          <section> 
              <div class="blackBarTop"  id="movieTop" hidden></div>
              <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="backImg d-none d-sm-block" id="flowerImg">
@@ -52,22 +51,27 @@
                      <div class="gameTitle col-sm-5 text-end fw-bold"><strong>R</strong>PS</div>              
                      <div class=" row-reverse flex-wrap">
                          <button class="mainButton mainStart col-sm-12 mb-3" id="mainStart" onclick="start()">START</button>
-                         <button class="mainButton credits col-sm-12" id="credits">Credits</button>               
+                         <button class="mainButton credits col-sm-12" id="credits" onclick="showCredits()">Credits</button>               
                         </div>
-                    </div>
+                </div>
              </div>
+             <div class="blackBarBottom"  id="movieBottom" hidden></div>
+             <div class="mainTextLg"></div>
+         </section>
              
-             <!-- <div class="appreciation" id="appreciation" hidden>
-                 Music: <span class="staff" id="staff"></span><br>
-                 Game Design: <span class="staff" id="staff"></span><br>
-                 Art: <span class="staff" id="staff"></span><br>
-                </div> -->
-                    <div class="blackBarBottom"  id="movieBottom" hidden></div>
-                    <div class="mainTextLg"></div>
-                </section>
+             <!-- Credits Section -->
+         <section class="credits" id="credits">
+             <div class="appreciation" id="appreciation">
+                 <span class="staff" id="staff"></span><br>
+                 <span class="staff" id="staff"></span><br>
+                 <span class="staff" id="staff"></span><br>
+                 <span class="staff" id="staff"></span>
+               </div>
+        </section>
+
                 
         <!-- card Design Section -->
-         <section class="cards" hidden>
+         <section class="cards" id="cards" hidden>
             <div class="container">
 
                 <!-- ROCK -->
@@ -119,15 +123,17 @@
 
          <!-- Scoring Section -->
          <section class="mainGameScores d-flex justify-content-between" id="mainGameScores" >
-            <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay" >
+            <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay">
                 <div class="youText ms-3"  id="youText">
-                    <span class="me-3 playerName">PLAYER</span> <span class="playerScore d-flex justify-content-center me-3" id="playerScore">0</span>
+                    <span class="me-3 playerName">PLAYER</span>
+                    <span class="playerScore d-flex justify-content-center me-3" id="playerScore">0</span>
                 </div>
             </div>
 
             <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay">
                 <div class="opponentText" id="opponentText">
-                    <span class="ms-3 me-3 opponentName">OPPONENT</span> <span class="opponentScore d-flex justify-content-center" id="opponentScore">0</span>
+                    <span class="ms-3 me-3 opponentName">OPPONENT</span> 
+                    <span class="opponentScore d-flex justify-content-center" id="opponentScore">0</span>
                 </div>
             </div>
          </section>
