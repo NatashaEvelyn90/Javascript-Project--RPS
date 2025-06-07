@@ -22,8 +22,9 @@ const playCards = document.getElementById("cards");
 const creditsBtn = document.getElementById("credits");
 const tutorialBtn = document.getElementById("tutorial");
 const titleOfGame = document.getElementById("gameTitle");
+const mainMenuButtons = document.getElementById("mainMenuButtons");
+const flowerImage = document.querySelector("#flowerImg");
 
-const bgImageFl = document.querySelector("#flowerImg");
 const bgImageBl = document.querySelector("#bubbleImg");
 
 //! When the window first opens
@@ -105,7 +106,8 @@ function start() {
     titleMusic.currentTime = 0;
     document.querySelector("#movieTop").removeAttribute('hidden');
     document.querySelector("#movieBottom").removeAttribute('hidden');
-    document.querySelector("#mainStart").classList.add("fadeOut");
+    mainMenuButtons.classList.add("fadeOut");
+    flowerImage.classList.add("fadeOut");
 }
 
 //! Countdown TIMER + real BATTLE
@@ -113,6 +115,8 @@ function start() {
 const yesBattle = document.getElementById("yesGameStart");
 yesBattle.addEventListener("click", beginBattle);
 function beginBattle() {
+    titleMusic.pause();
+    titleMusic.currentTime = 0;
     battleTheme.play();
     document.querySelector("#yesGameStart").style.display = "none";
     document.querySelector("#noGameStart").style.display = "none";
