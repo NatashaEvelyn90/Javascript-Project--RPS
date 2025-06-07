@@ -1,16 +1,20 @@
-/* Main menu Large */
-
 /* wallpaper bg */
-.backImg { 
-   opacity: 1;
+.flowerImg { 
     width: 100%;
     max-width: -webkit-fill-available;
     height: 100%;
     position: absolute;
-    z-index: -99;
-    /* transition: opacity 2s ease-in-out; */
+    z-index: -97;
+    opacity: 1;
 }
 
+.bubbleImg {
+   width: 100%;
+    max-width: -webkit-fill-available;
+    height: 100%;
+    position: absolute;
+    z-index: -99;
+}
 
 /* Yes or No popup */
 header {
@@ -60,11 +64,10 @@ header {
     width: 145px;
     height: 75px;
     border-radius: 18px;
-
 }
 
 strong {
-    color: #840419b3;
+    color: #840419;
     animation: letterR 5s ease-in-out 0s infinite normal none;
 }
 
@@ -87,7 +90,7 @@ strong {
     font-size: 400px;
     font-family: "Kode Mono", monospace;
     -webkit-text-stroke-width: 5px;
-    -webkit-text-stroke-color: rgba(203, 115, 130, 0.539);
+    -webkit-text-stroke-color: rgb(203, 115, 130);
     color: rgba(255, 192, 203, 0.539);
     
 }
@@ -97,33 +100,34 @@ strong {
     border: 4px solid #cb738289;
     width: 60px;
     height: 60px;
-    background-color: #ffc0cb89;
-    color: #600817be;
+    background-color: #ffc0cb7f;
+    color: #600817;
     border-radius: 16px;
+    position: relative;
     &:hover {
         background-color: rgba(240, 128, 128, 0.555);
         color: white;
     }
 }
 
-/* Credits button */
-
-.appreciation {
+/* Tutorial and Credits buttons */
+.gameRule {
   font-family: "Kode Mono", monospace;
-  /* border:  4px solid #cb738289; */
   position: absolute;
     background-color: #ffc0cb89;
-    color: #600817be;
-    margin-left: 130px;
-    
+    color: #600817;
+    margin-left: 130px;   
 }
 
+.appreciation {
+   font-family: "Kode Mono", monospace;
+  position: absolute;
+    background-color: #ffc0cb89;
+    color: #600817;
+    margin-left: 130px;
+}
 
 /* After clicking "start" button */
-#flowerImg {
-  animation: flowerGone 5s forwards;
-}
-
 .blackBarTop {
     width: 100%;
     height: 0px;
@@ -131,7 +135,7 @@ strong {
     z-index: 3;
     position: absolute;
     opacity: 0;
-    animation: slideTop 5s forwards;
+    animation: slideTop 4s forwards;
 }
 
 .blackBarBottom {
@@ -141,12 +145,9 @@ strong {
     z-index: 3;
     position: absolute;
     opacity: 0;
-    animation: slideBottom 5s forwards;
+    animation: slideBottom 4s forwards;
 }
 
-@keyframes flowerGone {
-  100% {opacity: 0;}
-}
 
 @keyframes slideTop {
     100% {border-block: 50px solid black; opacity: 1;}
@@ -154,6 +155,17 @@ strong {
 
 @keyframes slideBottom {
     100% {border-block: 72px solid black; opacity: 1;}
+}
+
+@keyframes fadeout {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  animation-name: fadeout;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
 }
 
 

@@ -44,19 +44,30 @@
          <!-- large section -->
          <section> 
              <div class="blackBarTop"  id="movieTop" hidden></div>
-             <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="backImg d-none d-sm-block" id="flowerImg">
-             <img src="./Media/bokeh-2072271.jpg" alt="" class="backImg" id="bubbleImg" hidden>
+             <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="backImg d-none d-sm-block flowerImg" id="flowerImg">
+             <img src="./Media/bokeh-2072271.jpg" alt="" class="backImg bubbleImg" id="bubbleImg">
              <div class="d-none d-sm-block">
-                 <div class="d-flex flex-row-reverse justify-content-around align-items-center">
-                     <div class="gameTitle col-sm-5 text-end fw-bold"><strong>R</strong>PS</div>              
+                 <div class="d-flex flex-row-reverse justify-content-around align-items-center mainMenuButtons" id="mainMenuButtons">
+                     <div class="gameTitle col-sm-5 text-end fw-bold" id="gameTitle"><strong>R</strong>PS</div>              
                      <div class=" row-reverse flex-wrap">
                          <button class="mainButton mainStart col-sm-12 mb-3" id="mainStart" onclick="start()">START</button>
-                         <button class="mainButton credits col-sm-12" id="credits" onclick="showCredits()">Credits</button>               
+                         <button class="mainButton tutorial col-sm-12 mb-3" id="tutorial" onclick="learnGame()">Tutorial</button>
+                         <button class="mainButton credits col-sm-12 mb-3" id="credits" onclick="showCredits()">Credits</button>               
                         </div>
                 </div>
              </div>
              <div class="blackBarBottom"  id="movieBottom" hidden></div>
              <div class="mainTextLg"></div>
+         </section>
+
+         <!-- Game Tutorial Section -->
+         <section class="tutorial" id="tutorial">
+             <div class="gameRule" id="gameRule">
+                <span class="rules" id="rules"></span><br>
+                <span class="rules" id="rules"></span><br>
+                <span class="rules" id="rules"></span><br>
+                <span class="rules" id="rules"></span>
+            </div>
          </section>
              
              <!-- Credits Section -->
@@ -79,7 +90,7 @@
                   <span></span>
                   <div class="content">
                     <h2>ROCK</h2>
-                    <img src="" alt="">
+                    <img src="./Media/rock.png" alt="">
                   </div>
                 </div>
 
@@ -88,7 +99,7 @@
                   <span></span>
                   <div class="content">
                     <h2>PAPER</h2>
-                    <img src="" alt="">
+                    <img src="./Media/paper.webp" alt="">
                   </div>
                 </div>
 
@@ -97,7 +108,7 @@
                   <span></span>
                   <div class="content">
                     <h2>SCISSORS</h2>
-                    <img src="" alt="">
+                    <img src="./Media/pngimg.com - scissors_PNG10.png" alt="">
                   </div>
                 </div>
 
@@ -106,7 +117,7 @@
                   <span></span>
                   <div class="content">
                     <h2>ALLIGATOR</h2>
-                    <img src="" alt="">
+                    <img src="./Media/pngimg.com - crocodile_PNG13178.png" alt="">
                   </div>
                 </div>
 

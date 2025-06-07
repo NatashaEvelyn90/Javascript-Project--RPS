@@ -19,15 +19,17 @@ const battleTheme = document.getElementById("battleMusic");
 const topBar = document.getElementById("movieTop");
 const bottomBar = document.getElementById("movieBottom");
 const playCards = document.getElementById("cards");
-
 const creditsBtn = document.getElementById("credits");
+const tutorialBtn = document.getElementById("tutorial");
+const titleOfGame = document.getElementById("gameTitle");
+
 const bgImageFl = document.querySelector("#flowerImg");
-const bgImageBl = document.querySelector("#bubbleImg")
+const bgImageBl = document.querySelector("#bubbleImg");
 
 //! When the window first opens
 //? This code runs and asks an 'Age Verification' question
+document.getElementById("refreshBtn").style.display = "none";
 window.onload = function(){
-    const fresh = document.getElementById("refreshBtn").style.display = "none";
     ageVerify.innerText = "Are you over the Age of 18?";
 }
 
@@ -39,7 +41,7 @@ function gameMenu() {
     document.querySelector("header").style.display = "none";
 }
 
-//! When clicking the "NO" button:
+//! Clicking the "NO" button:
 noBtn.addEventListener("click", tooBad);
 function tooBad() {    
     const message = document.getElementById("textAge");
@@ -52,12 +54,30 @@ function tooBad() {
     ageVerify.style.marginTop = "30px";
 }
 
-//! If you click "NO", "REFRESH" will be there   
+//! Clicking "NO" = "REFRESH" will appear 
 const refreshBtn = document.getElementById("refreshBtn");
 refreshBtn.addEventListener("click", reload)
 function reload() {
     window.location.reload();
 };
+
+//! When pressing "TUTORIAL" button
+tutorialBtn.addEventListener("click", learnGame);
+function learnGame() {
+    titleMusic.play();
+     const gameRulez = document.querySelector("#gameRule");
+    if (gameRulez.style.display === "none") {
+        gameRulez.style.display = "block"; 
+        gameRulez.style.border = "4px solid #cb738289";
+        const learnSpan = document.querySelectorAll("#gameRule #rules");
+        learnSpan[0].innerText = "RPS is Rock Paper Scissors; just like the classic game!";
+        learnSpan[1].innerText = "The rules are simple, rock beats scissors, scissors beat paper, paper beats rock.";
+        learnSpan[2].innerText = "However, there might be something special within the game as well.";
+        learnSpan[3].innerText = "Will this secret appear in your game?";
+    } else {
+        gameRulez.style.display = "none";
+    }
+}
 
 //! When pressing "CREDITS" button
 creditsBtn.addEventListener("click", showCredits);
@@ -65,15 +85,15 @@ function showCredits() {
     titleMusic.play();
     const appreciate = document.querySelector("#appreciation");
     if (appreciate.style.display === "none") {
-        appreciate.style.display = ("block"); 
+        appreciate.style.display = "block"; 
         appreciate.style.border = "4px solid #cb738289";
-        const creditSpans = document.querySelectorAll("#appreciation .staff");
+        const creditSpans = document.querySelectorAll("#appreciation #staff");
         creditSpans[0].innerText = "Music: Natasha E.";
         creditSpans[1].innerText = "Game Design: Natasha E.";
         creditSpans[2].innerText = "Art: Natasha E. || Madeline E. || Alexander E.";
         creditSpans[3].innerText = "Extra Credits: Google Fonts || Bootstrap || Pixabay.com || ChatGPT";
     } else {
-        appreciate.style.display = ("none");
+        appreciate.style.display = "none";
     }
 }
 
@@ -85,6 +105,7 @@ function start() {
     titleMusic.currentTime = 0;
     document.querySelector("#movieTop").removeAttribute('hidden');
     document.querySelector("#movieBottom").removeAttribute('hidden');
+    document.querySelector("#mainStart").classList.add("fadeOut");
 }
 
 //! Countdown TIMER + real BATTLE
