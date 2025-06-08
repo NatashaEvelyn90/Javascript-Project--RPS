@@ -172,6 +172,8 @@ strong {
 /* Score Display */
 .mainGameScores {
   visibility: hidden;
+  position: relative;
+  top: -400px;
 }
 
 .scoreDisplay {
@@ -179,8 +181,8 @@ strong {
     width: 130px;
     height: 125px;
     font-family: "Pixelify Sans", sans-serif;
-    position: relative;
-    top: -460px;
+    /* position: relative; */
+    /* top: -460px; */
 }
 
 
@@ -403,6 +405,19 @@ strong {
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
 }
 
+.timer {
+  position: absolute;
+  margin-left: 45%;
+}
+
+.countdownTime {
+  position: absolute;
+  top: 75px;
+  margin-left: 45%;
+  color: green;
+  font-size: xx-large;
+  font-weight:500;
+}
 
 .playerName {
     text-decoration: underline;

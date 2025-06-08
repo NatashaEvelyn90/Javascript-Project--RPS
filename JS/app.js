@@ -122,24 +122,25 @@ function beginBattle() {
     document.querySelector("#noGameStart").style.display = "none";
     document.getElementById("mainGameScores").style.visibility = "visible";
     playCards.removeAttribute('hidden');
-    // const countdownDisplay = document.getElementById("countdownTime");
-    // let counter = 0200; // Starting number
-    // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    // var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    let timeLeft = 120; // 2 minutes in seconds
+    function updateTimer() {
+      const timerDisplay = document.getElementById('time');
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     
-    // const interval = setInterval(() => {
-    //   counter--;
-    //   countdownDisplay.textContent = counter;
-    
-    //   if (counter <= 0) {
-    //     clearInterval(interval);
-    //     countdownDisplay.textContent = "TIME'S UP";
-    //   }
-    // }, 1000);
-} // Update every 1000 milliseconds (1 second)
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        timerDisplay.textContent = "Time's up!";
+      } else {
+        timeLeft--;
+      }
+    }
+    updateTimer(); 
+    const timerInterval = setInterval(updateTimer, 1000);
 
-
-
+} 
 
 // //! keeping track of score
 // let playerScore = 0;
