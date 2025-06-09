@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Kode+Mono:wght@400..700&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <title>Let's Rock!</title>
 </head>
 <body>
@@ -62,21 +62,21 @@
 
          <!-- Game Tutorial Section -->
          <section class="tutorial" id="tutorial">
-             <div class="gameRule" id="gameRule">
-                <span class="rules" id="rules"></span><br>
-                <span class="rules" id="rules"></span><br>
-                <span class="rules" id="rules"></span><br>
-                <span class="rules" id="rules"></span>
+             <div class="gameRule" id="gameRule" style="display: none;">
+                <span class="rules"></span><br>
+                <span class="rules"></span><br>
+                <span class="rules"></span><br>
+                <span class="rules"></span>
             </div>
          </section>
              
-             <!-- Credits Section -->
+         <!-- Credits Section -->
          <section class="credits" id="credits">
-             <div class="appreciation" id="appreciation">
-                 <span class="staff" id="staff"></span><br>
-                 <span class="staff" id="staff"></span><br>
-                 <span class="staff" id="staff"></span><br>
-                 <span class="staff" id="staff"></span>
+             <div class="appreciation" id="appreciation" style="display: none;">
+                 <span class="staff"></span><br>
+                 <span class="staff"></span><br>
+                 <span class="staff"></span><br>
+                 <span class="staff"></span>
                </div>
         </section>
                
@@ -85,40 +85,40 @@
             <div class="container">
 
                 <!-- ROCK -->
-                <div class="box">
+                <button class="box rock" id="rock">
                   <span></span>
                   <div class="content">
                     <h2>ROCK</h2>
                     <img src="./Media/rock.png" alt="" width="100" height="100">
                   </div>
-                </div>
+                </button>
 
                 <!-- PAPER -->
-                <div class="box">
+                <button class="box paper" id="paper">
                   <span></span>
                   <div class="content">
                     <h2>PAPER</h2>
                     <img src="./Media/paper.webp" alt="" width="100" height="100">
                   </div>
-                </div>
+                </button>
 
                 <!-- SCISSORS -->
-                <div class="box">
+                <button class="box scissors" id="scissors">
                   <span></span>
                   <div class="content">
                     <h2>SCISSORS</h2>
                     <img src="./Media/pngimg.com - scissors_PNG10.png" alt="" width="100" height="100">
                   </div>
-                </div>
+                </button>
 
                 <!-- ALLIGATOR -->
-                <div class="box" hidden>
+                <button class="box alligator" id="alligator" hidden>
                   <span></span>
                   <div class="content">
                     <h2>ALLIGATOR</h2>
                     <img src="./Media/pngimg.com - crocodile_PNG13178.png" alt="" width="100" height="100">
                   </div>
-                </div>
+                </button>
 
             </div>
          </section>
@@ -130,15 +130,17 @@
             <button class="noGameStart noBtn" id="noGameStart">NO</button>
          </section>
 
-
          <!-- Scoring Section -->
          <section class="mainGameScores d-flex justify-content-between" id="mainGameScores" >
+
             <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay">
                 <div class="youText ms-3"  id="youText">
                     <span class="me-3 playerName">PLAYER</span>
                     <span class="playerScore d-flex justify-content-center me-3" id="playerScore">0</span>
                 </div>
             </div>
+
+            <div class="ifTie" id="ifTie"></div>
 
             <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay">
                 <div class="opponentText" id="opponentText">

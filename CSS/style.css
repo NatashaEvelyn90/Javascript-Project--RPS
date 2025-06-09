@@ -410,6 +410,44 @@ strong {
   margin-left: 45%;
 }
 
+.ifTie {
+  color: blue;
+  font-family: "Jersey 10", sans-serif;
+  font-size: xxx-large;
+}
+
+.plusOne {
+  color: green;
+  font-family: "Jersey 10", sans-serif;
+  font-size: xxx-large;
+}
+
+.keepTrying {
+  color: red;
+  font-family: "Jersey 10", sans-serif;
+  font-size: xxx-large;
+}
+
+.alligatorSurprise {
+  color: yellow;
+  font-family: "Jersey 10", sans-serif;
+  animation: alligator 500ms ease 0s infinite normal none;
+  font-size: xxx-large;
+}
+
+@keyframes alligator {
+  0%,
+  50%,
+  100% {
+	opacity: 1;
+  }
+
+  25%,
+  75% {
+	opacity: 0;
+  }
+}
+
 .countdownTime {
   position: absolute;
   top: 75px;
