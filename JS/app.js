@@ -1,14 +1,13 @@
-//! Name of the game? R-P-S. /DONE
-//TODO Must have an interactive menu screen 
+//! Name of the game? R-P-S. || DONE
+//TODO Must have an interactive menu screen || DONE
 //TODO Once selecting the "START" must animate into storyline
-//TODO Must have a "Tutorial"
-//TODO Must have a way to Win/Lose the game
-//TODO Must have a way to keep track of the score
-//TODO Once selecting the "Credits" it should just show my name and everything used. /DONE
-//! Make sure that there is a back button to go back to the main menu
+//TODO Must have a "Tutorial" || DONE
+//TODO Must have a way to Win/Lose the game || DONE
+//TODO Must have a way to keep track of the score || DONE
+//TODO Once selecting the "Credits" it should just show my name and everything used. || DONE
 //? Figure out how the dialogue will be
-//? Figure out if it is possible for you to "Select your opponent" 
-//* Add a secret card "Alligator" as that would be a +3 to score instant win. Figure out how to add it into the game.
+//? Figure out if it is possible for you to "Select your opponent" *future stuff*
+//* Add a secret card "Alligator" as that would be a +5 to score. Figure out how to add it into the game. || DONE
 
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
@@ -161,7 +160,7 @@ function beginBattle() {
     const tieResults = document.querySelector('.ifTie');
     
     //? This is the secret Alligator card
-    const alligatorAppearance = [7, 18, 28];
+    const alligatorAppearance = [7, 19, 31, 40, 51];
     function showAlligatorAppearanceReached() {
         if (alligatorAppearance.includes(playerScore) && !alligatorUsedAt.includes(playerScore)) {
             alligatorBtn.removeAttribute('hidden');
@@ -193,12 +192,12 @@ function beginBattle() {
             playerScore++;
             playerScoreBoard.innerText = playerScore;
             tieResults.innerText = "+1 POINT!";
-            tieResults.classList.add("plusOne")
+            tieResults.classList.add("plusOne");
         } else {
             opponentScore++;
             opponentScoreBoard.innerText = opponentScore;
             tieResults.innerText = "KEEP GOING!";
-            tieResults.classList.add("keepTrying")
+            tieResults.classList.add("keepTrying");
         }
         setTimeout(() => {
             clearStatus();
