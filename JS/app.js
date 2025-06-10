@@ -111,6 +111,9 @@ function start() {
     flowerImage.classList.add("fadeOut");
 }
 
+//! Dialogue Section
+
+
 //! Main Game Section
 //? This section includes a "COUNTDOWN TIMER", "CARDS" and "MISC"
 const yesBattle = document.getElementById("yesGameStart");
@@ -123,7 +126,10 @@ function beginBattle() {
     document.querySelector("#yesGameStart").style.display = "none";
     document.querySelector("#noGameStart").style.display = "none";
     document.getElementById("mainGameScores").style.visibility = "visible";
+    document.querySelector("#bubbleImg").style.display = "none";
     playCards.removeAttribute('hidden');
+    document.querySelector("#movieTop").style.visibility = "hidden";
+    document.querySelector("#movieBottom").style.visibility = "hidden";
 
     //! Countdown TIMER
     let timeLeft = 120; // 2 minutes in seconds

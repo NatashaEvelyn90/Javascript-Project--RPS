@@ -16,6 +16,14 @@
     z-index: -99;
 }
 
+.spaceImg {
+   width: 100%;
+    max-width: -webkit-fill-available;
+    height: 100%;
+    position: absolute;
+    z-index: -100;
+}
+
 /* Yes or No popup */
 header {
     background-color: black;
@@ -408,6 +416,7 @@ strong {
 .timer {
   position: absolute;
   margin-left: 45%;
+  z-index: 3;
 }
 
 .ifTie {
