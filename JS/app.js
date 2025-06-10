@@ -174,7 +174,7 @@ function beginBattle() {
     }
     
     function clearStatus() {
-        tieResults.classList.remove("plusOne","KeepTrying", "alligatorSurprise");
+        tieResults.classList.remove("plusOne","KeepTrying", "alligatorSurprise", "ifTie");
     }
 
     function checkWinner(player, opponent) {
@@ -202,7 +202,7 @@ function beginBattle() {
         setTimeout(() => {
             clearStatus();
             tieResults.innerText = "";
-        }, 5000);
+        }, 3000);
         
         showAlligatorAppearanceReached();
     }
@@ -224,10 +224,12 @@ function beginBattle() {
     });
     
     alligatorBtn.addEventListener("click", () => {
+        clearStatus();
+
         playerScore += 5;
         playerScoreBoard.innerText = playerScore;
-        tieResults.classList.add("alligatorSurprise");
         tieResults.innerText = "GATOR POWER! +5 POINTS!";
+        tieResults.classList.add("alligatorSurprise");
         alligatorUsedAt.push(playerScore);
         alligatorBtn.setAttribute('hidden', true);
     
