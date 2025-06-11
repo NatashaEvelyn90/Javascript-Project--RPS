@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Yes or No buttons -->
-    <!-- <header class="headers">
+    <header class="headers">
         <h1 class="textAge" id="textAge"></h1>
         <h1 class="text-center loadingText" id="loadingText"></h1>
         
@@ -21,7 +21,7 @@
             <button class="noBtn me-4" id="noBtn">N</button>
             <button class="refreshBtn" id="refreshBtn">Refresh</button>
         </div>
-    </header> -->
+    </header>
     
     <main>
         <!-- SMALL section -->
@@ -82,10 +82,15 @@
         </section>
 
         <!-- Dialogue Section -->
-        <section class="talkingSection" id="talkingSection"></section>
-        <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="announcerGuy" hidden>
-        <img src="./Media/unlock character.png" alt="" class="mainEnemy" class="mainEnemy" hidden>
-        <div class="mainTalk" id="mainTalk"></div>
+        <section class="talkingSection" id="talkingSection">
+            <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="announcerGuy" hidden>
+            <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" class="mainEnemy" hidden>
+            <div id="dialogBox">
+                <div class="mainTalk" id="mainTalk"></div>
+                <button id="nextBtn">NEXT</button>
+            </div>
+
+        </section>
                
         <!-- card Design Section -->
          <section class="cards" id="cards" hidden>
@@ -161,6 +166,7 @@
     <footer>
         <audio id="titleMusic" src="./Media/R-P-S Menu theme.m4a" type="m4a" loop></audio>
         <audio id="battleMusic" src="./Media/R-P-S.m4a" type="m4a" hidden="hidden"></audio>
+        <audio id="announcerMusic" src="./Media/THE ANSWER - Armored Core Tribute Album - #03_ Apex in TECHNO.mp3" type="mp3" hidden="hidden"></audio>
     </footer>
     <script src="./JS/app.js"></script>
 </body>

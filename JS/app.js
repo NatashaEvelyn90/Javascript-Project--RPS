@@ -23,7 +23,6 @@ const mainMenuButtons = document.getElementById("mainMenuButtons");
 const flowerImage = document.querySelector("#flowerImg");
 const bgImageBl = document.querySelector("#bubbleImg");
 const spaceImg = document.querySelector("#spaceImg");
-const announcer = document.getElementById("announcerGuy");
 
 //! When the window first opens
 //? This code runs and asks an 'Age Verification' question
@@ -88,7 +87,7 @@ function showCredits() {
     titleMusic.play();
     const appreciate = document.getElementById("appreciation");
     const isHidden = appreciate.style.display === "none" || appreciate.style.display === "";
-
+    
     appreciate.style.display = isHidden ? "block" : "none";
     if (isHidden) {
         appreciate.style.border = "4px solid #cb738289";
@@ -111,15 +110,43 @@ function start() {
     document.querySelector("#movieBottom").removeAttribute('hidden');
     mainMenuButtons.classList.add("fadeOut");
     flowerImage.classList.add("fadeOut");    
-
+    
     setTimeout(theAnnouncement, 5000);
 }
 
 //! Dialogue Section
-// announcer.addEventListener("click", theAnnouncement);
+const announcerDialogLines = [
+    "Welcome to the final round of R-P-S!",
+    "Everyone give them a round of applause!",
+    "*audience cheers*",
+    "I am your announcer, Toxtill, coming to you live with the action!",
+    "Today we have an amazing game that will keep you on your toes!",
+    "So we have--OH! It that the reigning champion I see?",
+    "I DON'T BELIVE IT FOLKS! THiS RPS BEGINNER IS UP AGAINST CRAZPICC, THE REIGNING CHAMPION FOR THE PAST 15 YEARS!"
+]
+
+let currentLine = 0;
 
 function theAnnouncement() {
+    const announcer = document.getElementById("announcerGuy");
+    const opponentTheme = document.getElementById("announcerMusic");
+    const nextBtn = document.getElementById("nextBtn");
+    const mainText = document.getElementById("mainTalk");
+
+
+    opponentTheme.play();
     document.querySelector("#announcerGuy").removeAttribute('hidden');
+    mainTalk.textContent = announcerDialogLines[currentLine];
+
+    nextBtn.addEventListener("click", () => {
+        currentLine++;
+        if(currentLine < announcerDialogLines.length) {
+            mainTalk.textContent = dialogLines[currentLine];
+        } else {
+            announcer.setAttribute('hidden', true);
+            currentLine = 0;
+        }
+    })
 }
 
 
@@ -130,6 +157,7 @@ yesBattle.addEventListener("click", beginBattle);
 
 function beginBattle() {
     titleMusic.pause();
+    opponentTheme.pause();
     titleMusic.currentTime = 0;
     battleTheme.play();
     document.querySelector("#yesGameStart").style.display = "none";
