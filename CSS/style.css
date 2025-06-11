@@ -193,6 +193,45 @@ strong {
     /* top: -460px; */
 }
 
+.announcerGuy {
+width: 40%;
+    position: fixed;
+    top: 27px;
+    z-index: -20;
+    animation: announcerSlide 1s ease-in normal forwards;
+}
+
+@keyframes announcerSlide {
+  0% {
+  transform: translateX(-600px);
+  }
+
+  100% {
+  transform: translateX(100px);
+  }
+}
+
+.mainEnemy {
+  width: 40%;
+  position: fixed;
+  top: 27px;
+  z-index: -20;
+  animation: enemySlide 1s ease-in normal forwards;
+}
+
+@keyframes enemySlide {
+0% {
+	transform: translateX(1500px);
+  }
+
+  100% {
+	transform: translateX(700px);
+  }
+}
+
+.mainTalk {
+font-family: "Kode Mono", monospace;
+}
 
 /* Card Section */
 .container
@@ -208,6 +247,7 @@ strong {
 
 .container .box
 {
+  border: 0px;
   position: relative;
   /* width: 320px;
   height: 400px; */
@@ -371,12 +411,6 @@ strong {
   z-index: 1;
   transform: 0.5s;
   color: #fff;
-}
-
-.container .box:hover .content
-{
-  left: -25px;
-  padding: 60px 40px;
 }
 
 .container .box .content h2

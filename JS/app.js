@@ -22,6 +22,8 @@ const titleOfGame = document.getElementById("gameTitle");
 const mainMenuButtons = document.getElementById("mainMenuButtons");
 const flowerImage = document.querySelector("#flowerImg");
 const bgImageBl = document.querySelector("#bubbleImg");
+const spaceImg = document.querySelector("#spaceImg");
+const announcer = document.getElementById("announcerGuy");
 
 //! When the window first opens
 //? This code runs and asks an 'Age Verification' question
@@ -108,10 +110,17 @@ function start() {
     document.querySelector("#movieTop").removeAttribute('hidden');
     document.querySelector("#movieBottom").removeAttribute('hidden');
     mainMenuButtons.classList.add("fadeOut");
-    flowerImage.classList.add("fadeOut");
+    flowerImage.classList.add("fadeOut");    
+
+    setTimeout(theAnnouncement, 5000);
 }
 
 //! Dialogue Section
+// announcer.addEventListener("click", theAnnouncement);
+
+function theAnnouncement() {
+    document.querySelector("#announcerGuy").removeAttribute('hidden');
+}
 
 
 //! Main Game Section
