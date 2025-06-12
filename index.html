@@ -84,10 +84,12 @@
         <!-- Dialogue Section -->
         <section class="talkingSection" id="talkingSection">
             <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="announcerGuy" hidden>
-            <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" class="mainEnemy" hidden>
+            <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" id="mainEnemy" hidden>
             <div id="dialogBox">
                 <div class="mainTalk" id="mainTalk"></div>
+                <div class="mainTalkTwo" id="mainTalkTwo"></div>
                 <button class="nextBtn" id="nextBtn" hidden>NEXT</button>
+                <button class="nextBtnTwo" id="nextBtnTwo" hidden>NEXT</button>
             </div>
         </section>
                
@@ -136,7 +138,7 @@
 
          <!-- Timer Design section -->
          <div class="countdownTime" id="time"></div>
-         <section class="timer" hidden>
+         <section class="timer" id="timerButtons" hidden>
             <button class="yesGameStart yesBtn" id="yesGameStart" onclick="beginBattle()">YES</button>
             <button class="noGameStart noBtn" id="noGameStart">NO</button>
          </section>
@@ -165,7 +167,7 @@
     <footer>
         <div class="musicPlayer">
             <audio id="titleMusic" src="./Media/R-P-S Menu theme.m4a" type="m4a" preload="auto" loop></audio>
-            <button class="playPauseBtn buttonOne" id="buttonOne">PLAY</button>
+            <button class="buttonOne" id="buttonOne">Audio</button>
             <div class="titleScroll" id="titleScroll">
                 <marquee behavior="scroll" direction="left" scrollamount="3">RPS Menu Theme</marquee>
             </div>
@@ -173,12 +175,18 @@
 
         <div class="musicPlayer">
             <audio id="announcerMusic" src="./Media/Armored Core- Apex.mp3" type="mp3" hidden loop></audio>
-            <button class="playPauseBtn buttonTwo" id="buttonTwo" hidden>PLAY</button>
+            <button class="buttonTwo" id="buttonTwo" hidden>Audio</button>
+            <div class="titleScrollTwo" id="titleScrollTwo" hidden>
+                <marquee behavior="scroll" direction="right" scrollamount="3">Armored Core-"Apex in Circle"</marquee>
+            </div>
         </div>
 
         <div class="musicPlayer">
             <audio id="opponentMusic" src="./Media/R-P-S.m4a" type="m4a" hidden="hidden"></audio>
-            <button class="playPauseBtn buttonThree" id="buttonThree" hidden>PLAY</button>
+            <button class="buttonThree" id="buttonThree" hidden>Audio</button>
+            <div class="titleScrollThree" id="titleScrollThree" hidden>
+                <marquee behavior="scroll" direction="right" scrollamount="3">R-P-S Main Battle Theme</marquee>
+            </div>
         </div>
     </footer>
     <script src="./JS/app.js"></script>

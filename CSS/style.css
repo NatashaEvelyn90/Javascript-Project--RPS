@@ -54,6 +54,11 @@ header {
     border-radius: 18px;
 }
 
+.yesGameStart {
+  position: fixed;
+  z-index: 5;
+}
+
 .noBtn {
     font-family: "Pixelify Sans", sans-serif;
     background-color: #840419;
@@ -62,6 +67,12 @@ header {
     width: 75px;
     height: 75px;
     border-radius: 18px;
+}
+
+.noGameStart {
+  position: fixed;
+  z-index: 5;
+  left: 51%;
 }
 
 .refreshBtn {
@@ -206,11 +217,11 @@ width: 40%;
 
 @keyframes announcerSlide {
   0% {
-  transform: translateX(-600px);
+  transform: translateX(-900px);
   }
 
   100% {
-  transform: translateX(100px);
+  transform: translateX(50px);
   }
 }
 
@@ -497,11 +508,13 @@ font-family: "Kode Mono", monospace;
 .countdownTime {
   position: absolute;
   top: 75px;
-  margin-left: 45%;
-  color: green;
-  font-size: xx-large;
+  margin-left: 30%;
+  color: mediumspringgreen;
+  font-size: 100px;
   font-weight:500;
 }
+
+
 
 .playerName {
     text-decoration: underline;
@@ -517,28 +530,14 @@ font-family: "Kode Mono", monospace;
 .opponentName {
     text-decoration: underline;
     text-underline-offset: 5px;
-    color: blue;
+    color: orange;
 }
 
 .opponentScore {
-    color: blue;
+    color: orange;
     font-size: 50px;
 }
 
-
-/* .playPauseBtn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px;
-    background-color: #cf72bd;
-    color: #600817;
-    cursor: pointer;
-}
-
-#playPauseBtn:hover {
-    background-color: #45a049;
-} */
 
 #buttonOne {
 position: fixed;
@@ -576,7 +575,7 @@ padding: 10px 20px;
 #buttonThree {
 position: fixed;
 top: -1px;
-left: 95%;
+left: 94%;
 padding: 10px 20px;
 font-size: 16px;
 border: none;
@@ -602,6 +601,18 @@ cursor: pointer;
   bottom: 95px;
 }
 
+.mainTalkTwo {
+  position: fixed;
+  z-index: 3;
+  width: 50%;
+  height: 20%;
+  top: 83%;
+  font-size: x-large;
+  color: orange;
+  left: 4%;
+  bottom: 95px;
+}
+
 .nextBtn {
   position: fixed;
   z-index: 4;
@@ -611,22 +622,71 @@ cursor: pointer;
 font-size: 16px;
 border: none;
 border-radius: 10px;
-background-color: #cf72bd;
-color: #600817;
+background-color: blue;
+color: white;
 cursor: pointer;
-/* z-index: 3; */
+animation: nextText 870ms ease 0s infinite normal none;
 &:hover {
     background-color: #ffbc00;
   }
 }
 
+.nextBtnTwo {
+  position: fixed;
+  z-index: 4;
+  left: 90%;
+  top: 82%;
+  padding: 10px 20px;
+font-size: 16px;
+border: none;
+border-radius: 10px;
+background-color: green;
+color: white;
+cursor: pointer;
+animation: nextText 870ms ease 0s infinite normal none;
+&:hover {
+    background-color: #600817;
+  }
+}
+
+@keyframes nextText {
+  0%,
+  50%,
+  100% {
+	opacity: 1;
+  }
+
+  25%,
+  75% {
+	opacity: 0;
+  }
+}
+
 .titleScroll {
-    color: #600817;
-    position: fixed;
-    font-style: italic;
-    top: 12px;
-    left: 20px;
-    z-index: -1;
+  color: #600817;
+  position: fixed;
+  font-style: italic;
+  top: 12px;
+  left: 20px;
+  z-index: -1;
+}
+
+.titleScrollTwo {
+  color: #600817;
+  position: fixed;
+  font-style: italic;
+  bottom: 30px;
+  left: 75%;
+  z-index: 4;
+}
+
+.titleScrollThree {
+  color: yellow;
+  position: fixed;
+  font-style: italic;
+  top: 10px;
+  left: 81%;
+  z-index: 4;
 }
 
 

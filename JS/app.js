@@ -1,3 +1,4 @@
+//TODO The stuff to do list!
 //! Name of the game? R-P-S. || DONE
 //TODO Must have an interactive menu screen || DONE
 //TODO Once selecting the "START" must animate into storyline
@@ -9,25 +10,37 @@
 //? Figure out if it is possible for you to "Select your opponent" *future stuff*
 //* Add a secret card "Alligator" as that would be a +5 to score. Figure out how to add it into the game. || DONE
 
-const ageVerify = document.querySelector("#loadingText");
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
+//* HEADER section
+const ageVerify = document.querySelector("#loadingText"); 
+const yesBtn = document.getElementById("yesBtn"); 
+const noBtn = document.getElementById("noBtn"); 
 
-const titleMusic = document.getElementById("titleMusic");
-const battleTheme = document.getElementById("opponentMusic");
+//* MUSIC Section
+const titleMusic = document.getElementById("titleMusic"); //? This is the music that plays in the menu
+const announcerMusic = document.getElementById("announcerMusic"); //? This plays during cutscene
+const battleTheme = document.getElementById("opponentMusic"); //? This music plays when it is time to RPS!
 
-const titleScroll = document.getElementById("titleScroll");
-const noBattle = document.getElementById("noGameStart");
-const topBar = document.getElementById("movieTop");
-const bottomBar = document.getElementById("movieBottom");
-const playCards = document.getElementById("cards");
+//*MAIN MENU Section
 const titleOfGame = document.getElementById("gameTitle");
 const mainMenuButtons = document.getElementById("mainMenuButtons");
 const flowerImage = document.querySelector("#flowerImg");
 const bgImageBl = document.querySelector("#bubbleImg");
 const spaceImg = document.querySelector("#spaceImg");
 
-//! When the window first opens
+
+//* MOVIE bars
+const topBar = document.getElementById("movieTop");
+const bottomBar = document.getElementById("movieBottom");
+
+//*CARD Section
+const playCards = document.getElementById("cards");
+
+const titleScroll = document.getElementById("titleScroll");
+const timerButtons = document.getElementById("timerButtons");
+const yesGameStart = document.getElementById("yesGameStart");
+const noGameStart = document.getElementById("noGameStart");
+
+//! When the "PAGE" first opens
 //? This code runs and asks an 'Age Verification' question
 document.getElementById("refreshBtn").style.display = "none";
 window.onload = function(){
@@ -37,13 +50,14 @@ window.onload = function(){
 //! Clicking the "YES" button
 //? This code will go to the main menu of the game
 yesBtn.addEventListener("click", gameMenu);
+
 function gameMenu() {
     titleMusic.play();
     document.querySelector("header").style.display = "none";
     
     const buttonOne = document.getElementById("buttonOne");
-
     buttonOne.addEventListener("click", audioPause);
+
     function audioPause() {
         if(titleMusic.paused) {
             titleMusic.play();
@@ -57,6 +71,7 @@ function gameMenu() {
 
 //! Clicking the "NO" button:
 noBtn.addEventListener("click", tooBad);
+
 function tooBad() {    
     const message = document.getElementById("textAge");
     message.innerText = "Not old enough!";
@@ -71,6 +86,7 @@ function tooBad() {
 //! Clicking "NO" = "REFRESH" will appear 
 const refreshBtn = document.getElementById("refreshBtn");
 refreshBtn.addEventListener("click", reload);
+
 function reload() {
     window.location.reload();
 };
@@ -125,16 +141,17 @@ function start() {
     mainMenuButtons.classList.add("fadeOut");
     flowerImage.classList.add("fadeOut");    
     buttonOne.classList.add("fadeOut");
-    titleScroll.classList.add("fadeOut");
+    titleScroll.classList.add("fadeOut")
     
-    setTimeout(theAnnouncement, 3000);
+    setTimeout(theAnnouncement, 4000);
 }
 
-//! Dialogue Section
-
+//! "DIALOGUE" Section
 function theAnnouncement() {
+    let speechStop = false;
     document.querySelector("#buttonTwo").removeAttribute('hidden');
     document.querySelector("#nextBtn").removeAttribute('hidden');
+    document.querySelector("#titleScrollTwo").removeAttribute('hidden');
 
     const announcerDialogLines = [
         "Welcome to the final round of R-P-S!",
@@ -143,20 +160,21 @@ function theAnnouncement() {
         "I am your announcer, Toxtill, coming to you live with the action!",
         "Today we have an amazing game that will keep you on your toes!",
         "So we have--OH! It that the reigning champion I see?",
-        "I DON'T BELIVE IT FOLKS! THIS RPS BEGINNER IS UP AGAINST CRAZPICC, THE REIGNING CHAMPION FOR THE PAST 15 YEARS!"
+        "I DON'T BELIVE IT FOLKS! THIS R-P-S BEGINNER IS UP AGAINST CRAZPICC, THE REIGNING CHAMPION FOR THE PAST 15 YEARS!"
     ]
+
     let currentLine = 0;
-
+    
     const announcer = document.getElementById("announcerGuy");
-    const announcerMusic = document.getElementById("announcerMusic");
     const nextBtn = document.getElementById("nextBtn");
+    const nextBtnTwo = document.getElementById("nextBtnTwo");
     const mainTalk = document.getElementById("mainTalk");
-
-
+    
+    
     announcerMusic.play();
     const buttonTwo = document.getElementById("buttonTwo")
-     buttonTwo.addEventListener("click", audioPauseTwo);
-
+    buttonTwo.addEventListener("click", audioPauseTwo);
+    
     function audioPauseTwo() {
         if(announcerMusic.paused) {
             announcerMusic.play();
@@ -167,32 +185,77 @@ function theAnnouncement() {
         }
     }
     document.querySelector("#announcerGuy").removeAttribute('hidden');
-    mainTalk.textContent = announcerDialogLines[currentLine];
-
-    nextBtn.addEventListener("click", () => {
-        currentLine++;
+    mainTalk.innerText = announcerDialogLines[currentLine];
+    
+    nextBtn.addEventListener("click", announcerSpeech);
+    function announcerSpeech() {
+        currentLine++;``
         if(currentLine < announcerDialogLines.length) {
             mainTalk.textContent = announcerDialogLines[currentLine];
         } else {
-            announcer.setAttribute('hidden', true);
             currentLine = 0;
+            speechStop = true;
+            mainTalk.style.visibility = 'hidden';
+            nextBtn.style.visibility ='hidden';
+            nextBtnTwo.removeAttribute('hidden');
+            crazpiccSpeech();
         }
-    })
-}
+    }
+    
+    const crazpiccDialogLines = [
+        "Well, well well...",
+        "*stares judgingly*",
+        "I see that you are my opponent?",
+        "Pathetic.",
+        "Let's just get this over with so I can go home to my dog.",
+        "You ready to be beaten?"
+    ]
 
+    const crazpiccDialogLinesYes = [
+        "Prepare to be beaten!"
+    ]
+
+    const crazpiccDialogLinesNo = [
+        "Didn't expect you to be such a coward."
+    ]
+
+    let currentLineTwo = 0;
+
+    const mainEnemy = document.getElementById("mainEnemy");
+    
+    nextBtnTwo.addEventListener("click", crazpiccSpeech);
+    function crazpiccSpeech() {
+        document.querySelector("#mainEnemy").removeAttribute('hidden');
+        mainTalkTwo.innerText = crazpiccDialogLines[currentLineTwo];
+        currentLineTwo++;``
+        if(currentLineTwo < crazpiccDialogLines.length) {
+            mainTalkTwo.innerText = crazpiccDialogLines[currentLineTwo];
+        } else {
+            speechStop = true;
+            currentLineTwo = 0;
+            document.querySelector("#timerButtons").removeAttribute('hidden');
+            mainTalkTwo.style.visibility = 'hidden';
+            nextBtnTwo.style.visibility ='hidden';
+            titleScrollTwo.style.visibility ='hidden';
+        }
+    }
+}
 
 //! Main Game Section
 //? This section includes a "COUNTDOWN TIMER", "CARDS" and "MISC"
-const yesBattle = document.getElementById("yesGameStart");
-yesBattle.addEventListener("click", beginBattle);
+yesGameStart.addEventListener("click", beginBattle);
 
 function beginBattle() {
+    document.querySelector("#titleScrollThree").removeAttribute('hidden')
+    buttonTwo.style.visibility = 'hidden';
+    announcerGuy.style.visibility = 'hidden';
+    mainEnemy.style.visibility = 'hidden';
     announcerMusic.pause();
     titleMusic.currentTime = 0;
     battleTheme.play();
 
     document.querySelector("#buttonThree").removeAttribute('hidden');
-     buttonTwo.addEventListener("click", audioPauseThree);
+    buttonThree.addEventListener("click", audioPauseThree);
 
     function audioPauseThree() {
         if(battleTheme.paused) {
@@ -328,39 +391,3 @@ function beginBattle() {
         showAlligatorAppearanceReached(); 
     });
 }
-
-
-//! Audio controls
-
-// const buttons = document.querySelectorAll(".playPauseBtn");
-
-// buttons.forEach(button => {
-//     button.addEventListener("click", () => {
-//         const audioId = button.getAttribute("data-audio");
-//         const audio = document.getElementById(audioId);
-
-//         // Pause all other audio elements and reset button labels
-//         buttons.forEach(btn => {
-//             const otherAudio = document.getElementById(btn.getAttribute("data-audio"));
-//             if (otherAudio !== audio) {
-//                 otherAudio.pause();
-//                 otherAudio.currentTime = 0;
-//                 btn.textContent = "PLAY";
-//             }
-//         });
-
-//         // Toggle current audio play/pause
-//         if (audio.paused) {
-//             audio.play();
-//             button.textContent = "PAUSE";
-//         } else {
-//             audio.pause();
-//             button.textContent = "PLAY";
-//         }
-
-//         // Ensure button resets when audio ends
-//         audio.onended = () => {
-//             button.textContent = "PLAY";
-//         };
-//     });
-// });
