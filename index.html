@@ -41,7 +41,7 @@
              <div class="mainText"></div>
          </section>
         
-         <!-- LARGE section -->
+         <!--#region LARGE section -->
          <section> 
              <div class="blackBarTop"  id="movieTop" hidden></div>
              <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="d-none d-sm-block flowerImg" id="flowerImg">
@@ -53,8 +53,8 @@
                      <div class="gameTitle col-sm-5 text-end fw-bold" id="gameTitle"><strong>R</strong>PS</div>              
                      <div class=" row-reverse flex-wrap">
                          <button class="mainButton mainStart col-sm-12 mb-3" id="mainStart" onclick="start()">START</button>
-                         <button class="mainButton tutorial col-sm-12 mb-3" id="tutorial" onclick="learnGame()">Tutorial</button>
-                         <button class="mainButton credits col-sm-12 mb-3" id="credits" onclick="showCredits()">Credits</button>               
+                         <button class="mainButton tutorial col-sm-12 mb-3" id="tutorialBtn" onclick="learnGame()">Tutorial</button>
+                         <button class="mainButton credits col-sm-12 mb-3" id="creditsBtn" onclick="showCredits()">Credits</button>               
                         </div>
                 </div>
              </div>
@@ -92,6 +92,11 @@
                 <div class="gameOver" id="gameOver" hidden>GAME OVER</div>
                 <button class="nextBtn" id="nextBtn" hidden>NEXT</button>
                 <button class="nextBtnTwo" id="nextBtnTwo" hidden>NEXT</button>
+
+                <div class="d-flex justify-content-center">
+                    <button class="comebackBtn" id="comebackBtn" hidden>Comeback</button>
+                    <button class="cowardBtn" id="cowardBtn" hidden>Coward</button>
+                </div>
             </div>
         </section>
                
@@ -156,6 +161,7 @@
             </div>
 
             <div class="ifTie" id="ifTie"></div>
+            <div class="gameResultText text-center fw-bold" id="gameResult"></div>
 
             <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay">
                 <div class="opponentText" id="opponentText">
@@ -164,6 +170,7 @@
                 </div>
             </div>
          </section>
+         <!--#endregion  -->
 
     </main>
     <footer>
@@ -190,6 +197,14 @@
                 <marquee behavior="scroll" direction="right" scrollamount="3">R-P-S Main Battle Theme</marquee>
             </div>
         </div>
+
+        <!-- <div class="musicPlayer">
+            <audio id="noGame" src="./Media/Mirror's Edge.mp3" type="m4a" hidden="hidden" loop></audio>
+            <button class="buttonFour" id="buttonFour" hidden>🎵</button>
+            <div class="titleScrollFour" id="titleScrollFour" hidden>
+                <marquee behavior="scroll" direction="right" scrollamount="3">Mirror's Edge Theme</marquee>
+            </div>
+        </div> -->
     </footer>
     <script src="./JS/app.js"></script>
 </body>
