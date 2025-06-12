@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Kode+Mono:wght@400..700&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Kode+Mono:wght@400..700&family=Pixelify+Sans:wght@400..700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <title>Let's Rock!</title>
 </head>
 <body>
@@ -47,6 +47,7 @@
              <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="d-none d-sm-block flowerImg" id="flowerImg">
              <img src="./Media/bokeh-2072271.jpg" alt="sparkly pink backround with bubbles" class="bubbleImg" id="bubbleImg">
              <img src="./Media/space background.jpg" alt="space" class="spaceImg" id="spaceImg">
+             <img src="./Media/sakura-5470.gif" alt="sakuras falling from the sky" class="blossomImg" id="blossomImg">
              <div class="d-none d-sm-block">
                  <div class="d-flex flex-row-reverse justify-content-around align-items-center mainMenuButtons" id="mainMenuButtons">
                      <div class="gameTitle col-sm-5 text-end fw-bold" id="gameTitle"><strong>R</strong>PS</div>              
@@ -88,6 +89,7 @@
             <div id="dialogBox">
                 <div class="mainTalk" id="mainTalk"></div>
                 <div class="mainTalkTwo" id="mainTalkTwo"></div>
+                <div class="gameOver" id="gameOver" hidden>GAME OVER</div>
                 <button class="nextBtn" id="nextBtn" hidden>NEXT</button>
                 <button class="nextBtnTwo" id="nextBtnTwo" hidden>NEXT</button>
             </div>
@@ -167,7 +169,7 @@
     <footer>
         <div class="musicPlayer">
             <audio id="titleMusic" src="./Media/R-P-S Menu theme.m4a" type="m4a" preload="auto" loop></audio>
-            <button class="buttonOne" id="buttonOne">Audio</button>
+            <button class="buttonOne" id="buttonOne">🎵</button>
             <div class="titleScroll" id="titleScroll">
                 <marquee behavior="scroll" direction="left" scrollamount="3">RPS Menu Theme</marquee>
             </div>
@@ -175,15 +177,15 @@
 
         <div class="musicPlayer">
             <audio id="announcerMusic" src="./Media/Armored Core- Apex.mp3" type="mp3" hidden loop></audio>
-            <button class="buttonTwo" id="buttonTwo" hidden>Audio</button>
+            <button class="buttonTwo" id="buttonTwo" hidden>🎵</button>
             <div class="titleScrollTwo" id="titleScrollTwo" hidden>
-                <marquee behavior="scroll" direction="right" scrollamount="3">Armored Core-"Apex in Circle"</marquee>
+                <marquee behavior="scroll" direction="right" scrollamount="3">Armored Core-"Apex in TECHNO (Apex in Circle)"</marquee>
             </div>
         </div>
 
         <div class="musicPlayer">
             <audio id="opponentMusic" src="./Media/R-P-S.m4a" type="m4a" hidden="hidden"></audio>
-            <button class="buttonThree" id="buttonThree" hidden>Audio</button>
+            <button class="buttonThree" id="buttonThree" hidden>🎵</button>
             <div class="titleScrollThree" id="titleScrollThree" hidden>
                 <marquee behavior="scroll" direction="right" scrollamount="3">R-P-S Main Battle Theme</marquee>
             </div>

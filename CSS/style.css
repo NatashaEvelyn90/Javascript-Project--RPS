@@ -1,30 +1,39 @@
-/* wallpaper bg */
+/* #region BACKGROUNDS */
 .flowerImg { 
-    width: 100%;
-    max-width: -webkit-fill-available;
-    height: 100%;
-    position: absolute;
-    z-index: -97;
-    opacity: 1;
+  width: 100%;
+  max-width: -webkit-fill-available;
+  height: 100%;
+  position: absolute;
+  z-index: -97;
+  opacity: 1;
 }
 
 .bubbleImg {
-   width: 100%;
-    max-width: -webkit-fill-available;
-    height: 100%;
-    position: absolute;
-    z-index: -99;
+  width: 100%;
+  max-width: -webkit-fill-available;
+  height: 100%;
+  position: absolute;
+  z-index: -99;
 }
 
 .spaceImg {
-   width: 100%;
-    max-width: -webkit-fill-available;
-    height: 100%;
-    position: absolute;
-    z-index: -100;
+  width: 100%;
+  max-width: -webkit-fill-available;
+  height: 100%;
+  position: absolute;
+  z-index: -100;
 }
 
-/* Yes or No popup */
+.blossomImg {
+  width: 100%;
+  max-width: -webkit-fill-available;
+  height: 100%;
+  position: absolute;
+  z-index: -101;
+}
+/* #endregion*/
+
+/* #region "Yes or No" popup */
 header {
     background-color: black;
     position: fixed;
@@ -84,7 +93,9 @@ header {
     height: 75px;
     border-radius: 18px;
 }
+/* #endregion */
 
+/* #region Main menu + game Title */
 strong {
     color: #840419;
     animation: letterR 5s ease-in-out 0s infinite normal none;
@@ -94,24 +105,22 @@ strong {
   0%,
   50%,
   100% {
-	opacity: 1;
+  opacity: 1;
   }
 
   25%,
   75% {
-	opacity: 0;
+  opacity: 0;
   }
 }
 
-
-/* Main menu game Title */
 .gameTitle {
-    font-size: 400px;
-    font-family: "Kode Mono", monospace;
-    -webkit-text-stroke-width: 5px;
-    -webkit-text-stroke-color: rgb(203, 115, 130);
-    color: rgba(255, 192, 203, 0.539);
-    
+  font-size: 400px;
+  font-family: "Kode Mono", monospace;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: rgb(203, 115, 130);
+  color: rgba(255, 192, 203, 0.539);
+  
 }
 
 .mainButton {
@@ -128,8 +137,9 @@ strong {
         color: white;
     }
 }
+/* #endregion  */
 
-/* Tutorial and Credits buttons */
+/* #region "Tutorial and Credits" buttons */
 .gameRule {
   font-family: "Kode Mono", monospace;
   position: absolute;
@@ -145,40 +155,35 @@ strong {
     color: #600817;
     margin-left: 130px;
 }
+/* #endregion */
 
-/* After clicking "start" button */
+/* #region After clicking "START" button */
 .blackBarTop {
-    width: 100%;
-    height: 0px;
-    box-sizing: border-box;
-    z-index: 3;
-    position: absolute;
-    opacity: 0;
-    animation: slideTop 4s forwards;
+  width: 100%;
+  height: 0px;
+  box-sizing: border-box;
+  z-index: 3;
+  position: absolute;
+  opacity: 0;
+  animation: slideTop 4s forwards;
 }
-
-.blackBarBottom {
-    width: 100%;
-    height: 0px;
-    box-sizing: border-box;
-    z-index: 3;
-    position: absolute;
-    opacity: 0;
-    animation: slideBottom 4s forwards;
-}
-
 
 @keyframes slideTop {
     100% {border-block: 50px solid black; opacity: 1;}
 }
 
-@keyframes slideBottom {
-    100% {border-block: 72px solid black; opacity: 1;}
+.blackBarBottom {
+  width: 100%;
+  height: 0px;
+  box-sizing: border-box;
+  z-index: 3;
+  position: absolute;
+  opacity: 0;
+  animation: slideBottom 4s forwards;
 }
 
-@keyframes fadeout {
-  0% {opacity: 1;}
-  100% {opacity: 0;}
+@keyframes slideBottom {
+    100% {border-block: 72px solid black; opacity: 1;}
 }
 
 .fadeOut {
@@ -187,32 +192,22 @@ strong {
   animation-fill-mode: forwards;
 }
 
-.nextBtn {
-  position: fixed;
+@keyframes fadeout {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
 }
+/* #endregion */
 
-/* Score Display */
-.mainGameScores {
-  visibility: hidden;
-  position: relative;
-  top: -400px;
-}
-
-.scoreDisplay {
-    border: 5px double #840419;
-    width: 130px;
-    height: 125px;
-    font-family: "Pixelify Sans", sans-serif;
-    /* position: relative; */
-    /* top: -460px; */
-}
-
+/* #region "DIALOG" Section */
 .announcerGuy {
-width: 40%;
-    position: fixed;
-    top: 27px;
-    z-index: -20;
-    animation: announcerSlide 1s ease-in normal forwards;
+  width: 40%;
+  position: fixed;
+  top: 27px;
+  /* z-index: -20; */
+}
+
+.announcerSlide {
+  animation: announcerSlide 1s ease-in normal forwards;
 }
 
 @keyframes announcerSlide {
@@ -225,31 +220,106 @@ width: 40%;
   }
 }
 
+.mainTalk {
+  font-family: "Kode Mono", monospace;
+  position: fixed;
+  z-index: 4;
+  width: 50%;
+  height: 20%;
+  top: 83%;
+  font-size: x-large;
+  color: #cf72bd;
+  left: 4%;
+  bottom: 95px;
+}
+
+.nextBtn {
+  position: fixed;
+  z-index: 4;
+  left: 80%;
+  top: 86%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  animation: nextText 870ms ease 0s infinite normal none;
+  &:hover {
+    background-color: #ffbc00;
+  }
+}
+
 .mainEnemy {
   width: 40%;
   position: fixed;
   top: 27px;
-  z-index: -20;
+  right: 7%;
+  /* z-index: -20; */
+}
+
+.enemySlide {
   animation: enemySlide 1s ease-in normal forwards;
 }
 
 @keyframes enemySlide {
 0% {
-	transform: translateX(1500px);
+  transform: translateX(750px);
   }
 
   100% {
-	transform: translateX(700px);
+  transform: translateX(0px);
   }
 }
 
-.mainTalk {
-font-family: "Kode Mono", monospace;
+.mainTalkTwo {
+  position: fixed;
+  z-index: 3;
+  width: 50%;
+  height: 20%;
+  top: 83%;
+  font-size: x-large;
+  color: orange;
+  left: 4%;
+  bottom: 95px;
 }
 
-/* Card Section */
-.container
-{
+.nextBtnTwo {
+  position: fixed;
+  z-index: 4;
+  left: 80%;
+  top: 86%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  animation: nextText 870ms ease 0s infinite normal none;
+  &:hover {
+    background-color: #600817;
+  }
+}
+
+@keyframes nextText {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+/* #endregion */
+
+/* #region "CARD DESIGN" Section */
+.container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -259,8 +329,7 @@ font-family: "Kode Mono", monospace;
   left: 4%;
 }
 
-.container .box
-{
+.container .box {
   border: 0px;
   position: relative;
   /* width: 320px;
@@ -272,8 +341,7 @@ font-family: "Kode Mono", monospace;
   transition: 0.5s;
 }
 
-.container .box::before
-{
+.container .box::before {
   content:' ';
   position: absolute;
   top: 0;
@@ -287,8 +355,7 @@ font-family: "Kode Mono", monospace;
   transition: 0.5s;
 }
 
-.container .box::after
-{
+.container .box::after {
   content:'';
   position: absolute;
   top: 0;
@@ -303,40 +370,33 @@ font-family: "Kode Mono", monospace;
 }
 
 .container .box:hover:before,
-.container .box:hover:after
-{
+.container .box:hover:after {
   transform: skewX(0deg);
   left: 20px;
   width: calc(100% - 90px);
-  
 }
 
 .container .box:nth-child(1):before,
-.container .box:nth-child(1):after
-{
+.container .box:nth-child(1):after {
   background: linear-gradient(315deg, #ffbc00, #ff0058)
 }
 
 .container .box:nth-child(2):before,
-.container .box:nth-child(2):after
-{
+.container .box:nth-child(2):after {
   background: linear-gradient(315deg, #03a9f4, #ff0058)
 }
 
 .container .box:nth-child(3):before,
-.container .box:nth-child(3):after
-{
+.container .box:nth-child(3):after {
   background: linear-gradient(315deg, #4dff03, #00d0ff)
 }
 
 .container .box:nth-child(4):before,
-.container .box:nth-child(4):after
-{
+.container .box:nth-child(4):after {
   background: linear-gradient(315deg, #000000, #cf72bd)
 }
 
-.container .box span
-{
+.container .box span {
   display: block;
   position: absolute;
   top: 0;
@@ -347,8 +407,7 @@ font-family: "Kode Mono", monospace;
   pointer-events: none;
 }
 
-.container .box span::before
-{
+.container .box span::before {
   content:'';
   position: absolute;
   top: 0;
@@ -364,8 +423,7 @@ font-family: "Kode Mono", monospace;
   box-shadow: 0 5px 15px rgba(0,0,0,0.08)
 }
 
-.container .box:hover span::before
-{
+.container .box:hover span::before {
   top: -50px;
   left: 50px;
   width: 100px;
@@ -373,8 +431,7 @@ font-family: "Kode Mono", monospace;
   opacity: 1;
 }
 
-.container .box span::after
-{
+.container .box span::after {
   content:'';
   position: absolute;
   bottom: 0;
@@ -391,8 +448,7 @@ font-family: "Kode Mono", monospace;
   animation-delay: -1s;
 }
 
-.container .box:hover span:after
-{
+.container .box:hover span:after {
   bottom: -50px;
   right: 50px;
   width: 100px;
@@ -400,21 +456,17 @@ font-family: "Kode Mono", monospace;
   opacity: 1;
 }
 
-@keyframes animate
-{
-  0%, 100%
-  {
+@keyframes animate {
+  0%, 100% {
     transform: translateY(10px);
   }
   
-  50%
-  {
+  50% {
     transform: translate(-10px);
   }
 }
 
-.container .box .content
-{
+.container .box .content {
   position: relative;
   left: 0;
   padding: 20px 40px;
@@ -427,22 +479,19 @@ font-family: "Kode Mono", monospace;
   color: #fff;
 }
 
-.container .box .content h2
-{
+.container .box .content h2 {
   font-size: 2em;
   color: #fff;
   margin-bottom: 10px;
 }
 
-.container .box .content p
-{
+.container .box .content p {
   font-size: 1.1em;
   margin-bottom: 10px;
   line-height: 1.4em;
 }
 
-.container .box .content a
-{
+.container .box .content a {
   display: inline-block;
   font-size: 1.1em;
   color: #111;
@@ -454,14 +503,28 @@ font-family: "Kode Mono", monospace;
   margin-top: 5px;
 }
 
-.container .box .content a:hover
-{
+.container .box .content a:hover {
   background: #ffcf4d;
   border: 1px solid rgba(255, 0, 88, 0.4);
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
 }
+/* #endregion */
 
-.timer {
+/* #region "SCORING + CARD POWER" Section */
+.mainGameScores {
+  visibility: hidden;
+  position: relative;
+  top: -400px;
+}
+
+.scoreDisplay {
+  border: 5px double #840419;
+  width: 130px;
+  height: 125px;
+  font-family: "Kode Mono", monospace;
+}
+
+ .timer {
   position: absolute;
   margin-left: 45%;
   z-index: 3;
@@ -514,8 +577,6 @@ font-family: "Kode Mono", monospace;
   font-weight:500;
 }
 
-
-
 .playerName {
     text-decoration: underline;
     text-underline-offset: 5px;
@@ -538,7 +599,9 @@ font-family: "Kode Mono", monospace;
     font-size: 50px;
 }
 
+/* #endregion */
 
+/* #region "MUSIC" Section */
 #buttonOne {
 position: fixed;
 top: -1px;
@@ -556,8 +619,8 @@ padding: 10px 20px;
 
 #buttonTwo {
   position: fixed;
-  bottom: 30px;
-  left: 90%;
+  top: 15px;
+  left: 95%;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -570,7 +633,6 @@ padding: 10px 20px;
       background-color: #ffbc00;
     }
 }
-
 
 #buttonThree {
 position: fixed;
@@ -589,79 +651,6 @@ cursor: pointer;
   }
 }
 
-.mainTalk {
-  position: fixed;
-  z-index: 4;
-  width: 50%;
-  height: 20%;
-  top: 83%;
-  font-size: x-large;
-  color: #cf72bd;
-  left: 4%;
-  bottom: 95px;
-}
-
-.mainTalkTwo {
-  position: fixed;
-  z-index: 3;
-  width: 50%;
-  height: 20%;
-  top: 83%;
-  font-size: x-large;
-  color: orange;
-  left: 4%;
-  bottom: 95px;
-}
-
-.nextBtn {
-  position: fixed;
-  z-index: 4;
-  left: 90%;
-  top: 82%;
-  padding: 10px 20px;
-font-size: 16px;
-border: none;
-border-radius: 10px;
-background-color: blue;
-color: white;
-cursor: pointer;
-animation: nextText 870ms ease 0s infinite normal none;
-&:hover {
-    background-color: #ffbc00;
-  }
-}
-
-.nextBtnTwo {
-  position: fixed;
-  z-index: 4;
-  left: 90%;
-  top: 82%;
-  padding: 10px 20px;
-font-size: 16px;
-border: none;
-border-radius: 10px;
-background-color: green;
-color: white;
-cursor: pointer;
-animation: nextText 870ms ease 0s infinite normal none;
-&:hover {
-    background-color: #600817;
-  }
-}
-
-@keyframes nextText {
-  0%,
-  50%,
-  100% {
-	opacity: 1;
-  }
-
-  25%,
-  75% {
-	opacity: 0;
-  }
-}
-
 .titleScroll {
   color: #600817;
   position: fixed;
@@ -675,8 +664,8 @@ animation: nextText 870ms ease 0s infinite normal none;
   color: #600817;
   position: fixed;
   font-style: italic;
-  bottom: 30px;
-  left: 75%;
+  top: 24px;
+  left: 70%;
   z-index: 4;
 }
 
@@ -688,7 +677,36 @@ animation: nextText 870ms ease 0s infinite normal none;
   left: 81%;
   z-index: 4;
 }
+/* #endregion */
 
+/* "NO BATTLE" Section */
+.gameOver {
+font-family: "Silkscreen", sans-serif;
+font-weight: 700;
+font-style: normal;
+font-size: 100px;
+position: fixed;
+top: 30%;
+left: 20%;
+animation: gameOver 870s ease 0 infinite normal none;
+}
+
+@keyframes gameOver {
+  0% {
+	opacity: 0.8;
+	transform: scale(0.2);
+  }
+
+  80% {
+	opacity: 0;
+	transform: scale(1.2);
+  }
+
+  100% {
+	opacity: 0;
+	transform: scale(2.2);
+  }
+}
 
 /* small section */
 @media only screen and (max-width: 575px) {

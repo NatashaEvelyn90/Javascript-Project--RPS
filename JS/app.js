@@ -1,12 +1,12 @@
 //TODO The stuff to do list!
 //! Name of the game? R-P-S. || DONE
 //TODO Must have an interactive menu screen || DONE
-//TODO Once selecting the "START" must animate into storyline
+//TODO Once selecting the "START" must animate into storyline || DONE
 //TODO Must have a "Tutorial" || DONE
 //TODO Must have a way to Win/Lose the game || DONE
 //TODO Must have a way to keep track of the score || DONE
 //TODO Once selecting the "Credits" it should just show my name and everything used. || DONE
-//? Figure out how the dialogue will be
+//? Figure out how the dialogue will be || DONE
 //? Figure out if it is possible for you to "Select your opponent" *future stuff*
 //* Add a secret card "Alligator" as that would be a +5 to score. Figure out how to add it into the game. || DONE
 
@@ -22,13 +22,15 @@ const battleTheme = document.getElementById("opponentMusic"); //? This music pla
 
 //*MAIN MENU Section
 const titleOfGame = document.getElementById("gameTitle");
-const mainMenuButtons = document.getElementById("mainMenuButtons");
-const flowerImage = document.querySelector("#flowerImg");
-const bgImageBl = document.querySelector("#bubbleImg");
-const spaceImg = document.querySelector("#spaceImg");
+const mainMenuButtons = document.getElementById("mainMenuButtons"); 
+const flowerImage = document.querySelector("#flowerImg"); //* Background image for main menu
+const bgImageBl = document.querySelector("#bubbleImg"); //* Background image for dialog section
+const spaceImg = document.querySelector("#spaceImg"); //* Background image for R-P-S section
+const blossomImg = document.querySelector("#blossomImg");
 
 
 //* MOVIE bars
+//? Black bars that come down in the dialog section
 const topBar = document.getElementById("movieTop");
 const bottomBar = document.getElementById("movieBottom");
 
@@ -38,10 +40,9 @@ const playCards = document.getElementById("cards");
 const titleScroll = document.getElementById("titleScroll");
 const timerButtons = document.getElementById("timerButtons");
 const yesGameStart = document.getElementById("yesGameStart");
-const noGameStart = document.getElementById("noGameStart");
 
 //! When the "PAGE" first opens
-//? This code runs and asks an 'Age Verification' question
+//? This code runs and asks an "AGE VERIFICATION" question
 document.getElementById("refreshBtn").style.display = "none";
 window.onload = function(){
     ageVerify.innerText = "Are you over the Age of 18?";
@@ -64,7 +65,7 @@ function gameMenu() {
             buttonOne.innerText = "PAUSE";
         } else {
             titleMusic.pause();
-            buttonOne.innerText = "PLAY";
+            buttonOne.innerText = "🎵";
         }
     }
 }
@@ -83,7 +84,7 @@ function tooBad() {
     ageVerify.style.marginTop = "30px";
 }
 
-//! Clicking "NO" = "REFRESH" will appear 
+//? If you click no, the "REFRESH" button appears
 const refreshBtn = document.getElementById("refreshBtn");
 refreshBtn.addEventListener("click", reload);
 
@@ -92,14 +93,15 @@ function reload() {
 };
 
 //! When pressing "TUTORIAL" button
-const tutorialBtn = document.getElementById("tutorialBtn");
+//? This teaches you the rules of the game
+const tutorialBtn = document.getElementById("tutorial");
 tutorialBtn.addEventListener("click", learnGame);
 
 function learnGame() {
     const gameRulez = document.getElementById("gameRule");
     const isHidden = gameRulez.style.display === "none" || gameRulez.style.display === "";
-    
     gameRulez.style.display = isHidden ? "block" : "none";
+
     if (isHidden) {
         gameRulez.style.border = "4px solid #cb738289";
         const learnSpan = gameRulez.querySelectorAll(".rules");
@@ -111,14 +113,15 @@ function learnGame() {
 }
 
 //! When pressing "CREDITS" button
-const creditsBtn = document.getElementById("creditsBtn");
+//? This shows everyone who helped with making the game
+const creditsBtn = document.getElementById("credits");
 creditsBtn.addEventListener("click", showCredits);
 
 function showCredits() {
     const appreciate = document.getElementById("appreciation");
     const isHidden = appreciate.style.display === "none" || appreciate.style.display === "";
-    
     appreciate.style.display = isHidden ? "block" : "none";
+
     if (isHidden) {
         appreciate.style.border = "4px solid #cb738289";
         const creditSpans = appreciate.querySelectorAll(".staff");
@@ -130,6 +133,7 @@ function showCredits() {
 }
 
 //! Clicking the "START" button on the menu
+//? Starts the beginning of the dialog section
 const startGame = document.getElementById("mainStart");
 startGame.addEventListener("click", start);
 
@@ -146,13 +150,21 @@ function start() {
     setTimeout(theAnnouncement, 4000);
 }
 
-//! "DIALOGUE" Section
+//! "DIALOG" Section
+//? This is the talking section
 function theAnnouncement() {
     let speechStop = false;
+    
+    mainMenuButtons.style.visibility = 'hidden';
+    flowerImage.style.visibility = 'hidden';    
+    buttonOne.style.visibility = 'hidden';
+    titleScroll.style.visibility = 'hidden'
+
     document.querySelector("#buttonTwo").removeAttribute('hidden');
     document.querySelector("#nextBtn").removeAttribute('hidden');
     document.querySelector("#titleScrollTwo").removeAttribute('hidden');
 
+    //! Announcer lines + Section
     const announcerDialogLines = [
         "Welcome to the final round of R-P-S!",
         "Everyone give them a round of applause!",
@@ -166,9 +178,11 @@ function theAnnouncement() {
     let currentLine = 0;
     
     const announcer = document.getElementById("announcerGuy");
+    announcer.classList.add("announcerSlide");
     const nextBtn = document.getElementById("nextBtn");
     const nextBtnTwo = document.getElementById("nextBtnTwo");
     const mainTalk = document.getElementById("mainTalk");
+    const mainTalkTwo = document.getElementById("mainTalkTwo");
     
     
     announcerMusic.play();
@@ -181,7 +195,7 @@ function theAnnouncement() {
             buttonTwo.textContent = "PAUSE";
         } else {
             announcerMusic.pause();
-            buttonTwo.textContent = "PLAY";
+            buttonTwo.textContent = "🎵";
         }
     }
     document.querySelector("#announcerGuy").removeAttribute('hidden');
@@ -189,7 +203,7 @@ function theAnnouncement() {
     
     nextBtn.addEventListener("click", announcerSpeech);
     function announcerSpeech() {
-        currentLine++;``
+        currentLine++;
         if(currentLine < announcerDialogLines.length) {
             mainTalk.textContent = announcerDialogLines[currentLine];
         } else {
@@ -202,6 +216,7 @@ function theAnnouncement() {
         }
     }
     
+    //! Crazpicc lines + section
     const crazpiccDialogLines = [
         "Well, well well...",
         "*stares judgingly*",
@@ -211,35 +226,75 @@ function theAnnouncement() {
         "You ready to be beaten?"
     ]
 
-    const crazpiccDialogLinesYes = [
-        "Prepare to be beaten!"
-    ]
-
-    const crazpiccDialogLinesNo = [
-        "Didn't expect you to be such a coward."
-    ]
-
     let currentLineTwo = 0;
-
     const mainEnemy = document.getElementById("mainEnemy");
+    mainEnemy.classList.add("enemySlide");
     
     nextBtnTwo.addEventListener("click", crazpiccSpeech);
     function crazpiccSpeech() {
         document.querySelector("#mainEnemy").removeAttribute('hidden');
         mainTalkTwo.innerText = crazpiccDialogLines[currentLineTwo];
-        currentLineTwo++;``
+        currentLineTwo++;
         if(currentLineTwo < crazpiccDialogLines.length) {
             mainTalkTwo.innerText = crazpiccDialogLines[currentLineTwo];
         } else {
             speechStop = true;
             currentLineTwo = 0;
             document.querySelector("#timerButtons").removeAttribute('hidden');
-            mainTalkTwo.style.visibility = 'hidden';
-            nextBtnTwo.style.visibility ='hidden';
-            titleScrollTwo.style.visibility ='hidden';
+            nextBtnTwo.style.visibility = 'hidden';
         }
     }
+    
+    //! If clicking the "NO" button for battle
+    const crazpiccDialogLinesNo = [
+        "Didn't expect you to be such a coward."
+    ]
+    let currentLineTwoB = 0;
+    
+    const noGameStart = document.getElementById("noGameStart");
+    noGameStart.addEventListener("click", battleOver);
+    function battleOver() {
+        nextBtnTwo.removeAttribute('hidden');
+        mainTalkTwo.innerText = crazpiccDialogLinesNo[currentLineTwoB]
+        currentLineTwoB++;
+        if(currentLineTwoB < crazpiccDialogLinesNo.length) {
+            mainTalkTwo.innerText = crazpiccDialogLinesNo[currentLineTwoB];   
+        } else {
+            speechStop = true;
+            currentLineTwoB = 0;
+            document.querySelector("#spaceImg").style.visibility = 'hidden',
+            document.querySelector("#timerButtons").style.visibility = 'hidden';
+           setTimeout(theClose, 4000)
+        }
+    }
+    function theClose() {
+        mainTalkTwo.classList.add("fadeOut");
+        bgImageBl.classList.add("fadeOut");
+
+        announcer.classList.remove("announcerSlide");
+        announcer.classList.add("fadeOut");
+
+        mainEnemy.classList.remove("enemySlide");
+        mainEnemy.classList.add("fadeOut");
+
+        // buttonTwo.classList.add("fadeOut");
+        // titleScrollTwo.classList.add("fadeOut");
+
+        setTimeout(theEnd, 3000)
+    }
+    
+    function theEnd() {
+        const gameOver = document.getElementById("gameOver");
+        announcer.style.visibility = 'hidden';
+        mainEnemy.style.visibility = 'hidden';
+        buttonTwo.style.visibility = "hidden";
+        titleScrollTwo.style.visibility = 'hidden';
+        document.querySelector(".gameOver").removeAttribute('hidden');
+        refreshBtn.style.display = "block";
+
+    }
 }
+
 
 //! Main Game Section
 //? This section includes a "COUNTDOWN TIMER", "CARDS" and "MISC"
@@ -247,6 +302,7 @@ yesGameStart.addEventListener("click", beginBattle);
 
 function beginBattle() {
     document.querySelector("#titleScrollThree").removeAttribute('hidden')
+    titleScrollTwo.style.visibility = 'hidden';
     buttonTwo.style.visibility = 'hidden';
     announcerGuy.style.visibility = 'hidden';
     mainEnemy.style.visibility = 'hidden';
@@ -263,7 +319,7 @@ function beginBattle() {
             buttonThree.textContent = "PAUSE";
         } else {
             battleTheme.pause();
-            buttonThree.textContent = "PLAY";
+            buttonThree.textContent = "🎵";
         }
     }
 
@@ -310,7 +366,7 @@ function beginBattle() {
     const tieResults = document.querySelector('.ifTie');
     
     //? This is the secret Alligator card
-    const alligatorAppearance = [7, 19, 31, 40, 51];
+    const alligatorAppearance = [7, 19, 31, 40, 51, 69];
     function showAlligatorAppearanceReached() {
         if (alligatorAppearance.includes(playerScore) && !alligatorUsedAt.includes(playerScore)) {
             alligatorBtn.removeAttribute('hidden');
