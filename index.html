@@ -46,7 +46,7 @@
              <div class="blackBarTop"  id="movieTop" hidden></div>
              <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="d-none d-sm-block flowerImg" id="flowerImg">
              <img src="./Media/bokeh-2072271.jpg" alt="sparkly pink backround with bubbles" class="bubbleImg" id="bubbleImg">
-             <img src="./Media/ai-generated-8261535.jpg" alt="space" class="spaceImg" id="spaceImg">
+             <img src="./Media/space background.jpg" alt="space" class="spaceImg" id="spaceImg">
              <div class="d-none d-sm-block">
                  <div class="d-flex flex-row-reverse justify-content-around align-items-center mainMenuButtons" id="mainMenuButtons">
                      <div class="gameTitle col-sm-5 text-end fw-bold" id="gameTitle"><strong>R</strong>PS</div>              
@@ -87,9 +87,8 @@
             <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" class="mainEnemy" hidden>
             <div id="dialogBox">
                 <div class="mainTalk" id="mainTalk"></div>
-                <button id="nextBtn">NEXT</button>
+                <button class="nextBtn" id="nextBtn" hidden>NEXT</button>
             </div>
-
         </section>
                
         <!-- card Design Section -->
@@ -137,7 +136,7 @@
 
          <!-- Timer Design section -->
          <div class="countdownTime" id="time"></div>
-         <section class="timer">
+         <section class="timer" hidden>
             <button class="yesGameStart yesBtn" id="yesGameStart" onclick="beginBattle()">YES</button>
             <button class="noGameStart noBtn" id="noGameStart">NO</button>
          </section>
@@ -164,9 +163,23 @@
 
     </main>
     <footer>
-        <audio id="titleMusic" src="./Media/R-P-S Menu theme.m4a" type="m4a" loop></audio>
-        <audio id="battleMusic" src="./Media/R-P-S.m4a" type="m4a" hidden="hidden"></audio>
-        <audio id="announcerMusic" src="./Media/THE ANSWER - Armored Core Tribute Album - #03_ Apex in TECHNO.mp3" type="mp3" hidden="hidden"></audio>
+        <div class="musicPlayer">
+            <audio id="titleMusic" src="./Media/R-P-S Menu theme.m4a" type="m4a" preload="auto" loop></audio>
+            <button class="playPauseBtn buttonOne" id="buttonOne">PLAY</button>
+            <div class="titleScroll" id="titleScroll">
+                <marquee behavior="scroll" direction="left" scrollamount="3">RPS Menu Theme</marquee>
+            </div>
+        </div>
+
+        <div class="musicPlayer">
+            <audio id="announcerMusic" src="./Media/Armored Core- Apex.mp3" type="mp3" hidden loop></audio>
+            <button class="playPauseBtn buttonTwo" id="buttonTwo" hidden>PLAY</button>
+        </div>
+
+        <div class="musicPlayer">
+            <audio id="opponentMusic" src="./Media/R-P-S.m4a" type="m4a" hidden="hidden"></audio>
+            <button class="playPauseBtn buttonThree" id="buttonThree" hidden>PLAY</button>
+        </div>
     </footer>
     <script src="./JS/app.js"></script>
 </body>

@@ -9,12 +9,15 @@
 //? Figure out if it is possible for you to "Select your opponent" *future stuff*
 //* Add a secret card "Alligator" as that would be a +5 to score. Figure out how to add it into the game. || DONE
 
+const ageVerify = document.querySelector("#loadingText");
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
+
 const titleMusic = document.getElementById("titleMusic");
-const ageVerify = document.querySelector("#loadingText");
+const battleTheme = document.getElementById("opponentMusic");
+
+const titleScroll = document.getElementById("titleScroll");
 const noBattle = document.getElementById("noGameStart");
-const battleTheme = document.getElementById("battleMusic");
 const topBar = document.getElementById("movieTop");
 const bottomBar = document.getElementById("movieBottom");
 const playCards = document.getElementById("cards");
@@ -37,6 +40,19 @@ yesBtn.addEventListener("click", gameMenu);
 function gameMenu() {
     titleMusic.play();
     document.querySelector("header").style.display = "none";
+    
+    const buttonOne = document.getElementById("buttonOne");
+
+    buttonOne.addEventListener("click", audioPause);
+    function audioPause() {
+        if(titleMusic.paused) {
+            titleMusic.play();
+            buttonOne.innerText = "PAUSE";
+        } else {
+            titleMusic.pause();
+            buttonOne.innerText = "PLAY";
+        }
+    }
 }
 
 //! Clicking the "NO" button:
@@ -64,7 +80,6 @@ const tutorialBtn = document.getElementById("tutorialBtn");
 tutorialBtn.addEventListener("click", learnGame);
 
 function learnGame() {
-    titleMusic.play();
     const gameRulez = document.getElementById("gameRule");
     const isHidden = gameRulez.style.display === "none" || gameRulez.style.display === "";
     
@@ -84,7 +99,6 @@ const creditsBtn = document.getElementById("creditsBtn");
 creditsBtn.addEventListener("click", showCredits);
 
 function showCredits() {
-    titleMusic.play();
     const appreciate = document.getElementById("appreciation");
     const isHidden = appreciate.style.display === "none" || appreciate.style.display === "";
     
@@ -110,38 +124,55 @@ function start() {
     document.querySelector("#movieBottom").removeAttribute('hidden');
     mainMenuButtons.classList.add("fadeOut");
     flowerImage.classList.add("fadeOut");    
+    buttonOne.classList.add("fadeOut");
+    titleScroll.classList.add("fadeOut");
     
-    setTimeout(theAnnouncement, 5000);
+    setTimeout(theAnnouncement, 3000);
 }
 
 //! Dialogue Section
-const announcerDialogLines = [
-    "Welcome to the final round of R-P-S!",
-    "Everyone give them a round of applause!",
-    "*audience cheers*",
-    "I am your announcer, Toxtill, coming to you live with the action!",
-    "Today we have an amazing game that will keep you on your toes!",
-    "So we have--OH! It that the reigning champion I see?",
-    "I DON'T BELIVE IT FOLKS! THiS RPS BEGINNER IS UP AGAINST CRAZPICC, THE REIGNING CHAMPION FOR THE PAST 15 YEARS!"
-]
-
-let currentLine = 0;
 
 function theAnnouncement() {
+    document.querySelector("#buttonTwo").removeAttribute('hidden');
+    document.querySelector("#nextBtn").removeAttribute('hidden');
+
+    const announcerDialogLines = [
+        "Welcome to the final round of R-P-S!",
+        "Everyone give them a round of applause!",
+        "*audience cheers*",
+        "I am your announcer, Toxtill, coming to you live with the action!",
+        "Today we have an amazing game that will keep you on your toes!",
+        "So we have--OH! It that the reigning champion I see?",
+        "I DON'T BELIVE IT FOLKS! THIS RPS BEGINNER IS UP AGAINST CRAZPICC, THE REIGNING CHAMPION FOR THE PAST 15 YEARS!"
+    ]
+    let currentLine = 0;
+
     const announcer = document.getElementById("announcerGuy");
-    const opponentTheme = document.getElementById("announcerMusic");
+    const announcerMusic = document.getElementById("announcerMusic");
     const nextBtn = document.getElementById("nextBtn");
-    const mainText = document.getElementById("mainTalk");
+    const mainTalk = document.getElementById("mainTalk");
 
 
-    opponentTheme.play();
+    announcerMusic.play();
+    const buttonTwo = document.getElementById("buttonTwo")
+     buttonTwo.addEventListener("click", audioPauseTwo);
+
+    function audioPauseTwo() {
+        if(announcerMusic.paused) {
+            announcerMusic.play();
+            buttonTwo.textContent = "PAUSE";
+        } else {
+            announcerMusic.pause();
+            buttonTwo.textContent = "PLAY";
+        }
+    }
     document.querySelector("#announcerGuy").removeAttribute('hidden');
     mainTalk.textContent = announcerDialogLines[currentLine];
 
     nextBtn.addEventListener("click", () => {
         currentLine++;
         if(currentLine < announcerDialogLines.length) {
-            mainTalk.textContent = dialogLines[currentLine];
+            mainTalk.textContent = announcerDialogLines[currentLine];
         } else {
             announcer.setAttribute('hidden', true);
             currentLine = 0;
@@ -156,10 +187,23 @@ const yesBattle = document.getElementById("yesGameStart");
 yesBattle.addEventListener("click", beginBattle);
 
 function beginBattle() {
-    titleMusic.pause();
-    opponentTheme.pause();
+    announcerMusic.pause();
     titleMusic.currentTime = 0;
     battleTheme.play();
+
+    document.querySelector("#buttonThree").removeAttribute('hidden');
+     buttonTwo.addEventListener("click", audioPauseThree);
+
+    function audioPauseThree() {
+        if(battleTheme.paused) {
+            battleTheme.play();
+            buttonThree.textContent = "PAUSE";
+        } else {
+            battleTheme.pause();
+            buttonThree.textContent = "PLAY";
+        }
+    }
+
     document.querySelector("#yesGameStart").style.display = "none";
     document.querySelector("#noGameStart").style.display = "none";
     document.getElementById("mainGameScores").style.visibility = "visible";
@@ -284,3 +328,39 @@ function beginBattle() {
         showAlligatorAppearanceReached(); 
     });
 }
+
+
+//! Audio controls
+
+// const buttons = document.querySelectorAll(".playPauseBtn");
+
+// buttons.forEach(button => {
+//     button.addEventListener("click", () => {
+//         const audioId = button.getAttribute("data-audio");
+//         const audio = document.getElementById(audioId);
+
+//         // Pause all other audio elements and reset button labels
+//         buttons.forEach(btn => {
+//             const otherAudio = document.getElementById(btn.getAttribute("data-audio"));
+//             if (otherAudio !== audio) {
+//                 otherAudio.pause();
+//                 otherAudio.currentTime = 0;
+//                 btn.textContent = "PLAY";
+//             }
+//         });
+
+//         // Toggle current audio play/pause
+//         if (audio.paused) {
+//             audio.play();
+//             button.textContent = "PAUSE";
+//         } else {
+//             audio.pause();
+//             button.textContent = "PLAY";
+//         }
+
+//         // Ensure button resets when audio ends
+//         audio.onended = () => {
+//             button.textContent = "PLAY";
+//         };
+//     });
+// });

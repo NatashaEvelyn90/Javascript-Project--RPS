@@ -176,6 +176,9 @@ strong {
   animation-fill-mode: forwards;
 }
 
+.nextBtn {
+  position: fixed;
+}
 
 /* Score Display */
 .mainGameScores {
@@ -521,6 +524,111 @@ font-family: "Kode Mono", monospace;
     color: blue;
     font-size: 50px;
 }
+
+
+/* .playPauseBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #cf72bd;
+    color: #600817;
+    cursor: pointer;
+}
+
+#playPauseBtn:hover {
+    background-color: #45a049;
+} */
+
+#buttonOne {
+position: fixed;
+top: -1px;
+padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #600817;
+    border-radius: 10px;
+    background-color: #cf72bd;
+    color: #600817;
+    cursor: pointer;
+    &:hover {
+      background-color: #ffbc00;
+    }
+}
+
+#buttonTwo {
+  position: fixed;
+  bottom: 30px;
+  left: 90%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #cf72bd;
+  color: #600817;
+  cursor: pointer;
+  z-index: 3;
+  &:hover {
+      background-color: #ffbc00;
+    }
+}
+
+
+#buttonThree {
+position: fixed;
+top: -1px;
+left: 95%;
+padding: 10px 20px;
+font-size: 16px;
+border: none;
+border-radius: 10px;
+background-color: #cf72bd;
+color: #600817;
+cursor: pointer;
+/* z-index: 3; */
+&:hover {
+    background-color: #ffbc00;
+  }
+}
+
+.mainTalk {
+  position: fixed;
+  z-index: 4;
+  width: 50%;
+  height: 20%;
+  top: 83%;
+  font-size: x-large;
+  color: #cf72bd;
+  left: 4%;
+  bottom: 95px;
+}
+
+.nextBtn {
+  position: fixed;
+  z-index: 4;
+  left: 90%;
+  top: 82%;
+  padding: 10px 20px;
+font-size: 16px;
+border: none;
+border-radius: 10px;
+background-color: #cf72bd;
+color: #600817;
+cursor: pointer;
+/* z-index: 3; */
+&:hover {
+    background-color: #ffbc00;
+  }
+}
+
+.titleScroll {
+    color: #600817;
+    position: fixed;
+    font-style: italic;
+    top: 12px;
+    left: 20px;
+    z-index: -1;
+}
+
 
 /* small section */
 @media only screen and (max-width: 575px) {
