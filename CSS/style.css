@@ -841,7 +841,7 @@ top: 47%;
     text-align: center;
 }
 
-.gameRule {
+.howToPlay {
   position: fixed;
   top: 75%;
   margin-left: 0;
@@ -891,14 +891,14 @@ top: 47%;
   animation: slideTop 4s forwards;
 }
 
-/* .blackBarBottom {
+.blackBarBottom {
   width: 100%;
   height: 0px;
   z-index: 3;
   position: fixed;
   opacity: 0;
   animation: slideBottom 4s forwards;
-} */
+}
 
 .fadeOut {
   animation-name: fadeout;
@@ -923,14 +923,34 @@ top: 47%;
     font-family: "Kode Mono", monospace;
     position: fixed;
     z-index: 4;
-    width: 50%;
+    width: 75%;
     height: 144px;
-    top: 83%;
-    font-size: x-large;
+    top: 84%;
+    font-size: 18px;
     color: #cf72bd;
-    left: 0;
+    left: 40px;
     bottom: 0;
+    text-align: center;
 }
+
+.nextBtn {
+  position: fixed;
+  z-index: 4;
+  left: 42%;
+  top: 95%;
+  padding: 3px 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  animation: nextText 870ms ease 0s infinite normal none;
+  &:hover {
+    background-color: #ffbc00;
+  }
+}
+
 
 
 /* #endregion */
