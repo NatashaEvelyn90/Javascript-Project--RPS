@@ -113,11 +113,11 @@ function gameMenu() {
 //! When pressing "TUTORIAL" button
 // #region "LEARN THE GAME" section
 //? This teaches you the rules of the game
-const tutorialBtn = document.getElementById("tutorialBtn");
-tutorialBtn.addEventListener("click", learnGame);
+const tutorials= document.getElementById("tutorialBtn");
+tutorials.addEventListener("click", learnGame);
 
 function learnGame() {
-    const gameRulez = document.getElementById("tutorials");
+    const gameRulez = document.getElementById("gamingRules");
     const isHidden = gameRulez.style.display === "none" || gameRulez.style.display === "";
     
     gameRulez.style.display = isHidden ? "block" : "none";
@@ -136,15 +136,15 @@ function learnGame() {
 //! When pressing "CREDITS" button
 // #region "SHOW APPRECIATION" section
 //? This shows everyone who helped with making the game
-const creditsBtn = document.getElementById("creditsBtn");
-creditsBtn.addEventListener("click", showCredits);
+const credits = document.getElementById("creditsBtn");
+credits.addEventListener("click", showCredits);
 
 function showCredits() {
-    const appreciate = document.getElementById("appreciation");
-    const isHidden = appreciate.style.display === "none" || appreciate.style.display === "";
-    appreciate.style.display = isHidden ? "block" : "none";
+    const appreciate = document.getElementById("manyThanks");
+    const isHiddenTwo = appreciate.style.display === "none" || appreciate.style.display === "";
+    appreciate.style.display = isHiddenTwo ? "block" : "none";
 
-    if (isHidden) {
+    if (isHiddenTwo) {
         appreciate.style.border = "4px solid #cb738289";
         const creditSpans = appreciate.querySelectorAll(".staff");
         creditSpans[0].innerText = "Music: Natasha E. || Mattias Häggström Gerdt";
@@ -409,22 +409,25 @@ const titleScrollThree = document.getElementById("titleScrollThree");
 const musicButtonThree = document.getElementById("audioButtonThree");
 
 const timerDisplay = document.getElementById('clockDisplay');
+const playerScoreBoards = document.querySelectorAll('#playerPoints, #playerScore');
+const opponentScoreBoards = document.querySelectorAll('#opponentPoints, #opponentScore');
 
-const playerDisplay = document.getElementById("playerDisplay");
-const playerScoreBoard = document.getElementById('playerPoints');
+function updateScoreDisplays() {
+  playerScoreBoards.forEach(el => el.innerText = playerScore);
+  opponentScoreBoards.forEach(el => el.innerText = opponentScore);
+}
+console.log(playerScoreBoards, opponentScoreBoards);
 
-const opponentDisplay = document.getElementById('opponentDisplay');
-const opponentScoreBoard = document.getElementById('opponentPoints');
 
 const tieResults = document.getElementById('tieBreaker');
 const resultText = document.getElementById("trueWinner");
 const mainGameScores = document.getElementById("scoringSection");
 
 //? Button choices 
-const rockBtn = document.querySelector('.rock');
-const paperBtn = document.querySelector('.paper');
-const scissorBtn = document.querySelector('.scissors');
-const alligatorBtn = document.querySelector('.alligators');
+const rockBtn = document.getElementById('rock');
+const paperBtn = document.getElementById('paper');
+const scissorBtn = document.getElementById('scissors');
+const alligatorBtn = document.getElementById('alligator');
 const alligatorAppearance = [7, 19, 31, 40, 51, 69];
 
 //! Event Listeners for the button/cards
@@ -451,10 +454,14 @@ alligatorBtn.addEventListener("click", () => {
     
     clearStatus();
     playerScore += 5;
-    playerScoreBoard.innerText = playerScore;
+   updateScoreDisplays();
     tieResults.innerText = "GATOR POWER! +5 POINTS!";
     tieResults.classList.add("alligatorSurprise");
-    alligatorUsedAt.push(playerScore);
+    const usedTrigger = alligatorAppearance.find(trigger => playerScore - 5 < trigger && playerScore >= trigger);
+    if (usedTrigger !== undefined) {
+    alligatorUsedAt.push(usedTrigger);
+}
+
     alligatorBtn.setAttribute('hidden', true);
     
     setTimeout(() => {
@@ -484,16 +491,15 @@ function computerChoices() {
         } else if (
             (player === 'rock' && opponent === 'scissors') ||
             (player === 'scissors' && opponent === 'paper') ||
-            (player === 'paper' && opponent === 'rock') ||
-            (player === 'alligator')
+            (player === 'paper' && opponent === 'rock')
         ) {
             playerScore++;
-            playerScoreBoard.innerText = playerScore;
+           updateScoreDisplays();
             tieResults.innerText = "+1 POINT!";
             tieResults.classList.add("plusOne");
         } else {
             opponentScore++;
-            opponentScoreBoard.innerText = opponentScore;
+        updateScoreDisplays();
             tieResults.innerText = "KEEP GOING!";
             tieResults.classList.add("keepTrying");
         }
@@ -512,13 +518,26 @@ function computerChoices() {
     }  
 
 //! CLEAR STATUS Section 
-    function clearStatus() {
-        tieResults.classList.remove("plusOne", "keepTrying", "alligatorSurprise", "ifTie");
+function clearStatus() {
+    tieResults.classList.remove("plusOne", "keepTrying", "alligatorSurprise", "ifTie");
+}
+
+function audioPauseThree() {
+    if(battleTheme.paused) {
+        battleTheme.play();
+        musicButtonThree.textContent = "PAUSE";
+    } else {
+        battleTheme.pause();
+        musicButtonThree.textContent = "🎵";
     }
+}
 
 //! R-P-S BATTLE BEGINS HERE 
 yesGameStart.addEventListener("click", beginBattle);
 function beginBattle() {
+    gameActive = true;
+    console.log("Battle started — gameActive is now", gameActive);
+
 //? Remove announcer + add music
     titleScrollThree.removeAttribute("hidden");
     titleScrollTwo.style.visibility = 'hidden';
@@ -533,12 +552,13 @@ function beginBattle() {
 
     battleTheme.play();
 
+
 //? Game design options
     yesStart.style.display = "none";
     noStart.style.display = "none";
     mainGameScores.style.visibility = "visible";
     bgImageBl.style.visibility = 'hidden';
-    playCards.removeAttribute('hidden');
+    document.getElementById("cardGame").removeAttribute('hidden');
     movieTop.style.visibility = "hidden";
     movieBottom.style.visibility = "hidden";
 
@@ -561,9 +581,8 @@ function beginBattle() {
     playerScore = 0;
     opponentScore = 0;
     alligatorUsedAt = [];
-    gameActive = true;
-    playerScoreBoard.innerText = playerScore;
-    opponentScoreBoard.innerText = opponentScore;
+
+   updateScoreDisplays();
     resultText.innerText = "";
 
     let timeLeft = 120; // 2 minutes in seconds

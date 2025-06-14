@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RPS Game</title>
+  <style>
+    .mainGameScores {
+      visibility: visible;
+      position: relative;
+      top: 20px;
+    }
+    .playerScore, .opponentScore {
+      font-size: 40px;
+      color: #fff;
+    }
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scoringSection" class="mainGameScores">
+    <div>
+      <div>Player Score:</div>
+      <div id="playerPoints" class="playerScore">0</div>
+    </div>
+    <div>
+      <div>Opponent Score:</div>
+      <div id="opponentPoints" class="opponentScore">0</div>
+    </div>
+  </div>
+
+  <button id="rock">ROCK</button>
+  <button id="paper">PAPER</button>
+  <button id="scissors">SCISSORS</button>
+
+  <script>
+    let playerScore = 0;
+    let opponentScore = 0;
+
+    const playerScoreBoard = document.getElementById('playerPoints');
+    const opponentScoreBoard = document.getElementById('opponentPoints');
+
+    function computerChoices() {
+      const options = ['rock', 'paper', 'scissors'];
+      return options[Math.floor(Math.random() * options.length)];
+    }
+
+    function checkWinner(player, opponent) {
+      if (player === opponent) {
+        console.log("Tie!");
+      } else if (
+        (player === 'rock' && opponent === 'scissors') ||
+        (player === 'paper' && opponent === 'rock') ||
+        (player === 'scissors' && opponent === 'paper')
+      ) {
+        playerScore++;
+        playerScoreBoard.innerText = playerScore;
+      } else {
+        opponentScore++;
+        opponentScoreBoard.innerText = opponentScore;
+      }
+    }
+
+    document.getElementById('rock').addEventListener("click", () => {
+      checkWinner('rock', computerChoices());
+    });
+    document.getElementById('paper').addEventListener("click", () => {
+      checkWinner('paper', computerChoices());
+    });
+    document.getElementById('scissors').addEventListener("click", () => {
+      checkWinner('scissors', computerChoices());
+    });
+  </script>
+
+</body>
+</html>

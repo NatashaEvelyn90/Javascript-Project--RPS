@@ -184,8 +184,8 @@
                     <div class="gameTitle text-center" id="gameTitle"><strong>R</strong>PS</div>
                     <div class="mainMenu">
                         <button class="mainButton mainStart col-12 mb-3" id="mainStartBtn">START</button>
-                        <button class="mainButton col-12 mb-3" id="tutorialBtn">Tutorial</button>
-                        <button class="mainButton credits col-12 mb-3" id="creditsBtn">Credits</button>   
+                        <button class="mainButton learningCurve col-12 mb-3" id="tutorialBtn" onclick="learnGame()">Tutorial</button>
+                        <button class="mainButton giveThanks col-12 mb-3" id="creditsBtn" onclick="showCredits()">Credits</button>   
                     </div>
                 </div>
             </div>
@@ -199,24 +199,24 @@
 
          <!-- #region HOW TO PLAY + CREDITS -->
          <!--? "TUTORIAL" Section -->
-         <section class="learnTheGame" id="howToGame">
-             <div class="howToPlay" id="tutorials" style="display:none;">
+         <!-- <section class="learnTheGame" id="howToGame"> -->
+             <div class="howToPlay" id="gamingRules" style="display:none;">
                 <span class="rules"></span><br>
                 <span class="rules"></span><br>
                 <span class="rules"></span><br>
                 <span class="rules"></span>
             </div>
-         </section>
+         <!-- </section> -->
              
          <!--? "CREDITS" Section -->
-         <section class="credits" id="credits">
-             <div class="manyThanks" id="appreciation" style="display: none;">
+         <!-- <section class="credits" id="credits"> -->
+             <div class="appreciation" id="manyThanks" style="display: none;">
                  <span class="staff"></span><br>
                  <span class="staff"></span><br>
                  <span class="staff"></span><br>
                  <span class="staff"></span>
                </div>
-        </section>
+        <!-- </section> -->
         <!-- #endregion -->
 
         <!-- Dialogue Section -->
@@ -243,7 +243,7 @@
             <div class="container">
 
                 <!--? ROCK -->
-                <button class="box rock" id="rocky">
+                <button class="box rock" id="rock">
                   <span></span>
                   <div class="content">
                     <h2>R</h2>
@@ -252,7 +252,7 @@
                 </button>
 
                 <!--? PAPER -->
-                <button class="box paper" id="papery">
+                <button class="box paper" id="paper">
                   <span></span>
                   <div class="content">
                     <h2>P</h2>
@@ -261,7 +261,7 @@
                 </button>
 
                 <!--? SCISSORS -->
-                <button class="box scissors" id="scissory">
+                <button class="box scissors" id="scissors">
                   <span></span>
                   <div class="content">
                     <h2>S</h2>
@@ -270,7 +270,7 @@
                 </button>
 
                 <!--? ALLIGATOR -->
-                <button class="box alligators" id="alligators" hidden>
+                <button class="box alligators" id="alligator" hidden>
                   <span></span>
                   <div class="content">
                     <h2>ALLIGATOR</h2>
