@@ -1,9 +1,76 @@
+/* #region Animations */
+@keyframes letterR {
+  0%,
+  50%,
+  100% {
+  opacity: 1;
+  }
+
+  25%,
+  75% {
+  opacity: 0;
+  }
+}
+
+@keyframes slideTop {
+    100% {border-block: 50px solid black; opacity: 1;}
+}
+
+@keyframes slideBottom {
+    100% {border-block: 72px solid black; opacity: 1;}
+}
+
+@keyframes fadeout {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes scrollText {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes announcerSlide {
+  0% {
+    transform: translateX(-900px);
+}
+
+100% {
+    transform: translateX(50px);
+}
+}
+
+@keyframes enemySlide {
+0% {
+  transform: translateX(750px);
+  }
+
+  100% {
+  transform: translateX(0px);
+  }
+}
+
+@keyframes nextText {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+/* #endregion */
+
 /* #region BACKGROUNDS */
 .flowerImg { 
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: -97;
   opacity: 1;
 }
@@ -12,7 +79,7 @@
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: -99;
 }
 
@@ -20,7 +87,7 @@
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: -100;
 }
 
@@ -28,13 +95,13 @@
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: -101;
 }
 /* #endregion*/
 
 /* #region "Yes or No" popup */
-header {
+.headers {
     background-color: black;
     position: fixed;
     height: 100%;
@@ -44,16 +111,24 @@ header {
 }
 
 .textAge {
+  position: fixed;
+  left: 30%;
     font-size: 75px;
     margin-top: 250px;
     color: blue;
 }
 
 .loadingText {
+  position: fixed;
+  top: 40%;
+  left: 30%;
     color: red;
 }
 
 .yesBtn {
+  position: fixed;
+  left: 43%;
+  top: 50%;
     font-family: "Pixelify Sans", sans-serif;
     background-color: rgb(41, 197, 38);
     color: white;
@@ -69,6 +144,9 @@ header {
 }
 
 .noBtn {
+  position: fixed;
+  left: 49%;
+  top: 50%;
     font-family: "Pixelify Sans", sans-serif;
     background-color: #840419;
     color: white;
@@ -85,6 +163,8 @@ header {
 }
 
 .refreshBtn {
+  position: fixed;
+  top: 50%;
     font-family: "Pixelify Sans", sans-serif;
     background-color: #110484;
     color: white;
@@ -101,26 +181,22 @@ strong {
     animation: letterR 5s ease-in-out 0s infinite normal none;
 }
 
-@keyframes letterR {
-  0%,
-  50%,
-  100% {
-  opacity: 1;
-  }
-
-  25%,
-  75% {
-  opacity: 0;
-  }
-}
-
 .gameTitle {
+  position: fixed;
+  left: 48%;
+  top: 12%;
   font-size: 400px;
   font-family: "Kode Mono", monospace;
   -webkit-text-stroke-width: 5px;
   -webkit-text-stroke-color: rgb(203, 115, 130);
   color: rgba(255, 192, 203, 0.539);
-  
+}
+
+.mainMenu {
+  position: fixed;
+        top: 37%;
+        margin-left: 12%;
+        text-align: center;
 }
 
 .mainButton {
@@ -131,7 +207,7 @@ strong {
     background-color: #ffc0cb7f;
     color: #600817;
     border-radius: 16px;
-    position: relative;
+    /* position: relative; */
     &:hover {
         background-color: rgba(240, 128, 128, 0.555);
         color: white;
@@ -140,18 +216,26 @@ strong {
 /* #endregion  */
 
 /* #region "Tutorial and Credits" buttons */
-.gameRule {
+/* .learnTheGame {
+  position: relative;
+} */
+
+.howToPlay {
   font-family: "Kode Mono", monospace;
-  position: absolute;
-    background-color: #ffc0cb89;
+  position: fixed;
+  top: 60%;
+    background-color: #ffc0cb80;
     color: #600817;
-    margin-left: 130px;   
+    margin-left: 130px; 
+    z-index: 5;
+    /* display: block;   */
 }
 
-.appreciation {
+.manyThanks {
    font-family: "Kode Mono", monospace;
-  position: absolute;
-    background-color: #ffc0cb89;
+  position: fixed;
+  top: 60%;
+    background-color: #ffc0cb80;
     color: #600817;
     margin-left: 130px;
 }
@@ -162,14 +246,10 @@ strong {
   width: 100%;
   height: 0px;
   box-sizing: border-box;
-  z-index: 3;
-  position: absolute;
+  z-index: 2;
+  position: fixed;
   opacity: 0;
   animation: slideTop 4s forwards;
-}
-
-@keyframes slideTop {
-    100% {border-block: 50px solid black; opacity: 1;}
 }
 
 .blackBarBottom {
@@ -177,13 +257,10 @@ strong {
   height: 0px;
   box-sizing: border-box;
   z-index: 3;
-  position: absolute;
+  position: fixed;
+  top: 81%;
   opacity: 0;
   animation: slideBottom 4s forwards;
-}
-
-@keyframes slideBottom {
-    100% {border-block: 72px solid black; opacity: 1;}
 }
 
 .fadeOut {
@@ -192,32 +269,18 @@ strong {
   animation-fill-mode: forwards;
 }
 
-@keyframes fadeout {
-  0% {opacity: 1;}
-  100% {opacity: 0;}
-}
 /* #endregion */
 
 /* #region "DIALOG" Section */
 .announcerGuy {
   width: 40%;
   position: fixed;
-  top: 27px;
+  top: 30px;
   /* z-index: -20; */
 }
 
 .announcerSlide {
   animation: announcerSlide 1s ease-in normal forwards;
-}
-
-@keyframes announcerSlide {
-  0% {
-  transform: translateX(-900px);
-  }
-
-  100% {
-  transform: translateX(50px);
-  }
 }
 
 .mainTalk {
@@ -263,19 +326,9 @@ strong {
   animation: enemySlide 1s ease-in normal forwards;
 }
 
-@keyframes enemySlide {
-0% {
-  transform: translateX(750px);
-  }
-
-  100% {
-  transform: translateX(0px);
-  }
-}
-
 .mainTalkTwo {
   position: fixed;
-  z-index: 3;
+  z-index: 4;
   width: 50%;
   height: 20%;
   top: 83%;
@@ -300,19 +353,6 @@ strong {
   animation: nextText 870ms ease 0s infinite normal none;
   &:hover {
     background-color: #600817;
-  }
-}
-
-@keyframes nextText {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-  
-  25%,
-  75% {
-    opacity: 0;
   }
 }
 
@@ -369,7 +409,7 @@ font-family: "Pixelify Sans", sans-serif;
 
 .container .box::before {
   content:' ';
-  position: absolute;
+  position: relative;
   top: 0;
   left: 50px;
   width: 50%;
@@ -636,106 +676,38 @@ font-family: "Pixelify Sans", sans-serif;
 /* #endregion */
 
 /* #region "MUSIC" Section */
-#buttonOne {
-position: fixed;
-top: -1px;
-padding: 10px 20px;
+.musicButton {
+  position: fixed;
+  top: 8px;
+  padding: 10px 20px;
     font-size: 16px;
     border: 2px solid #600817;
     border-radius: 10px;
     background-color: #cf72bd;
     color: #600817;
+    z-index: 4;
     cursor: pointer;
     &:hover {
       background-color: #ffbc00;
     }
 }
 
-#buttonTwo {
-  position: fixed;
-  top: 15px;
-  left: 95%;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  background-color: #cf72bd;
+.audioScroll {
   color: #600817;
-  cursor: pointer;
+  position: fixed;
+  font-style: italic;
+  top: 20px;
+  z-index: 1;
+  animation: scrollText 10s linear infinite
+}
+
+#titleScrollTwo {
+  color: #600817;
+  position: fixed;
+  font-style: italic;
+  top: 20px;
   z-index: 3;
-  &:hover {
-      background-color: #ffbc00;
-    }
-}
-
-#buttonThree {
-position: fixed;
-top: -1px;
-left: 94%;
-padding: 10px 20px;
-font-size: 16px;
-border: none;
-border-radius: 10px;
-background-color: #cf72bd;
-color: #600817;
-cursor: pointer;
-/* z-index: 3; */
-&:hover {
-    background-color: #ffbc00;
-  }
-}
-
-#buttonFour {
-position: fixed;
-top: -1px;
-left: 94%;
-padding: 10px 20px;
-font-size: 16px;
-border: none;
-border-radius: 10px;
-background-color: #cf72bd;
-color: #600817;
-cursor: pointer;
-z-index: 4;
-&:hover {
-    background-color: #ffbc00;
-  }
-}
-
-.titleScroll {
-  color: #600817;
-  position: fixed;
-  font-style: italic;
-  top: 12px;
-  left: 20px;
-  z-index: -1;
-}
-
-.titleScrollTwo {
-  color: #600817;
-  position: fixed;
-  font-style: italic;
-  top: 24px;
-  left: 70%;
-  z-index: 4;
-}
-
-.titleScrollThree {
-  color: yellow;
-  position: fixed;
-  font-style: italic;
-  top: 10px;
-  left: 81%;
-  z-index: 4;
-}
-
-.titleScrollFour {
-  color: yellow;
-  position: fixed;
-  font-style: italic;
-  top: 10px;
-  left: 81%;
-  z-index: 4;
+  animation: scrollText 10s linear infinite
 }
 /* #endregion */
 
@@ -769,52 +741,289 @@ animation: theEnd 870s ease 0 infinite normal none;
 }
 /* #endregion */
 
-/* small section */
+/*! small section */
+/* #region  */
 @media only screen and (max-width: 575px) {
- .backSmImg {
-    position: absolute;
+  /* #region Header section */
+  .headers {
+      /* background-color: black;
+      position: fixed; */
+      z-index: 3;
+      /* height: 100%;
+      max-height: -webkit-fill-available;    */
+  }
+
+  .loadingText {
+    position: relative;  ;
+    font-size: 30px;
+    top: 33%;
+    left: 0;
+    text-align: center;
+  }
+
+  .headerMain {
+    position: relative;
+    top: 35%;
+    /* left: 25%; */
+  }
+
+  .yesBtn {
+    position: relative;
+    left: 0;
+    top: 50%;
+    margin: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    background-color: rgb(41, 197, 38);
+    color: white;
+    font-size: xx-large;
+    width: 75px;
+    height: 75px;
+    border-radius: 18px;
+  }
+
+.noBtn {
+    position: relative;
+    left: 0;
+    top: 50%;
+    margin: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    background-color: #840419;
+    color: white;
+    font-size: xx-large;
+    width: 75px;
+    height: 75px;
+    border-radius: 18px;
+}
+
+.textAge {
+  position: fixed;
+    font-size: 40px;
+    margin-top: 0;
+    top: 33%;
+    left: 10px;
+    color: blue;
+}
+
+.refreshBtn {
+position: fixed;
+top: 47%;
+}
+/* #endregion */
+
+/* #region Background Images */
+.backSmImg {
+    position: fixed;
     width: 100%;
     height: -webkit-fill-available;
  }
 
-.loadingText {
-    font-size: 30px;
-    margin-top: 30px;
-    color: red;
-}
-
-.textAge {
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    color: blue;
-}
-
- .smallTitle {
-    background-color: black;
-    height: 736px;
+.bubbleImg {
+        position: fixed;
+        z-index: -1;
+        width: 100%;
+        max-width: -webkit-fill-available;
  }
 
-header {
-    background-color: black;
-    position: fixed;
-    z-index: 1;
+ .spaceImg {
+   position: absolute;
+    width: 100%;
+    max-width: -webkit-fill-available;
     height: 100%;
-    max-height: -webkit-fill-available;
-   
-    
-}
+    z-index: -100;
+ }
 
+.blossomImg {
+  position: absolute;
+    width: 100%;
+    max-width: -webkit-fill-available;
+    height: 100%;
+    z-index: -101;
+}
+/* #endregion */
+
+/* #region Main Menu options + Music */
 .gameTitle {
+  position: fixed;
+  left: 8%;
     font-size: 150px;
+    /* margin-top: 25%; */
 }
 
 .mainMenu {
+  position: fixed;
+  top: 37%;
+  margin-left: 12%;
     text-align: center;
 }
 
-.mainButton {
-    position: relative;
+.gameRule {
+  position: fixed;
+  top: 75%;
+  margin-left: 0;
+  font-size: 12px;
 }
 
+.appreciation {
+  position: fixed;
+  top: 75%;
+  font-size: 12px;
+  margin-left: 0;
 }
+/* #endregion */
+
+/* #region Animations */
+@keyframes fadeout {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes scrollText {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes announcerSlide {
+  0% {
+    transform: translateX(-900px);
+}
+
+100% {
+    transform: translateX(50px);
+}
+}
+
+/* #endregion */
+
+/* #region After clicking START */
+.blackBarTop {
+  width: 100%;
+  height: 0px;
+  /* box-sizing: border-box; */
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  animation: slideTop 4s forwards;
+}
+
+/* .blackBarBottom {
+  width: 100%;
+  height: 0px;
+  z-index: 3;
+  position: fixed;
+  opacity: 0;
+  animation: slideBottom 4s forwards;
+} */
+
+.fadeOut {
+  animation-name: fadeout;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+/* #endregion */
+
+/* #region Dialogue section*/
+.announcerGuy {
+  width: 100%;
+  max-width: 576px;
+
+    position: fixed;
+    /* z-index: -20; */
+}
+.announcerSlide {
+    animation: announcerSlide 1s ease-in normal forwards;
+}
+
+.mainTalk {
+    font-family: "Kode Mono", monospace;
+    position: fixed;
+    z-index: 4;
+    width: 50%;
+    height: 144px;
+    top: 83%;
+    font-size: x-large;
+    color: #cf72bd;
+    left: 0;
+    bottom: 0;
+}
+
+
+/* #endregion */
+
+/* #region Music and Audio Buttons */
+
+.buttonOne {
+  /* margin-top: 210%; */
+  position: fixed;
+}
+
+.titleScroll {
+  position: fixed;
+  /* margin-top: 209%; */
+  margin-left: 15%;
+  z-index: -1;
+  animation: scrollText 5s linear infinite;
+}
+
+#buttonTwo {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #cf72bd;
+    color: #600817;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.titleScrollTwo {
+    color: #600817;
+    position: fixed;
+    font-style: italic;
+    top: 30px;
+    left: 0;
+    z-index: 3;
+    animation: scrollText 10s linear infinite;
+    font-size: 14px;
+}
+
+#buttonThree {
+    position: fixed;
+    top: -1px;
+    left: 94%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #cf72bd;
+    color: #600817;
+    cursor: pointer;
+    /* z-index: 3; */
+}
+
+.titleScrollThree {
+    color: yellow;
+    position: fixed;
+    font-style: italic;
+    top: 10px;
+    left: 81%;
+    z-index: 4;
+    animation: scrollText 5s linear infinite;
+}
+
+/* #endregion */
+
+
+
+
+
+/* .mainButton {
+    position: relative;
+} */
+
+
+}
+/* #endregion */

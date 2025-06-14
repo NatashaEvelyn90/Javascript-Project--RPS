@@ -10,44 +10,27 @@
 //? Figure out if it is possible for you to "Select your opponent" *future stuff*
 //* Add a secret card "Alligator" as that would be a +5 to score. Figure out how to add it into the game. || DONE
 
-// #region Header codes
-//* HEADER section
-const ageVerify = document.querySelector("#loadingText"); 
-const yesBtn = document.getElementById("yesBtn"); 
-const noBtn = document.getElementById("noBtn"); 
-// #endregion
-
+//* MUSIC / AUDIO Section
 // #region Music Selections
-//* MUSIC Section
 const titleMusic = document.getElementById("titleMusic"); //? This is the music that plays in the menu
 const announcerMusic = document.getElementById("announcerMusic"); //? This plays during cutscene
 const battleTheme = document.getElementById("opponentMusic"); //? This music plays when it is time to RPS!
-// const noGame = document.getElementById("noGame");
 // #endregion
 
-// #region Main Menu Selections
 //*MAIN MENU Section
-const titleOfGame = document.getElementById("gameTitle");
-const mainMenuButtons = document.getElementById("mainMenuButtons"); 
+// #region Main Menu Selections
+const mainMenuButtons = document.getElementById("mainButtons"); 
 const flowerImage = document.querySelector("#flowerImg"); //* Background image for main menu
+const sparkles = document.querySelector("#sparkles"); //* Background for small screen
 const bgImageBl = document.querySelector("#bubbleImg"); //* Background image for dialog section
 const spaceImg = document.querySelector("#spaceImg"); //* Background image for R-P-S section
 const blossomImg = document.querySelector("#blossomImg");
 // #endregion
 
-// #region cinematic movie bars
-//* MOVIE bars
-//? Black bars that come down in the dialog section
-const topBar = document.getElementById("movieTop");
-const bottomBar = document.getElementById("movieBottom");
-// #endregion
-
-// #region Extra stuff
-const playCards = document.getElementById("cards");
 
 //* Extra stuff
-const titleScroll = document.getElementById("titleScroll");
-const timerButtons = document.getElementById("timerButtons");
+// #region Extra stuff
+const playCards = document.getElementById("cards");
 const yesGameStart = document.getElementById("yesGameStart");
 // #endregion
 
@@ -56,39 +39,22 @@ const yesGameStart = document.getElementById("yesGameStart");
 //! Begin main Game Section below!
 // * - - - - - - - - - - - - - - - - - 
 // ? - - - - - - - - - - - - - - - - - 
- 
-//#region "HEADER + MAIN MENU"
-//! When the "PAGE" first opens
+
+//! When you launch the page
+//#region "HEADER"
 //? This code runs and asks an "AGE VERIFICATION" question
+const ageVerify = document.querySelector("#loadingText"); 
 
 document.getElementById("refreshBtn").style.display = "none";
 window.onload = function(){
     ageVerify.innerText = "Are you over the Age of 18?";
 }
-
-//! Clicking the "YES" button
-//? This code will go to the main menu of the game
-yesBtn.addEventListener("click", gameMenu);
-
-function gameMenu() {
-    titleMusic.play();
-    document.querySelector("header").style.display = "none";
-    
-    const buttonOne = document.getElementById("buttonOne");
-    buttonOne.addEventListener("click", audioPause);
-
-    function audioPause() {
-        if(titleMusic.paused) {
-            titleMusic.play();
-            buttonOne.innerText = "PAUSE";
-        } else {
-            titleMusic.pause();
-            buttonOne.innerText = "🎵";
-        }
-    }
-}
+// #endregion
 
 //! Clicking the "NO" button:
+// #region "NO" button
+//? This code will give you a message as well 
+const noBtn = document.getElementById("noBtn"); 
 noBtn.addEventListener("click", tooBad);
 
 function tooBad() {    
@@ -101,23 +67,59 @@ function tooBad() {
     document.querySelector("#refreshBtn").style.display = "block";
     ageVerify.style.marginTop = "30px";
 }
+// #endregion
 
-//? If you click no, the "REFRESH" button appears
+//! Clicking "REFRESH" button
+// #region "REFRESH" button
+//? Refresh button only appears once you click the "NO" button
 const refreshBtn = document.getElementById("refreshBtn");
 refreshBtn.addEventListener("click", reload);
 
 function reload() {
     window.location.reload();
 };
+// #endregion
 
+//! Clicking the "YES" button
+// #region "YES" button
+//? This code will go to the main menu of the game
+const yesBtn = document.getElementById("yesBtn"); 
+const titleScroll = document.getElementById("titleScroll");
+const musicButtonOne = document.getElementById("audioButtonOne");
+
+
+yesBtn.addEventListener("click", gameMenu);
+function gameMenu() {
+    titleMusic.play();
+    document.querySelector("header").style.display = "none";
+    titleScroll.removeAttribute("hidden");
+    
+    //? "PLAY / PAUSE" Audio 
+    musicButtonOne.removeAttribute("hidden");
+    musicButtonOne.addEventListener("click", audioPause);
+    function audioPause() {
+        if(titleMusic.paused) {
+            titleMusic.play();
+            musicButtonOne.innerText = "PAUSE";
+        } else {
+            titleMusic.pause();
+            musicButtonOne.innerText = "🎵";
+        }
+    }
+}
+// #endregion
+
+// TODO MUST FIX THIS SECTION
 //! When pressing "TUTORIAL" button
+// #region "LEARN THE GAME" section
 //? This teaches you the rules of the game
-const tutorialBtn = document.getElementById("tutorial");
+const tutorialBtn = document.getElementById("tutorialBtn");
 tutorialBtn.addEventListener("click", learnGame);
 
 function learnGame() {
-    const gameRulez = document.getElementById("gameRule");
+    const gameRulez = document.getElementById("tutorials");
     const isHidden = gameRulez.style.display === "none" || gameRulez.style.display === "";
+    
     gameRulez.style.display = isHidden ? "block" : "none";
 
     if (isHidden) {
@@ -129,10 +131,12 @@ function learnGame() {
         learnSpan[3].innerText = "Will this secret appear in your game?";
     }
 }
-
+// #endregion
+// TODO MUST FIX THIS SECTION
 //! When pressing "CREDITS" button
+// #region "SHOW APPRECIATION" section
 //? This shows everyone who helped with making the game
-const creditsBtn = document.getElementById("credits");
+const creditsBtn = document.getElementById("creditsBtn");
 creditsBtn.addEventListener("click", showCredits);
 
 function showCredits() {
@@ -149,57 +153,104 @@ function showCredits() {
         creditSpans[3].innerText = "Extra Credits: Google Fonts || Bootstrap || Pixabay.com || ChatGPT";
     }
 }
+// #endregion
 
 //! Clicking the "START" button on the menu
+// #region "START" button on menu
 //? Starts the beginning of the dialog section
-const startGame = document.getElementById("mainStart");
-startGame.addEventListener("click", start);
+const titleOfGame = document.getElementById("gameTitle");
+const startGame = document.getElementById("mainStartBtn");
+const topBar = document.getElementById("movieTop");
+const bottomBar = document.getElementById("movieBottom");
 
+startGame.addEventListener("click", start);
 function start() {
     titleMusic.pause();
     titleMusic.currentTime = 0;
-    document.querySelector("#movieTop").removeAttribute('hidden');
-    document.querySelector("#movieBottom").removeAttribute('hidden');
+
+    topBar.removeAttribute("hidden");
+    bottomBar.removeAttribute("hidden");
+
     mainMenuButtons.classList.add("fadeOut");
     flowerImage.classList.add("fadeOut");    
-    buttonOne.classList.add("fadeOut");
-    titleScroll.classList.add("fadeOut")
+    audioButtonOne.classList.add("fadeOut");
+    titleScroll.classList.add("fadeOut");
+    //? The sparkles is for the smaller screen
+    sparkles.classList.add("fadeOut"); 
     
     setTimeout(theAnnouncement, 4000);
 }
 // #endregion
 
-// #region "SPEAKING" SECTION
 //! "DIALOG" Section
-//? This is the talking section
+// ?This section will be broken down into multiple parts/sections
+
+//! Section containing ANNOUNCER and CRAZPICC'S lines
+// #region "SPEAKING" SECTION
+
+//! Keywords 
+// #region CONST for this section
+// *AUDIO Cues
+const musicButtonTwo = document.getElementById("audioButtonTwo");
+const titleScrollTwo = document.getElementById("titleScrollTwo");
+
+// *Announcer info
+const announcer = document.getElementById("toxTill"); 
+const nextBtn = document.getElementById("toxTillBtn");
+const mainTalk = document.getElementById("toxTillLines");
+
+// *CRAZPICC info
+const mainEnemy = document.getElementById("crazpicc");
+const nextBtnTwo = document.getElementById("crazpiccBtn");
+const mainTalkTwo = document.getElementById("crazpiccLines");
+
+// *TIMER
+const timerStart = document.getElementById("gameTime");
+
+// *Game Over cues
+const noGameStart = document.getElementById("noStart");
+const gameOver = document.getElementById("gameOver");
+
+// *Buttons to end game or start over
+const cowardBtn = document.getElementById("cowardBtn");
+const comebackBtn = document.getElementById("comebackBtn");
+// #endregion
+
+//! Function after clicking "START" begins here
+// #region 1st half of function
 function theAnnouncement() {
     let speechStop = false;
     announcerMusic.play();
 
-//? Audio Section    
-    const buttonTwo = document.getElementById("buttonTwo")
-    buttonTwo.addEventListener("click", audioPauseTwo);
+    // *From Main Menu (hiding)
+    titleOfGame.style.visibility = 'hidden';
+    mainMenuButtons.style.visibility = 'hidden';
+    flowerImage.style.visibility = 'hidden';    
+    musicButtonOne.style.visibility = 'hidden';
+    titleScroll.style.visibility = 'hidden';
     
+    //? "PAUSE / PLAY" audio Section    
+    titleScrollTwo.removeAttribute("hidden");
+
+    musicButtonTwo.removeAttribute("hidden");
+    musicButtonTwo.addEventListener("click", audioPauseTwo);
     function audioPauseTwo() {
         if(announcerMusic.paused) {
             announcerMusic.play();
-            buttonTwo.textContent = "PAUSE";
+            musicButtonTwo.innerText = "PAUSE";
         } else {
             announcerMusic.pause();
-            buttonTwo.textContent = "🎵";
+            musicButtonTwo.innerText = "🎵";
         }
     }
-    
-    mainMenuButtons.style.visibility = 'hidden';
-    flowerImage.style.visibility = 'hidden';    
-    buttonOne.style.visibility = 'hidden';
-    titleScroll.style.visibility = 'hidden'
 
-    document.querySelector("#buttonTwo").removeAttribute('hidden');
-    document.querySelector("#nextBtn").removeAttribute('hidden');
-    document.querySelector("#titleScrollTwo").removeAttribute('hidden');
+    nextBtn.removeAttribute("hidden");
+    // #endregion
 
-//! ANNOUNCER lines
+// #region 2nd half of function
+
+    //! ANNOUNCER Section
+    // #region Announcer speaking + commands
     const announcerDialogLines = [
         "Welcome to the final round of R-P-S!",
         "Everyone give them a round of applause!",
@@ -209,15 +260,13 @@ function theAnnouncement() {
         "So we have--OH! It that the reigning champion I see?",
         "I DON'T BELIVE IT FOLKS! THIS R-P-S BEGINNER IS UP AGAINST CRAZPICC, THE REIGNING CHAMPION FOR THE PAST 15 YEARS!"
     ]
+
     let currentLine = 0;
 
-//! ANNOUNCER Buttons / Section
-    const announcer = document.getElementById("announcerGuy"); 
+    //! ANNOUNCER Buttons / Section
+    announcer.removeAttribute('hidden');
     announcer.classList.add("announcerSlide");
-    const nextBtn = document.getElementById("nextBtn");
-    const mainTalk = document.getElementById("mainTalk");
     mainTalk.innerText = announcerDialogLines[currentLine];
-    document.querySelector("#announcerGuy").removeAttribute('hidden');
 
     nextBtn.addEventListener("click", announcerSpeech);
     function announcerSpeech() {
@@ -229,12 +278,14 @@ function theAnnouncement() {
             speechStop = true;
             mainTalk.style.visibility = 'hidden';
             nextBtn.style.visibility ='hidden';
-            nextBtnTwo.removeAttribute('hidden');
+            nextBtnTwo.removeAttribute("hidden");
             crazpiccSpeech();
         }
     }
+    // #endregion
 
-//! CRAZPICC lines
+    //! CRAZPICC Section
+    // #region CRAZPICC speaking + commands
     const crazpiccDialogLines = [
         "Well, well well...",
         "*stares judgingly*",
@@ -243,17 +294,15 @@ function theAnnouncement() {
         "Let's just get this over with so I can go home to my dog.",
         "You ready to be beaten?"
     ]
+
     let currentLineTwo = 0;
 
-//! CRAZPICC Buttons / Section
-    const nextBtnTwo = document.getElementById("nextBtnTwo");
-    const mainTalkTwo = document.getElementById("mainTalkTwo");
-    const mainEnemy = document.getElementById("mainEnemy");
+    //! CRAZPICC Buttons / Section
     mainEnemy.classList.add("enemySlide");
     
     nextBtnTwo.addEventListener("click", crazpiccSpeech);
     function crazpiccSpeech() {
-        document.querySelector("#mainEnemy").removeAttribute('hidden');
+        mainEnemy.removeAttribute("hidden");
         mainTalkTwo.innerText = crazpiccDialogLines[currentLineTwo];
         currentLineTwo++;
         if(currentLineTwo < crazpiccDialogLines.length) {
@@ -261,23 +310,26 @@ function theAnnouncement() {
         } else {
             speechStop = true;
             currentLineTwo = 0;
-            document.querySelector("#timerButtons").removeAttribute('hidden');
+            timerStart.removeAttribute("hidden");
             nextBtnTwo.style.visibility = 'hidden';
         }
     }
-    
-//! If clicking the "NO" button for battle
+    // #endregion
+
+    // #endregion
+
+//#region 3rd half of function
+    //! Click "NO" to CRAZPICC
+    // #region Button "NO"
+    //? If you say "NO" to CRAZPICC, this stuff happens
     const crazpiccDialogLinesNo = [
         "Didn't expect you to be such a coward."
     ]
     let currentLineTwoB = 0;
     
-    
-    const noGameStart = document.getElementById("noGameStart");
     noGameStart.addEventListener("click", battleOver);
     function battleOver() {
-        
-        nextBtnTwo.removeAttribute('hidden');
+        nextBtnTwo.removeAttribute("hidden");
         mainTalkTwo.innerText = crazpiccDialogLinesNo[currentLineTwoB]
         currentLineTwoB++;
         if(currentLineTwoB < crazpiccDialogLinesNo.length) {
@@ -285,52 +337,62 @@ function theAnnouncement() {
         } else {
             speechStop = true;
             currentLineTwoB = 0;
-            document.querySelector("#spaceImg").style.visibility = 'hidden',
-            document.querySelector("#timerButtons").style.visibility = 'hidden';
+            spaceImg.style.visibility = 'hidden',
+            timerStart.style.visibility = 'hidden';
+
             setTimeout(theClose, 4000)
         }
     }
+    // #endregion
+
+    //! "GAME OVER" Section
+    // #region GAME OVER functions
+    //? Everything basically fades away and closes
     function theClose() {
-    
         mainTalkTwo.classList.add("fadeOut");
         bgImageBl.classList.add("fadeOut");
+
+        //* Removing old animation// replace with new
         announcer.classList.remove("announcerSlide");
         announcer.classList.add("fadeOut");
+
+        //* Removing old animation// replace with new
         mainEnemy.classList.remove("enemySlide");
         mainEnemy.classList.add("fadeOut");
 
         setTimeout(theEnd, 3000)
     }
-    
+
+    //* Announcer and Crazpicc leave; new title appears 
     function theEnd() {
-        const gameOver = document.getElementById("gameOver");
-        const cowardBtn = document.getElementById("cowardBtn");
-        const comebackBtn = document.getElementById("comebackBtn");
         announcer.style.visibility = 'hidden';
         mainEnemy.style.visibility = 'hidden';
       
-        document.querySelector(".gameOver").removeAttribute('hidden');
+        gameOver.removeAttribute("hidden");
 
         setTimeout(revival, 2000)
 
-
+        //? Two choices: Leave or Try again 
         document.addEventListener("click", revival);
         function revival() {
-            document.querySelector("#cowardBtn").removeAttribute('hidden');
-            document.querySelector("#comebackBtn").removeAttribute('hidden');
+            cowardBtn.removeAttribute("hidden");
+            comebackBtn.removeAttribute("hidden");
         }
-
+        //! If you click "COWARD" button
         cowardBtn.addEventListener("click", goodbye);
         function goodbye() {
             window.close();
         }
-
+        //! If you click "COMEBACK" button
         comebackBtn.addEventListener("click", startAnew);
         function startAnew() {
             window.location.reload();
         }
     }
 }
+    // #endregion
+// #endregion
+
 // #endregion
 
 // #region R-P-S GAMEPLAY
@@ -452,8 +514,8 @@ function beginBattle() {
     document.querySelector("#titleScrollThree").removeAttribute('hidden')
     titleScrollTwo.style.visibility = 'hidden';
     buttonTwo.style.visibility = 'hidden';
-    announcerGuy.style.visibility = 'hidden';
-    mainEnemy.style.visibility = 'hidden';
+    // announcerGuy.style.visibility = 'hidden';
+    // mainEnemy.style.visibility = 'hidden';
     mainTalkTwo.style.visibility = 'hidden';
     announcerMusic.pause();
     titleMusic.currentTime = 0;
