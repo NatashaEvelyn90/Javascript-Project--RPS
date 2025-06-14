@@ -317,7 +317,7 @@ strong {
 .mainEnemy {
   width: 40%;
   position: fixed;
-  top: 27px;
+  top: 30px;
   right: 7%;
   /* z-index: -20; */
 }
@@ -580,7 +580,7 @@ font-family: "Pixelify Sans", sans-serif;
 .mainGameScores {
   visibility: hidden;
   position: relative;
-  top: -400px;
+  top: 225px;
 }
 
 .scoreDisplay {
@@ -667,8 +667,9 @@ font-family: "Pixelify Sans", sans-serif;
 }
 
 .gameResultText {
-    font-size: 2rem;
-    margin-top: 1rem;
+  position: fixed;
+  left: 37%;
+    font-size: 70px;
     color: #fff;
     text-shadow: 1px 1px 4px #000;
 }

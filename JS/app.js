@@ -22,16 +22,16 @@ const battleTheme = document.getElementById("opponentMusic"); //? This music pla
 const mainMenuButtons = document.getElementById("mainButtons"); 
 const flowerImage = document.querySelector("#flowerImg"); //* Background image for main menu
 const sparkles = document.querySelector("#sparkles"); //* Background for small screen
-const bgImageBl = document.querySelector("#bubbleImg"); //* Background image for dialog section
-const spaceImg = document.querySelector("#spaceImg"); //* Background image for R-P-S section
-const blossomImg = document.querySelector("#blossomImg");
+const bgImageBl = document.querySelector("#pinkBubbles"); //* Background image for dialog section
+const spaceImg = document.querySelector("#spacey"); //* Background image for R-P-S section
+const blossomImg = document.querySelector("#blossoms");
 // #endregion
 
 
 //* Extra stuff
 // #region Extra stuff
-const playCards = document.getElementById("cards");
-const yesGameStart = document.getElementById("yesGameStart");
+const playCards = document.getElementById("cardGame");
+const yesGameStart = document.getElementById("yesStart");
 // #endregion
 
 // ? - - - - - - - - - - - - - - - - - 
@@ -209,11 +209,11 @@ const timerStart = document.getElementById("gameTime");
 
 // *Game Over cues
 const noGameStart = document.getElementById("noStart");
-const gameOver = document.getElementById("gameOver");
+const gameOver = document.getElementById("superOver");
 
 // *Buttons to end game or start over
-const cowardBtn = document.getElementById("cowardBtn");
-const comebackBtn = document.getElementById("comebackBtn");
+const cowardBtn = document.getElementById("coward");
+const comebackBtn = document.getElementById("comeback");
 // #endregion
 
 //! Function after clicking "START" begins here
@@ -378,6 +378,7 @@ function theAnnouncement() {
             cowardBtn.removeAttribute("hidden");
             comebackBtn.removeAttribute("hidden");
         }
+        // TODO MUST FIGURE OUT SOMETHING ELSE FOR THIS SECTION
         //! If you click "COWARD" button
         cowardBtn.addEventListener("click", goodbye);
         function goodbye() {
@@ -404,18 +405,26 @@ let alligatorUsedAt = [];
 let gameActive = false;
 let timerInterval;
 
+const titleScrollThree = document.getElementById("titleScrollThree");
+const musicButtonThree = document.getElementById("audioButtonThree");
 
-const timerDisplay = document.getElementById('time');
-const playerScoreBoard = document.querySelector('.playerScore');
-const opponentScoreBoard = document.querySelector('.opponentScore');
-const tieResults = document.querySelector('.ifTie');
-const resultText = document.getElementById("gameResult");
+const timerDisplay = document.getElementById('clockDisplay');
+
+const playerDisplay = document.getElementById("playerDisplay");
+const playerScoreBoard = document.getElementById('playerPoints');
+
+const opponentDisplay = document.getElementById('opponentDisplay');
+const opponentScoreBoard = document.getElementById('opponentPoints');
+
+const tieResults = document.getElementById('tieBreaker');
+const resultText = document.getElementById("trueWinner");
+const mainGameScores = document.getElementById("scoringSection");
 
 //? Button choices 
 const rockBtn = document.querySelector('.rock');
 const paperBtn = document.querySelector('.paper');
 const scissorBtn = document.querySelector('.scissors');
-const alligatorBtn = document.querySelector('.alligator');
+const alligatorBtn = document.querySelector('.alligators');
 const alligatorAppearance = [7, 19, 31, 40, 51, 69];
 
 //! Event Listeners for the button/cards
@@ -511,36 +520,40 @@ function computerChoices() {
 yesGameStart.addEventListener("click", beginBattle);
 function beginBattle() {
 //? Remove announcer + add music
-    document.querySelector("#titleScrollThree").removeAttribute('hidden')
+    titleScrollThree.removeAttribute("hidden");
     titleScrollTwo.style.visibility = 'hidden';
-    buttonTwo.style.visibility = 'hidden';
-    // announcerGuy.style.visibility = 'hidden';
-    // mainEnemy.style.visibility = 'hidden';
+    musicButtonTwo.style.visibility = 'hidden';
+
+    announcer.style.visibility = 'hidden';
+    mainEnemy.style.visibility = 'hidden';
     mainTalkTwo.style.visibility = 'hidden';
+
     announcerMusic.pause();
     titleMusic.currentTime = 0;
+
     battleTheme.play();
 
 //? Game design options
-    document.querySelector("#yesGameStart").style.display = "none";
-    document.querySelector("#noGameStart").style.display = "none";
-    document.getElementById("mainGameScores").style.visibility = "visible";
-    document.querySelector("#bubbleImg").style.display = "none";
+    yesStart.style.display = "none";
+    noStart.style.display = "none";
+    mainGameScores.style.visibility = "visible";
+    bgImageBl.style.visibility = 'hidden';
     playCards.removeAttribute('hidden');
-    document.querySelector("#movieTop").style.visibility = "hidden";
-    document.querySelector("#movieBottom").style.visibility = "hidden";
+    movieTop.style.visibility = "hidden";
+    movieBottom.style.visibility = "hidden";
 
 //? Audio pause section
-    document.querySelector("#buttonThree").removeAttribute('hidden');
-    buttonThree.removeEventListener("click", audioPauseThree);
-    buttonThree.addEventListener("click", audioPauseThree);
+    musicButtonThree.removeAttribute("hidden");
+
+    musicButtonThree.removeEventListener("click", audioPauseThree);
+    musicButtonThree.addEventListener("click", audioPauseThree);
     function audioPauseThree() {
         if(battleTheme.paused) {
             battleTheme.play();
-            buttonThree.textContent = "PAUSE";
+            musicButtonThree.textContent = "PAUSE";
         } else {
             battleTheme.pause();
-            buttonThree.textContent = "🎵";
+            musicButtonThree.textContent = "🎵";
         }
     }
 
@@ -558,11 +571,11 @@ function beginBattle() {
     function updateTimer() {
         const minutes = Math.floor(timeLeft / 60);
         const seconds = timeLeft % 60;
-        timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        timerDisplay.innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
         
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            timerDisplay.textContent = "Game Over!";
+            timerDisplay.innerText = "Game Over!";
             gameActive = false;
             disableChoiceButtons();
             showFinalResult();

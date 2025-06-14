@@ -172,9 +172,9 @@
             <!--? Background Images  -->
             <!-- #region Background Images -->
              <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="d-none d-sm-block flowerImg" id="flowerImg">
-             <img src="./Media/bokeh-2072271.jpg" alt="sparkly pink backround with bubbles" class="bubbleImg d-none d-sm-block" id="bubbleImg">
-             <img src="./Media/space background.jpg" alt="space" class="spaceImg" id="spaceImg">
-             <img src="./Media/sakura-5470.gif" alt="sakuras falling from the sky" class="blossomImg" id="blossomImg">
+             <img src="./Media/bokeh-2072271.jpg" alt="sparkly pink backround with bubbles" class="bubbleImg d-none d-sm-block" id="pinkBubbles">
+             <img src="./Media/space background.jpg" alt="space" class="spaceImg" id="spacey">
+             <img src="./Media/sakura-5470.gif" alt="sakuras falling from the sky" class="blossomImg" id="blossoms">
             <!-- #endregion -->
 
             <!--? Main Menu  -->
@@ -226,50 +226,51 @@
             <div id="dialogBox">
                 <div class="mainTalk" id="toxTillLines"></div>
                 <div class="mainTalkTwo" id="crazpiccLines"></div>
-                <div class="gameOver" id="gameOver" hidden>GAME OVER</div>
+                <div class="gameOver" id="superOver" hidden>GAME OVER</div>
                 <button class="nextBtn" id="toxTillBtn" hidden>NEXT</button>
                 <button class="nextBtnTwo" id="crazpiccBtn" hidden>NEXT</button>
 
                 <div class="d-flex justify-content-center">
-                    <button class="comebackBtn" id="comebackBtn" hidden>Comeback</button>
-                    <button class="cowardBtn" id="cowardBtn" hidden>Coward</button>
+                    <button class="comebackBtn" id="comeback" hidden>Comeback</button>
+                    <button class="cowardBtn" id="coward" hidden>Coward</button>
                 </div>
             </div>
         </section>
-               
-        <!-- card Design Section -->
-         <section class="cards" id="cards" hidden>
+          
+        <!--! card Design Section -->
+        <!-- #region Card Designs -->
+         <section class="cards" id="cardGame" hidden>
             <div class="container">
 
-                <!-- ROCK -->
-                <button class="box rock" id="rock">
+                <!--? ROCK -->
+                <button class="box rock" id="rocky">
                   <span></span>
                   <div class="content">
-                    <h2>ROCK</h2>
-                    <img src="./Media/R.P.S. - Rock Card.png" alt="magical rock card" width="100" height="100">
+                    <h2>R</h2>
+                    <img src="./Media/R.P.S. - Rock Card.png" alt="magical rock card" width="100" height="150">
                   </div>
                 </button>
 
-                <!-- PAPER -->
-                <button class="box paper" id="paper">
+                <!--? PAPER -->
+                <button class="box paper" id="papery">
                   <span></span>
                   <div class="content">
-                    <h2>PAPER</h2>
-                    <img src="./Media/R.P.S. - Paper Card.png" alt="magical paper card" width="100" height="100">
+                    <h2>P</h2>
+                    <img src="./Media/R.P.S. - Paper Card.png" alt="magical paper card" width="100" height="150">
                   </div>
                 </button>
 
-                <!-- SCISSORS -->
-                <button class="box scissors" id="scissors">
+                <!--? SCISSORS -->
+                <button class="box scissors" id="scissory">
                   <span></span>
                   <div class="content">
-                    <h2>SCISSORS</h2>
-                    <img src="./Media/R.P.S. - Scissors Card.png" alt="magical scissors" width="100" height="100">
+                    <h2>S</h2>
+                    <img src="./Media/R.P.S. - Scissors Card.png" alt="magical scissors" width="100" height="150">
                   </div>
                 </button>
 
-                <!-- ALLIGATOR -->
-                <button class="box alligator" id="alligator" hidden>
+                <!--? ALLIGATOR -->
+                <button class="box alligators" id="alligators" hidden>
                   <span></span>
                   <div class="content">
                     <h2>ALLIGATOR</h2>
@@ -279,31 +280,35 @@
 
             </div>
          </section>
+         <!-- #endregion -->
 
-         <!-- Timer Design section -->
-         <div class="countdownTime" id="time"></div>
+         <!--! Timer Zone -->
+         <div class="countdownTime" id="clockDisplay"></div>
+
          <div class="timer" id="gameTime" hidden>
-            <button class="yesGameStart yesBtn" id="yesGameStart" onclick="beginBattle()">YES</button>
+            <button class="yesGameStart yesBtn" id="yesStart" onclick="beginBattle()">YES</button>
             <button class="noGameStart noBtn" id="noStart">NO</button>
          </div>
 
          <!-- Scoring Section -->
-         <section class="mainGameScores d-flex justify-content-between" id="mainGameScores" >
+         <section class="mainGameScores d-flex justify-content-between" id="scoringSection">
 
-            <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay">
+            <div class="scoreDisplay text-center d-flex justify-content-center" id="playerDisplay">
                 <div class="youText ms-3"  id="youText">
                     <span class="me-3 playerName">PLAYER</span>
-                    <span class="playerScore d-flex justify-content-center me-3" id="playerScore">0</span>
+                    <span class="playerScore d-flex justify-content-center me-3" id="playerPoints">0</span>
                 </div>
             </div>
 
-            <div class="ifTie" id="ifTie"></div>
-            <div class="gameResultText text-center fw-bold" id="gameResult"></div>
+            <div class="ifTie" id="tieBreaker"></div>
 
-            <div class="scoreDisplay text-center d-flex justify-content-center" id="scoreDisplay">
+            <!-- ? This lets us know who won and who didnt -->
+            <div class="gameResultText text-center fw-bold" id="trueWinner"></div>
+
+            <div class="scoreDisplay text-center d-flex justify-content-center" id="opponentDisplay">
                 <div class="opponentText" id="opponentText">
                     <span class="ms-3 me-3 opponentName">OPPONENT</span> 
-                    <span class="opponentScore d-flex justify-content-center" id="opponentScore">0</span>
+                    <span class="opponentScore d-flex justify-content-center" id="opponentPoints">0</span>
                 </div>
             </div>
          </section>
