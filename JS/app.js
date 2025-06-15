@@ -34,34 +34,39 @@ const musicPlayerC = document.getElementById("musicPlayerThree");
 // #region
 // *Announcer info
 const announcer = document.getElementById("toxTill"); 
-const announcerSm = document.getElementById("toxTillSm");
-
 const nextBtn = document.getElementById("toxTillBtn");
-const nextBtnSm = document.getElementById("toxTillBtnSm");
-
 const mainTalk = document.getElementById("toxTillLines");
-const mainTalkSm = document.getElementById("toxTillLinesSm");
+    const announcerSm = document.getElementById("toxTillSm");
+    const nextBtnSm = document.getElementById("toxTillBtnSm");
+    const mainTalkSm = document.getElementById("toxTillLinesSm");
 
 // *CRAZPICC info
 const mainEnemy = document.getElementById("crazpicc");
-const mainEnemySm = document.getElementById("crazpiccSm");
-
 const nextBtnTwo = document.getElementById("crazpiccBtn");
-const nextBtnTwoSm = document.getElementById("crazpiccBtnSm");
-
 const mainTalkTwo = document.getElementById("crazpiccLines");
-const mainTalkTwoSm = document.getElementById("crazpiccLinesSm");
+    const mainEnemySm = document.getElementById("crazpiccSm");
+    const nextBtnTwoSm = document.getElementById("crazpiccBtnSm");
+    const mainTalkTwoSm = document.getElementById("crazpiccLinesSm");
 
 // *TIMER
 const timerStart = document.getElementById("gameTime");
 
 // *Game Over cues
-const noGameStart = document.getElementById("noStart");
 const gameOver = document.getElementById("superOver");
-
+const noGameStart = document.getElementById("noStart");
+    const gameOverSm = document.getElementById("superOverSm");
+    const noGameStartSm = document.getElementById("noStartSm")
+    
 // *Buttons to end game or start over
 const cowardBtn = document.getElementById("coward");
 const comebackBtn = document.getElementById("comeback");
+    const cowardBtnSm = document.getElementById("cowardSm");
+    const comebackBtnSm = document.getElementById("comebackSm");
+
+const playCards = document.getElementById("cardGame");
+
+const yesGameStart = document.getElementById("yesStart");
+    const yesGameStartSm = document.getElementById("yestStartSm");
 // #endregion
 
 //? LARGE Menu Items 
@@ -73,19 +78,11 @@ const spaceImg = document.querySelector("#spacey"); //* Background image for R-P
 const blossomImg = document.querySelector("#blossoms");
 // #endregion
 
-//* Extra stuff
-// #region Extra stuff
-const playCards = document.getElementById("cardGame");
-const yesGameStart = document.getElementById("yesStart");
-// #endregion
-
 // ? - - - - - - - - - - - - - - - - - 
 // * - - - - - - - - - - - - - - - - - 
 //! Begin main Game Section below!
 // * - - - - - - - - - - - - - - - - - 
 // ? - - - - - - - - - - - - - - - - - 
-
-//! Header to Main Menu
 
 //TODO Shared section
 //#region  
@@ -164,10 +161,10 @@ function gameMenu() {
 //? LARGE "TUTORIAL" section
 // #region "HOW TO PLAY" Section
 //? This teaches you the rules of the game
-const tutorials= document.getElementById("tutorialBtn");
-tutorials.addEventListener("click", learnGame);
+const tutorialSection = document.getElementById("tutorialBtn");
+tutorialSection.addEventListener("click", learnGames);
 
-function learnGame() {
+function learnGames() {
     const gameRulez = document.getElementById("gamingRules");
     const isHidden = gameRulez.style.display === "none" || gameRulez.style.display === "";
     
@@ -411,22 +408,20 @@ function theAnnouncement() {
 
 //* "TUTORIAL" section
 // #region "Learn the game"
-const learnNew = document.getElementById("tutorialBtnSm");
-learnNew.addEventListener("click", smallLearn);
+const tutorialSm = document.getElementById("tutorialBtnSm");
+tutorialSm.addEventListener("click", smallLearn);
 
 function smallLearn() {
-const tutorialDrop = document.getElementById("dropTutorial")
-const isHiddenSm =tutorialDrop.style.display === "none" || tutorialDrop.style.display === "";
+const tutorialDrop = document.getElementById("dropTutorialSm");
+const isHiddenSm = tutorialDrop.style.display === "none" || tutorialDrop.style.display === "";
     
     tutorialDrop.style.display = isHiddenSm ? "block" : "none";
 
     if (isHiddenSm) {
         tutorialDrop.style.border = "4px solid #cb738289";
         const learnSpanSm = tutorialDrop.querySelectorAll(".rulesSm");
-        learnSpanSm[0].innerText = "RPS is Rock Paper Scissors; just like the classic game!";
-        learnSpanSm[1].innerText = "The rules are simple, rock beats scissors, scissors beat paper, paper beats rock.";
-        learnSpanSm[2].innerText = "However, there might be something special within the game as well.";
-        learnSpanSm[3].innerText = "Will this secret appear in your game?";
+        learnSpanSm[0].innerText = "R-P-S is Rock Paper Scissors; just like the classic game!";
+        learnSpanSm[1].innerText = "The rules are simple, rock beats scissors, scissors beat paper, paper beats rock. However, there might be something special within the game as well. Will this secret appear in your game?";
     }
 }
 // #endregion
@@ -481,7 +476,7 @@ function startSm() {
 // #endregion
 
 //* "DIALOG" Section 
-// #region Whole Dialog Sectrion
+// #region Whole Dialog Section
 // #region TOXTILL + CRAZPICC Lines
 function theAnnouncementSm() {
     let speechStop = false;
@@ -493,6 +488,7 @@ function theAnnouncementSm() {
     flowerImage.style.visibility = 'hidden';    
     musicButtonOne.style.visibility = 'hidden';
     titleScroll.style.visibility = 'hidden';
+    sparkles.style.visibility = 'hidden';
     
     //? "PAUSE / PLAY" audio Section    
     titleScrollTwo.removeAttribute("hidden");
@@ -509,7 +505,7 @@ function theAnnouncementSm() {
         }
     }
 
-    nextBtn.removeAttribute("hidden");
+    nextBtnSm.removeAttribute("hidden");
 
     //! Toxtill Section
     const announcerDialogLinesSm = [
@@ -522,30 +518,31 @@ function theAnnouncementSm() {
         "I DON'T BELIVE IT FOLKS! THIS R-P-S BEGINNER IS UP AGAINST CRAZPICC, THE REIGNING CHAMPION FOR THE PAST 15 YEARS!"
     ]
 
-    let currentLine = 0;
+    let currentLineSm = 0;
 
     //! Toxtill Buttons / Section
-    announcer.removeAttribute('hidden');
-    announcer.classList.add("announcerSlide");
-    mainTalk.innerText = announcerDialogLinesSm[currentLine];
+    announcerSm.removeAttribute('hidden');
+    announcerSm.classList.add("announcerSlide");
+    mainTalkSm.innerText = announcerDialogLinesSm[currentLineSm];
 
-    nextBtn.addEventListener("click", announcerSpeech);
+    nextBtnSm.addEventListener("click", announcerSpeech);
     function announcerSpeech() {
-        currentLine++;
-        if(currentLine < announcerDialogLines.length) {
-            mainTalk.textContent = announcerDialogLines[currentLine];
+        currentLineSm++;
+        if(currentLineSm < announcerDialogLinesSm.length) {
+            mainTalkSm.textContent = announcerDialogLinesSm[currentLineSm];
         } else {
-            currentLine = 0;
+            currentLineSm = 0;
             speechStop = true;
-            mainTalk.style.visibility = 'hidden';
-            nextBtn.style.visibility ='hidden';
-            nextBtnTwo.removeAttribute("hidden");
+            mainTalkSm.style.visibility = 'hidden';
+            nextBtnSm.style.visibility ='hidden';
+            nextBtnTwoSm.removeAttribute("hidden");
+            document.querySelector("#crazpiccLinesSm").removeAttribute("hidden");
             crazpiccSpeech();
         }
     }
     
     //! CRAZPICC Section
-    const crazpiccDialogLines = [
+    const crazpiccDialogLinesSm = [
         "Well, well well...",
         "*stares judgingly*",
         "I see that you are my opponent?",
@@ -554,23 +551,23 @@ function theAnnouncementSm() {
         "You ready to be beaten?"
     ]
 
-    let currentLineTwo = 0;
+    let currentLineTwoSm = 0;
 
     //! CRAZPICC Buttons / Section
-    mainEnemy.classList.add("enemySlide");
+    mainEnemySm.classList.add("enemySlide");
     
-    nextBtnTwo.addEventListener("click", crazpiccSpeech);
+    nextBtnTwoSm.addEventListener("click", crazpiccSpeech);
     function crazpiccSpeech() {
-        mainEnemy.removeAttribute("hidden");
-        mainTalkTwo.innerText = crazpiccDialogLines[currentLineTwo];
-        currentLineTwo++;
-        if(currentLineTwo < crazpiccDialogLines.length) {
-            mainTalkTwo.innerText = crazpiccDialogLines[currentLineTwo];
+        mainEnemySm.removeAttribute("hidden");
+        mainTalkTwoSm.innerText = crazpiccDialogLinesSm[currentLineTwoSm];
+        currentLineTwoSm++;
+        if(currentLineTwoSm < crazpiccDialogLinesSm.length) {
+            mainTalkTwoSm.innerText = crazpiccDialogLinesSm[currentLineTwoSm];
         } else {
             speechStop = true;
-            currentLineTwo = 0;
+            currentLineTwoSm = 0;
             timerStart.removeAttribute("hidden");
-            nextBtnTwo.style.visibility = 'hidden';
+            nextBtnTwoSm.style.visibility = 'hidden';
         }
     }
     // #endregion
@@ -578,25 +575,25 @@ function theAnnouncementSm() {
      //! Click "NO" to CRAZPICC
     // #region Button "NO"
     //? If you say "NO" to CRAZPICC, this stuff happens
-    const crazpiccDialogLinesNo = [
+    const crazpiccDialogLinesNoSm = [
         "Didn't expect you to be such a coward."
     ]
-    let currentLineTwoB = 0;
+    let currentLineTwoBSm = 0;
     
-    noGameStart.addEventListener("click", battleOver);
+    noGameStartSm.addEventListener("click", battleOver);
     function battleOver() {
         nextBtnTwo.removeAttribute("hidden");
-        mainTalkTwo.innerText = crazpiccDialogLinesNo[currentLineTwoB]
-        currentLineTwoB++;
-        if(currentLineTwoB < crazpiccDialogLinesNo.length) {
-            mainTalkTwo.innerText = crazpiccDialogLinesNo[currentLineTwoB];   
+        mainTalkTwoSm.innerText = crazpiccDialogLinesNoSm[currentLineTwoBSm]
+        currentLineTwoBSm++;
+        if(currentLineTwoBSm < crazpiccDialogLinesNoSm.length) {
+            mainTalkTwoSm.innerText = crazpiccDialogLinesNoSm[currentLineTwoBSm];   
         } else {
             speechStop = true;
-            currentLineTwoB = 0;
+            currentLineTwoBSm = 0;
             spaceImg.style.visibility = 'hidden',
             timerStart.style.visibility = 'hidden';
 
-            setTimeout(theClose, 4000)
+            setTimeout(theCloseSm, 4000)
         }
     }
     // #endregion
@@ -604,45 +601,45 @@ function theAnnouncementSm() {
     //! "GAME OVER" Section
     // #region GAME OVER functions
     //? Everything basically fades away and closes
-    function theClose() {
-        mainTalkTwo.classList.add("fadeOut");
+    function theCloseSm() {
+        mainTalkTwoSm.classList.add("fadeOut");
         bgImageBl.classList.add("fadeOut");
 
         //* Removing old animation// replace with new
-        announcer.classList.remove("announcerSlide");
-        announcer.classList.add("fadeOut");
+        announcerSm.classList.remove("announcerSlide");
+        announcerSm.classList.add("fadeOut");
 
         //* Removing old animation// replace with new
-        mainEnemy.classList.remove("enemySlide");
-        mainEnemy.classList.add("fadeOut");
+        mainEnemySm.classList.remove("enemySlide");
+        mainEnemySm.classList.add("fadeOut");
 
         setTimeout(theEnd, 3000)
     }
 
     //* Announcer and Crazpicc leave; new title appears 
     function theEnd() {
-        announcer.style.visibility = 'hidden';
-        mainEnemy.style.visibility = 'hidden';
+        announcerSm.style.visibility = 'hidden';
+        mainEnemySm.style.visibility = 'hidden';
       
-        gameOver.removeAttribute("hidden");
+        gameOverSm.removeAttribute("hidden");
 
-        setTimeout(revival, 2000)
+        setTimeout(revivalSm, 2000)
 
         //? Two choices: Leave or Try again 
-        document.addEventListener("click", revival);
-        function revival() {
-            cowardBtn.removeAttribute("hidden");
-            comebackBtn.removeAttribute("hidden");
+        document.addEventListener("click", revivalSm);
+        function revivalSm() {
+            cowardBtnSm.removeAttribute("hidden");
+            comebackBtnSm.removeAttribute("hidden");
         }
         // TODO MUST FIGURE OUT SOMETHING ELSE FOR THIS SECTION
         //! If you click "COWARD" button
-        cowardBtn.addEventListener("click", goodbye);
-        function goodbye() {
+        cowardBtnSm.addEventListener("click", goodbyeSm);
+        function goodbyeSm() {
             window.close();
         }
         //! If you click "COMEBACK" button
-        comebackBtn.addEventListener("click", startAnew);
-        function startAnew() {
+        comebackBtnSm.addEventListener("click", startAnewSm);
+        function startAnewSm() {
             window.location.reload();
         }
     }
@@ -678,7 +675,7 @@ function updateScoreDisplays() {
   playerScoreBoards.forEach(el => el.innerText = playerScore);
   opponentScoreBoards.forEach(el => el.innerText = opponentScore);
 }
-console.log(playerScoreBoards, opponentScoreBoards);
+// console.log(playerScoreBoards, opponentScoreBoards);
 
 
 const tieResults = document.getElementById('tieBreaker');

@@ -138,11 +138,6 @@
     border-radius: 18px;
 }
 
-.yesGameStart {
-  position: fixed;
-  z-index: 5;
-}
-
 .noBtn {
   position: fixed;
   left: 49%;
@@ -154,12 +149,6 @@
     width: 75px;
     height: 75px;
     border-radius: 18px;
-}
-
-.noGameStart {
-  position: fixed;
-  z-index: 5;
-  left: 51%;
 }
 
 .refreshBtn {
@@ -230,6 +219,7 @@ strong {
     z-index: 5;
     
 }
+
 
 .appreciation {
    font-family: "Kode Mono", monospace;
@@ -904,25 +894,33 @@ top: 47%;
   position: fixed;
   top: 37%;
   margin-left: 12%;
-    text-align: center;
+  text-align: center;
+}
+
+.dropdown {
+  position: relative;
+  top: 500px;
+  white-space: normal;
+  background-color: #ffc0cb80;
+  text-align: center;
+
 }
 
 .smallPlay {
   font-family: "Kode Mono", monospace;
     position: fixed;
-    top: 80%;
+    top: 500px;
     background-color: #ffc0cb80;
     color: #600817;
-
+    white-space: normal;
 }
 
 .appreciationSm {
   font-family: "Kode Mono", monospace;
     position: fixed;
-    top: 80%;
+    top: 500px;
     background-color: #ffc0cb80;
     color: #600817;
-    margin-left: 130px;
 }
 
 .learningTutorial, .givingCredits  {
@@ -1050,7 +1048,7 @@ top: 47%;
 
 .mainTalkTwo {
   position: fixed;
-  z-index: 4;
+  z-index: 3;
   width: 80%;
   height: 20%;
   top: 70%;
@@ -1079,32 +1077,83 @@ top: 47%;
   }
 }
 
+.yesGameStart {
+  position: relative;
+  right: 70px;
+  top: 50px;
+  margin: 0;
+  font-family: "Pixelify Sans", sans-serif;
+  background-color: rgb(41, 197, 38);
+  color: white;
+  font-size: xx-large;
+  width: 75px;
+  height: 75px;
+  border-radius: 18px;
+  z-index: 7;
+}
+
+.noGameStart {
+  position: relative;
+  left: -70px;
+  top: 50px;
+  margin: 0;
+  font-family: "Pixelify Sans", sans-serif;
+  background-color: #840419;
+  color: white;
+  font-size: xx-large;
+  width: 75px;
+  height: 75px;
+  border-radius: 18px;
+  z-index: 7;
+}
+
+.gameOver {
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 55px;
+    position: fixed;
+    top: 30%;
+    left: 20%;
+}    
+
 .cowardBtn {
-position: fixed;
-top: 55%;
-right: 35%;
-font-family: "Pixelify Sans", sans-serif;
-    background-color: #840419;
-    color: white;
-    font-size: xx-large;
-    width: 172px;
-    height: 75px;
-    border-radius: 18px;
+  position: fixed;
+  top: 75%;
+  right: 53%;
+  font-family: "Pixelify Sans", sans-serif;
+  background-color: #840419;
+  color: white;
+  font-size: 15px;
+  width: 100px;
+  height: 75px;
+  border-radius: 18px;
+  z-index: 3;
 }
 
 .comebackBtn {
   position: fixed;
-  top: 55%;
-  left: 30%;
- font-family: "Pixelify Sans", sans-serif;
-    background-color: rgb(41, 197, 38);
-    color: white;
-    font-size: xx-large;
-    width: 172px;
-    height: 75px;
-    border-radius: 18px;
+  top: 75%;
+  left: 55%;
+  font-family: "Pixelify Sans", sans-serif;
+  background-color: rgb(41, 197, 38);
+  color: white;
+  font-size: 15px;
+  width: 100px;
+  height: 75px;
+  border-radius: 18px;
+  z-index: 3;
 }
 
+/* #endregion */
+
+/* #region Scoring */
+.mainGameScores {
+    visibility: visible;
+    position: relative;
+    top: 225px;
+    z-index: -102;
+}
 /* #endregion */
 
 /* #region Music and Audio Buttons */
