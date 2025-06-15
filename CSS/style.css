@@ -70,7 +70,7 @@
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: fixed;
+  position: absolute;
   z-index: -97;
   opacity: 1;
 }
@@ -79,7 +79,7 @@
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: fixed;
+  position: absolute;
   z-index: -99;
 }
 
@@ -87,7 +87,7 @@
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: fixed;
+  position: absolute;
   z-index: -100;
 }
 
@@ -95,7 +95,7 @@
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: fixed;
+  position: absolute;
   z-index: -101;
 }
 /* #endregion*/
@@ -103,30 +103,32 @@
 /* #region "Yes or No" popup */
 .headers {
     background-color: black;
-    position: fixed;
-    height: 100%;
+    position: absolute;
     width: 100%;
+    height: -webkit-fill-available;
     z-index: 1;
     
 }
 
 .textAge {
-  position: fixed;
-  left: 30%;
+  position: absolute;
+  left: 0;
+  width: 100%;
     font-size: 75px;
     margin-top: 250px;
     color: blue;
 }
 
 .loadingText {
-  position: fixed;
+  position: absolute;
+  width: 100%;
   top: 40%;
-  left: 30%;
+  left: 0;
     color: red;
 }
 
 .yesBtn {
-  position: fixed;
+  position: absolute;
   left: 43%;
   top: 50%;
     font-family: "Pixelify Sans", sans-serif;
@@ -139,7 +141,7 @@
 }
 
 .noBtn {
-  position: fixed;
+  position: absolute;
   left: 49%;
   top: 50%;
     font-family: "Pixelify Sans", sans-serif;
@@ -152,7 +154,7 @@
 }
 
 .refreshBtn {
-  position: fixed;
+  position: absolute;
   top: 50%;
     font-family: "Pixelify Sans", sans-serif;
     background-color: #110484;
@@ -171,7 +173,7 @@ strong {
 }
 
 .gameTitle {
-  position: fixed;
+  position: absolute;
   left: 48%;
   top: 12%;
   font-size: 400px;
@@ -182,7 +184,7 @@ strong {
 }
 
 .mainMenu {
-  position: fixed;
+  position: absolute;
         top: 37%;
         margin-left: 12%;
         text-align: center;
@@ -237,7 +239,7 @@ strong {
   height: 0px;
   box-sizing: border-box;
   z-index: 2;
-  position: fixed;
+  position: absolute;
   opacity: 0;
   animation: slideTop 4s forwards;
 }
@@ -247,7 +249,7 @@ strong {
   height: 0px;
   box-sizing: border-box;
   z-index: 3;
-  position: fixed;
+  position: absolute;
   top: 81%;
   opacity: 0;
   animation: slideBottom 4s forwards;
