@@ -356,6 +356,34 @@ strong {
   }
 }
 
+.yesGameStart {
+  position: relative;
+        right: 7px;
+        top: 50px;
+        margin: 0;
+        font-family: "Pixelify Sans", sans-serif;
+        background-color: rgb(41, 197, 38);
+        color: white;
+        font-size: xx-large;
+        width: 75px;
+        height: 75px;
+        border-radius: 18px;
+}
+
+.noGameStart {
+          position: relative;
+        left: -70px;
+        top: 50px;
+        margin: 0;
+        font-family: "Pixelify Sans", sans-serif;
+        background-color: #840419;
+        color: white;
+        font-size: xx-large;
+        width: 75px;
+        height: 75px;
+        border-radius: 18px;
+}
+
 .cowardBtn {
 position: fixed;
 top: 55%;
@@ -662,37 +690,75 @@ font-family: "Pixelify Sans", sans-serif;
 
 /* #region "MUSIC" Section */
 .musicButton {
-  position: fixed;
-  top: 8px;
-  padding: 10px 20px;
+    position: fixed;
+    top: 8px;
+    padding: 10px 20px;
     font-size: 16px;
     border: 2px solid #600817;
     border-radius: 10px;
     background-color: #cf72bd;
     color: #600817;
-    z-index: 4;
+    z-index: 0;
     cursor: pointer;
-    &:hover {
-      background-color: #ffbc00;
-    }
 }
+
 
 .audioScroll {
-  color: #600817;
-  position: fixed;
+   color: #600817;
   font-style: italic;
-  top: 20px;
-  z-index: 1;
-  animation: scrollText 10s linear infinite
+  position: fixed;
+  top: 3%;
+  z-index: -1;
+  animation: scrollText 5s linear infinite;
 }
 
-#titleScrollTwo {
-  color: #600817;
-  position: fixed;
-  font-style: italic;
-  top: 20px;
-  z-index: 3;
-  animation: scrollText 10s linear infinite
+.musicButtonTwo {
+    position: fixed;
+    top: 8px;
+    left: 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #cf72bd;
+    color: #600817;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.audioScrollTwo {
+    color: #600817;
+    position: fixed;
+    font-style: italic;
+    top: 15px;
+    left: 0;
+    z-index: 3;
+    animation: scrollText 10s linear infinite;
+    font-size: 20px;
+}
+
+.musicButtonThree {
+    position: fixed;
+    top: -1px;
+    left: 94%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #cf72bd;
+    color: #600817;
+    cursor: pointer;
+    /* z-index: 3; */
+}
+
+.audioScrollThree {
+    color: yellow;
+    position: fixed;
+    font-style: italic;
+    top: 10px;
+    left: 81%;
+    z-index: 4;
+    animation: scrollText 5s linear infinite;
 }
 /* #endregion */
 
@@ -841,18 +907,32 @@ top: 47%;
     text-align: center;
 }
 
-.howToPlay {
-  position: fixed;
-  top: 75%;
-  margin-left: 0;
-  font-size: 12px;
+.smallPlay {
+  font-family: "Kode Mono", monospace;
+    position: fixed;
+    top: 80%;
+    background-color: #ffc0cb80;
+    color: #600817;
+
 }
 
-.appreciation {
-  position: fixed;
-  top: 75%;
-  font-size: 12px;
-  margin-left: 0;
+.appreciationSm {
+  font-family: "Kode Mono", monospace;
+    position: fixed;
+    top: 80%;
+    background-color: #ffc0cb80;
+    color: #600817;
+    margin-left: 130px;
+}
+
+.learningTutorial, .givingCredits  {
+  font-family: "Pixelify Sans", sans-serif;
+  border: 4px solid #cb738289;
+  width: 60px;
+  height: 60px;
+  background-color: #ffc0cb7f;
+  color: #600817;
+  border-radius: 16px;
 }
 /* #endregion */
 
@@ -873,8 +953,12 @@ top: 47%;
 }
 
 100% {
-    transform: translateX(50px);
+    transform: translateY(145px);
 }
+}
+
+@keyframes slideBottom {
+    100% {border-block: 130px solid black; opacity: 1;}
 }
 
 /* #endregion */
@@ -896,6 +980,7 @@ top: 47%;
   height: 0px;
   z-index: 3;
   position: fixed;
+  top: 66%;
   opacity: 0;
   animation: slideBottom 4s forwards;
 }
@@ -923,22 +1008,22 @@ top: 47%;
     font-family: "Kode Mono", monospace;
     position: fixed;
     z-index: 4;
-    width: 75%;
+    width: 97%;
     height: 144px;
-    top: 84%;
+    top: 70%;
     font-size: 18px;
     color: #cf72bd;
-    left: 40px;
+    left: 2px;
     bottom: 0;
     text-align: center;
 }
 
 .nextBtn {
   position: fixed;
-  z-index: 4;
+  z-index: 6;
   left: 42%;
-  top: 95%;
-  padding: 3px 10px;
+  top: 90%;
+  padding: 10px 10px;
   font-size: 16px;
   border: none;
   border-radius: 10px;
@@ -951,18 +1036,94 @@ top: 47%;
   }
 }
 
+.mainEnemy {
+  width: 40%;
+  position: fixed;
+  top: 30px;
+  right: 7%;
+  /* z-index: -20; */
+}
 
+.enemySlide {
+  animation: enemySlide 1s ease-in normal forwards;
+}
+
+.mainTalkTwo {
+  position: fixed;
+  z-index: 4;
+  width: 80%;
+  height: 20%;
+  top: 70%;
+  font-size: x-large;
+  color: orange;
+  left: 10%;
+  bottom: 95px;
+  text-align: center;
+}
+
+.nextBtnTwo {
+  position: fixed;
+  z-index: 4;
+  left: 40%;
+  top: 90%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  animation: nextText 870ms ease 0s infinite normal none;
+  &:hover {
+    background-color: #600817;
+  }
+}
+
+.cowardBtn {
+position: fixed;
+top: 55%;
+right: 35%;
+font-family: "Pixelify Sans", sans-serif;
+    background-color: #840419;
+    color: white;
+    font-size: xx-large;
+    width: 172px;
+    height: 75px;
+    border-radius: 18px;
+}
+
+.comebackBtn {
+  position: fixed;
+  top: 55%;
+  left: 30%;
+ font-family: "Pixelify Sans", sans-serif;
+    background-color: rgb(41, 197, 38);
+    color: white;
+    font-size: xx-large;
+    width: 172px;
+    height: 75px;
+    border-radius: 18px;
+}
 
 /* #endregion */
 
 /* #region Music and Audio Buttons */
 
-.buttonOne {
-  /* margin-top: 210%; */
-  position: fixed;
+.musicButton {
+    position: fixed;
+    top: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #600817;
+    border-radius: 10px;
+    background-color: #cf72bd;
+    color: #600817;
+    z-index: 2;
+    cursor: pointer;
 }
 
-.titleScroll {
+
+.audioScroll {
   position: fixed;
   /* margin-top: 209%; */
   margin-left: 15%;
@@ -970,9 +1131,9 @@ top: 47%;
   animation: scrollText 5s linear infinite;
 }
 
-#buttonTwo {
+.musicButtonTwo {
     position: fixed;
-    top: 20px;
+    top: 8px;
     left: 0;
     padding: 10px 20px;
     font-size: 16px;
@@ -984,7 +1145,7 @@ top: 47%;
     z-index: 4;
 }
 
-.titleScrollTwo {
+.audioScrollTwo {
     color: #600817;
     position: fixed;
     font-style: italic;
@@ -995,7 +1156,7 @@ top: 47%;
     font-size: 14px;
 }
 
-#buttonThree {
+.musicButtonThree {
     position: fixed;
     top: -1px;
     left: 94%;
@@ -1009,7 +1170,7 @@ top: 47%;
     /* z-index: 3; */
 }
 
-.titleScrollThree {
+.audioScrollThree {
     color: yellow;
     position: fixed;
     font-style: italic;
@@ -1020,15 +1181,6 @@ top: 47%;
 }
 
 /* #endregion */
-
-
-
-
-
-/* .mainButton {
-    position: relative;
-} */
-
 
 }
 /* #endregion */
