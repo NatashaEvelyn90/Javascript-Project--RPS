@@ -24,6 +24,8 @@ const titleScroll = document.getElementById("titleScroll");
 const musicButtonOne = document.getElementById("audioButtonOne");
 const titleScrollTwo = document.getElementById("titleScrollTwo");
 const musicButtonTwo = document.getElementById("audioButtonTwo");
+const musicButtonThree = document.getElementById("audioButtonThree");
+const titleScrollThree = document.getElementById("titleScrollThree");
 
 const musicPlayerA = document.getElementById("musicPlayerOne");
 const musicPlayerB = document.getElementById("musicPlayerTwo");
@@ -440,8 +442,6 @@ let alligatorUsedAt = [];
 let gameActive = false;
 let timerInterval;
 
-const titleScrollThree = document.getElementById("titleScrollThree");
-const musicButtonThree = document.getElementById("audioButtonThree");
 
 const timerDisplay = document.getElementById('clockDisplay');
 const playerScoreBoards = document.querySelectorAll('#playerPoints, #playerScore');
@@ -455,7 +455,7 @@ function updateScoreDisplays() {
 
 
 const tieResults = document.getElementById('tieBreaker');
-const resultText = document.getElementById("trueWinner");
+const resultText = document.getElementById("trueWinnerSm");
 
 
 //? Button choices 
@@ -927,129 +927,130 @@ function theAnnouncementSm() {
 // #region R-P-S GAMEPLAY
 //! Main Game Section
 //? This section includes a "COUNTDOWN TIMER", "CARDS" and "MISC"
-let playerScore = 0;
-let opponentScore = 0;
-let alligatorUsedAt = [];
-let gameActive = false;
-let timerInterval;
+let playerScoreSm = 0;
+let opponentScoreSm = 0;
+let alligatorUsedAtSm = [];
+let gameActiveSm = false;
+let timerIntervalSm;
 
-const titleScrollThree = document.getElementById("titleScrollThree");
-const musicButtonThree = document.getElementById("audioButtonThree");
 
-const timerDisplay = document.getElementById('clockDisplay');
-const playerScoreBoards = document.querySelectorAll('#playerPoints, #playerScore');
-const opponentScoreBoards = document.querySelectorAll('#opponentPoints, #opponentScore');
+const timerDisplaySm = document.getElementById('clockDisplaySm');
+const playerScoreBoardsSm = document.querySelectorAll('#playerPointsSm, #playerScoreSm');
+const opponentScoreBoardsSm = document.querySelectorAll('#opponentPointsSm, #opponentScoreSm');
 
-function updateScoreDisplays() {
-  playerScoreBoards.forEach(el => el.innerText = playerScore);
-  opponentScoreBoards.forEach(el => el.innerText = opponentScore);
+function updateScoreDisplaysSm() {
+  playerScoreBoardsSm.forEach(el => el.innerText = playerScoreSm);
+  opponentScoreBoardsSm.forEach(el => el.innerText = opponentScoreSm);
 }
 // console.log(playerScoreBoards, opponentScoreBoards);
 
 
-const tieResults = document.getElementById('tieBreaker');
-const resultText = document.getElementById("trueWinner");
+const tieResultsSm = document.getElementById('tieBreakerSm');
+const resultTextSm = document.getElementById("trueWinnerSm");
 
 
 //? Button choices 
-const rockBtn = document.getElementById('rock');
-const paperBtn = document.getElementById('paper');
-const scissorBtn = document.getElementById('scissors');
-const alligatorBtn = document.getElementById('alligator');
-const alligatorAppearance = [7, 19, 31, 40, 51, 69];
+const rockBtnSm = document.getElementById('rockSm');
+const paperBtnSm = document.getElementById('paperSm');
+const scissorBtnSm = document.getElementById('scissorsSm');
+const alligatorBtnSm = document.getElementById('alligatorSm');
+const alligatorAppearanceSm = [7, 19, 31, 40, 51, 69];
 
 //! Event Listeners for the button/cards
-rockBtn.addEventListener("click", () => {
-    if (!gameActive) return;
-    const opponent = computerChoices();
-    checkWinner("rock", opponent);
+rockBtnSm.addEventListener("click", () => {
+    if (!gameActiveSm) return;
+    const opponentSm = computerChoicesSm();
+    checkWinnerSm("rockSm", opponentSm);
 });
 
-paperBtn.addEventListener("click", () => {
-    if (!gameActive) return;
-    const opponent = computerChoices();
-    checkWinner("paper", opponent);
+paperBtnSm.addEventListener("click", () => {
+    if (!gameActiveSm) return;
+    const opponentSm = computerChoicesSm();
+    checkWinnerSm("paperSm", opponentSm);
 });
 
-scissorBtn.addEventListener("click", () => {
-    if (!gameActive) return;
-    const opponent = computerChoices();
-    checkWinner("scissors", opponent);
+scissorBtnSm.addEventListener("click", () => {
+    if (!gameActiveSm) return;
+    const opponentSm = computerChoicesSm();
+    checkWinnerSm("scissorsSm", opponentSm);
 });
 
-alligatorBtn.addEventListener("click", () => {
-    if (!gameActive) return;
+alligatorBtnSm.addEventListener("click", () => {
+    if (!gameActiveSm) return;
     
-    clearStatus();
-    playerScore += 5;
-   updateScoreDisplays();
-    tieResults.innerText = "GATOR POWER! +5 POINTS!";
-    tieResults.classList.add("alligatorSurprise");
-    const usedTrigger = alligatorAppearance.find(trigger => playerScore - 5 < trigger && playerScore >= trigger);
-    if (usedTrigger !== undefined) {
-    alligatorUsedAt.push(usedTrigger);
+    clearStatusSm();
+    playerScoreSm += 5;
+   updateScoreDisplaysSm();
+    tieResultsSm.innerText = "GATOR POWER! +5 POINTS!";
+    tieResultsSm.classList.add("alligatorSurprise");
+    const usedTriggerSm = alligatorAppearanceSm.find(trigger => playerScoreSm - 5 < trigger && playerScoreSm >= trigger);
+    if (usedTriggerSm !== undefined) {
+    alligatorUsedAtSm.push(usedTriggerSm);
 }
 
-    alligatorBtn.setAttribute('hidden', true);
+    alligatorBtnSm.setAttribute('hidden', true);
     
     setTimeout(() => {
-        clearStatus();
-        tieResults.innerText = "";
+        clearStatusSm();
+        tieResultsSm.innerText = "";
     }, 5000);
     
-    showAlligatorAppearanceReached(); 
+    showAlligatorAppearanceReachedSm(); 
 });
 
 //! COMPUTER CHOICES 
-function computerChoices() {
-        const opponentOptions = ['rock', 'paper', 'scissors']
-        const choiceNumber = Math.floor(Math.random() * 3);
-        return opponentOptions[choiceNumber];
+function computerChoicesSm() {
+        const opponentOptionsSm = ['rockSm', 'paperSm', 'scissorsSm']
+        const choiceNumberSm = Math.floor(Math.random() * 3);
+        return opponentOptionsSm[choiceNumberSm];
     }
 
 //! CHECK WINNER Section 
-    function checkWinner(player, opponent) {
-        if(!gameActive) return;
+    function checkWinnerSm(playerSm, opponentSm) {
+        if(!gameActiveSm) return;
 
-        clearStatus();
+        clearStatusSm();
         
-        if (player === opponent) {
-            tieResults.innerText = 'TIE!';
-            tieResults.classList.add("ifTie");
+        if (playerSm === opponentSm) {
+            tieResultsSm.innerText = 'TIE!';
+            tieResultsSm.classList.add("ifTie");
         } else if (
-            (player === 'rock' && opponent === 'scissors') ||
-            (player === 'scissors' && opponent === 'paper') ||
-            (player === 'paper' && opponent === 'rock')
+            (playerSm === 'rockSm' && opponentSm === 'scissorsSm') ||
+            (playerSm === 'scissorsSm' && opponentSm === 'paperSm') ||
+            (playerSm === 'paperSm' && opponentSm === 'rockSm')
         ) {
-            playerScore++;
-           updateScoreDisplays();
-            tieResults.innerText = "+1 POINT!";
-            tieResults.classList.add("plusOne");
+            playerScoreSm++;
+           updateScoreDisplaysSm();
+            tieResultsSm.innerText = "+1 POINT!";
+            tieResultsSm.classList.add("plusOne");
         } else {
-            opponentScore++;
-        updateScoreDisplays();
-            tieResults.innerText = "KEEP GOING!";
-            tieResults.classList.add("keepTrying");
+            opponentScoreSm++;
+        updateScoreDisplaysSm();
+            tieResultsSm.innerText = "KEEP GOING!";
+            tieResultsSm.classList.add("keepTrying");
         }
         setTimeout(() => {
-            tieResults.innerText = "";
-            clearStatus();
+            tieResultsSm.innerText = "";
+            clearStatusSm();
         }, 3000);
         
-        showAlligatorAppearanceReached();
+        showAlligatorAppearanceReachedSm();
     }
 
-    function showAlligatorAppearanceReached() {
-        if (alligatorAppearance.includes(playerScore) && !alligatorUsedAt.includes(playerScore)) {
-            alligatorBtn.removeAttribute('hidden');
+    function showAlligatorAppearanceReachedSm() {
+        if (alligatorAppearanceSm.includes(playerScoreSm) && !alligatorUsedAtSm.includes(playerScoreSm)) {
+            alligatorBtnSm.removeAttribute('hidden');
         }
     }  
 
 //! CLEAR STATUS Section 
-function clearStatus() {
-    tieResults.classList.remove("plusOne", "keepTrying", "alligatorSurprise", "ifTie");
+function clearStatusSm() {
+    tieResultsSm.classList.remove("plusOne", "keepTrying", "alligatorSurprise", "ifTie");
 }
-
+// ? AUDIO Section
+musicButtonThree.removeAttribute("hidden");
+musicButtonThree.removeEventListener("click", audioPauseThree);
+musicButtonThree.addEventListener("click", audioPauseThree);
 function audioPauseThree() {
     if(battleTheme.paused) {
         battleTheme.play();
@@ -1061,19 +1062,19 @@ function audioPauseThree() {
 }
 
 //! R-P-S BATTLE BEGINS HERE 
-yesGameStart.addEventListener("click", beginBattle);
-function beginBattle() {
-    gameActive = true;
-    console.log("Battle started — gameActive is now", gameActive);
+yesGameStartSm.addEventListener("click", beginBattleSm);
+function beginBattleSm() {
+    gameActiveSm = true;
+    // console.log("Battle started — gameActiveSm is now", gameActiveSm);
 
 //? Remove announcer + add music
     titleScrollThree.removeAttribute("hidden");
     titleScrollTwo.style.visibility = 'hidden';
     musicButtonTwo.style.visibility = 'hidden';
 
-    announcer.style.visibility = 'hidden';
-    mainEnemy.style.visibility = 'hidden';
-    mainTalkTwo.style.visibility = 'hidden';
+    announcerSm.style.visibility = 'hidden';
+    mainEnemySm.style.visibility = 'hidden';
+    mainTalkTwoSm.style.visibility = 'hidden';
 
     announcerMusic.pause();
     titleMusic.currentTime = 0;
@@ -1082,77 +1083,63 @@ function beginBattle() {
 
 
 //? Game design options
-    yesStart.style.display = "none";
-    noStart.style.display = "none";
-    mainGameScores.style.visibility = "visible";
-    bgImageBl.style.visibility = 'hidden';
-    document.getElementById("cardGame").removeAttribute('hidden');
-    movieTop.style.visibility = "hidden";
-    movieBottom.style.visibility = "hidden";
+    yesStartSm.style.display = "none";
+    noStartSm.style.display = "none";
+    mainGameScoresSm.style.visibility = "visible";
+    bgImageBlSm.style.visibility = 'hidden';
+    document.getElementById("cardGameSm").removeAttribute('hidden');
+    movieTopSm.style.visibility = "hidden";
+    movieBottomSm.style.visibility = "hidden";
 
-//? Audio pause section
-    musicButtonThree.removeAttribute("hidden");
-
-    musicButtonThree.removeEventListener("click", audioPauseThree);
-    musicButtonThree.addEventListener("click", audioPauseThree);
-    function audioPauseThree() {
-        if(battleTheme.paused) {
-            battleTheme.play();
-            musicButtonThree.textContent = "PAUSE";
-        } else {
-            battleTheme.pause();
-            musicButtonThree.textContent = "🎵";
-        }
-    }
 
 //! TIME Section
-    playerScore = 0;
-    opponentScore = 0;
-    alligatorUsedAt = [];
+    playerScoreSm = 0;
+    opponentScoreSm = 0;
+    alligatorUsedAtSm = [];
 
-   updateScoreDisplays();
-    resultText.innerText = "";
+   updateScoreDisplaysSm();
+    resultTextSm.innerText = "";
 
-    let timeLeft = 120; // 2 minutes in seconds
+    let timeLeftSm = 120; // 2 minutes in seconds
 
-    function updateTimer() {
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        timerDisplay.innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    function updateTimerSm() {
+        const minutesSm = Math.floor(timeLeftSm / 60);
+        const secondsSm = timeLeftSm % 60;
+        timerDisplaySm.innerText = `${String(minutesSm).padStart(2, '0')}:${String(secondsSm).padStart(2, '0')}`;
         
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            timerDisplay.innerText = "Game Over!";
-            gameActive = false;
-            disableChoiceButtons();
-            showFinalResult();
+        if (timeLeftSm <= 0) {
+            clearInterval(timerIntervalSm);
+            timerDisplaySm.innerText = "Game Over!";
+            gameActiveSm = false;
+            disableChoiceButtonsSm();
+            showFinalResultSm();
         }else {
-            timeLeft--;
+            timeLeftSm--;
         }
     }
-    updateTimer();
-    timerInterval = setInterval(updateTimer, 1000);
+    updateTimerSm();
+    timerIntervalSm = setInterval(updateTimerSm, 1000);
 
 
-    function disableChoiceButtons() {
-        rockBtn.disabled = true;
-        paperBtn.disabled = true;
-        scissorBtn.disabled = true;
-        alligatorBtn.disabled = true;
+    function disableChoiceButtonsSm() {
+        rockBtnSm.disabled = true;
+        paperBtnSm.disabled = true;
+        scissorBtnSm.disabled = true;
+        alligatorBtnSm.disabled = true;
     }
 
 
 //! FINAL RESULT Section
-    function showFinalResult() {
-    if (playerScore > opponentScore) {
-        resultText.textContent = "YOU WIN!";
-        resultText.style.color = "limegreen";
-    } else if (playerScore < opponentScore) {
-        resultText.textContent = "YOU LOSE!";
-        resultText.style.color = "red";
+    function showFinalResultSm() {
+    if (playerScoreSm > opponentScoreSm) {
+        resultTextSm.textContent = "YOU WIN!";
+        resultTextSm.style.color = "limegreen";
+    } else if (playerScoreSm < opponentScoreSm) {
+        resultTextSm.textContent = "YOU LOSE!";
+        resultTextSm.style.color = "red";
     } else {
-        resultText.textContent = "IT'S A TIE!";
-        resultText.style.color = "gold";
+        resultTextSm.textContent = "IT'S A TIE!";
+        resultTextSm.style.color = "gold";
     }
 }   
 }

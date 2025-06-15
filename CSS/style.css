@@ -731,7 +731,7 @@ font-family: "Pixelify Sans", sans-serif;
 
 .musicButtonThree {
     position: fixed;
-    top: -1px;
+    top: 10px;
     left: 0;
     padding: 10px 20px;
     font-size: 16px;
@@ -740,7 +740,7 @@ font-family: "Pixelify Sans", sans-serif;
     background-color: #cf72bd;
     color: #600817;
     cursor: pointer;
-    z-index: 1;
+    z-index: 0;
 }
 
 .audioScrollThree {
@@ -749,7 +749,7 @@ font-family: "Pixelify Sans", sans-serif;
     font-style: italic;
     top: 10px;
     left: 0;
-    z-index: 0;
+    z-index: 1;
     animation: scrollText 5s linear infinite;
 }
 /* #endregion */
@@ -868,7 +868,7 @@ top: 47%;
  }
 
  .spaceImg {
-   position: absolute;
+   position: fixed;
     width: 100%;
     max-width: -webkit-fill-available;
     height: 100%;
@@ -876,7 +876,7 @@ top: 47%;
  }
 
 .blossomImg {
-  position: absolute;
+  position: fixed;
     width: 100%;
     max-width: -webkit-fill-available;
     height: 100%;
@@ -1149,20 +1149,83 @@ top: 47%;
 
 /* #endregion */
 
-/* #region Scoring */
+/* #region Scoring + Clock Display */
 .mainGameScores {
     visibility: visible;
     position: relative;
-    top: 225px;
-    z-index: -102;
+    top: 60px;
+    font-size: 20px;
+    z-index: -100;
+    text-align: center;
 }
+
+.countdownTime {
+    position: absolute;
+    top: 25%;
+    left: 30px;
+    margin: 0px;
+    color: mediumspringgreen;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.timer {
+    position: absolute;
+    margin-left: 45%;
+    bottom: 112px;
+    z-index: 3;
+}
+
+.scoreDisplay {
+    border: 5px double #840419;
+    width: 110px;
+    height: 125px;
+    font-family: "Kode Mono", monospace;
+}
+
+.gameResultText {
+    position: fixed;
+    top: 35%;
+    left: 0;
+    width: 100%;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.ifTie {
+  color: rgb(65, 177, 228);
+  font-family: "Jersey 10", sans-serif;
+  font-size: 30px;
+}
+
+.plusOne {
+  color: green;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 30px;
+}
+
+.keepTrying {
+  color: red;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 30px;
+}
+
+.alligatorSurprise {
+  color: yellow;
+  font-family: "Jersey 10", sans-serif;
+  animation: alligator 500ms ease 0s infinite normal none;
+  font-size: 30px;
+}
+
+
 /* #endregion */
 
 /* #region Music and Audio Buttons */
 
 .musicButton {
     position: fixed;
-    top: 8px;
+    top: 0;
     padding: 10px 20px;
     font-size: 16px;
     border: 2px solid #600817;
@@ -1209,8 +1272,8 @@ top: 47%;
 
 .musicButtonThree {
     position: fixed;
-    top: -1px;
-    left: 94%;
+    top: 0;
+    left: 0;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -1226,11 +1289,186 @@ top: 47%;
     position: fixed;
     font-style: italic;
     top: 10px;
-    left: 81%;
-    z-index: 4;
+    left: 0;
+    z-index: 0;
     animation: scrollText 5s linear infinite;
 }
 
+/* #endregion */
+
+
+/* #region Cards */
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-family: "Pixelify Sans", sans-serif;
+  position: fixed;
+  top: 330px;
+  left: 0;
+}
+
+.box {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 30px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  transition: 0.5s;
+}
+
+.box::before,
+.box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.box::after {
+  filter: blur(30px);
+}
+
+.box:hover::before,
+.box:hover::after {
+  transform: skewX(0deg);
+  left: 20px;
+  width: calc(100% - 90px);
+}
+
+.box:nth-child(1)::before,
+.box:nth-child(1)::after {
+  background: linear-gradient(315deg, #ffbc00, #ff0058);
+}
+.box:nth-child(2)::before,
+.box:nth-child(2)::after {
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+.box:nth-child(3)::before,
+.box:nth-child(3)::after {
+  background: linear-gradient(315deg, #4dff03, #00d0ff);
+}
+.box:nth-child(4)::before,
+.box:nth-child(4)::after {
+  background: linear-gradient(315deg, #000000, #cf72bd);
+}
+
+.box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.box span::before,
+.box span::after {
+  content: '';
+  position: absolute;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  animation: animate 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.box span::before {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  transition: 0.1s;
+}
+.box:hover span::before {
+  top: -50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+.box span::after {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  animation-delay: -1s;
+}
+.box:hover span::after {
+  bottom: -50px;
+  right: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+@keyframes animate {
+  0%, 100% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translate(-10px);
+  }
+}
+
+.box .content {
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  pointer-events: auto;
+  transform: scale(1.5);
+}
+
+.box .content h2 {
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.box .content p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+
+.box .content a {
+  display: inline-block;
+  font-size: 1.1em;
+  color: #111;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.box .content a:hover {
+  background: #ffcf4d;
+  border: 1px solid rgba(255, 0, 88, 0.4);
+  box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
+}
 /* #endregion */
 
 }
