@@ -740,7 +740,7 @@ font-family: "Pixelify Sans", sans-serif;
     background-color: #cf72bd;
     color: #600817;
     cursor: pointer;
-    z-index: 0;
+    z-index: 1;
 }
 
 .audioScrollThree {
@@ -749,7 +749,7 @@ font-family: "Pixelify Sans", sans-serif;
     font-style: italic;
     top: 10px;
     left: 0;
-    z-index: 1;
+    z-index: -2;
     animation: scrollText 5s linear infinite;
 }
 /* #endregion */
@@ -789,24 +789,24 @@ animation: theEnd 870s ease 0 infinite normal none;
 @media only screen and (max-width: 575px) {
   /* #region Header section */
   .headers {
-      /* background-color: black;
-      position: fixed; */
+     position: absolute;
       z-index: 3;
-      /* height: 100%;
-      max-height: -webkit-fill-available;    */
+      width: 100%;
   }
 
   .loadingText {
-    position: relative;  ;
-    font-size: 30px;
+    position: absolute  ;
+    width: 100%;
+    font-size: 35px;
     top: 33%;
     left: 0;
     text-align: center;
   }
 
   .headerMain {
-    position: relative;
-    top: 35%;
+    position: absolute;
+    width: 100%;
+    top: 50%;
     /* left: 25%; */
   }
 
@@ -839,11 +839,12 @@ animation: theEnd 870s ease 0 infinite normal none;
 }
 
 .textAge {
-  position: fixed;
+  position: absolute;
+  width: 100%;
     font-size: 40px;
     margin-top: 0;
     top: 33%;
-    left: 10px;
+    left: 0;
     color: blue;
 }
 
@@ -855,20 +856,20 @@ top: 47%;
 
 /* #region Background Images */
 .backSmImg {
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: -webkit-fill-available;
  }
 
 .bubbleImg {
-        position: fixed;
+        position: absolute;
         z-index: -1;
         width: 100%;
         max-width: -webkit-fill-available;
  }
 
  .spaceImg {
-   position: fixed;
+   position: absolute;
     width: 100%;
     max-width: -webkit-fill-available;
     height: 100%;
@@ -876,7 +877,7 @@ top: 47%;
  }
 
 .blossomImg {
-  position: fixed;
+  position: absolute;
     width: 100%;
     max-width: -webkit-fill-available;
     height: 100%;
@@ -886,16 +887,18 @@ top: 47%;
 
 /* #region Main Menu options + Music */
 .gameTitle {
-  position: fixed;
-  left: 8%;
+  position: absolute;
+  width: 100%;
+  left: 0;
     font-size: 150px;
     /* margin-top: 25%; */
 }
 
 .mainMenu {
-  position: fixed;
+  position: absolute;
+  width: 100%;
   top: 37%;
-  margin-left: 12%;
+  margin-left: 0;
   text-align: center;
 }
 
@@ -966,10 +969,9 @@ top: 47%;
 /* #region After clicking START */
 .blackBarTop {
   width: 100%;
-  height: 0px;
-  /* box-sizing: border-box; */
+  height: auto;
   z-index: 3;
-  position: fixed;
+  position: absolute;
   top: 0;
   opacity: 0;
   animation: slideTop 4s forwards;
@@ -977,10 +979,11 @@ top: 47%;
 
 .blackBarBottom {
   width: 100%;
-  height: 0px;
+  height: auto;
   z-index: 3;
-  position: fixed;
-  top: 66%;
+  position: absolute;
+  top: 510px;
+  left: 0;
   opacity: 0;
   animation: slideBottom 4s forwards;
 }
@@ -995,10 +998,8 @@ top: 47%;
 /* #region Dialogue section*/
 .announcerGuy {
   width: 100%;
-  max-width: 576px;
-
-    position: fixed;
-    /* z-index: -20; */
+    position: absolute;
+  height: auto;
 }
 .announcerSlide {
     animation: announcerSlide 1s ease-in normal forwards;
@@ -1006,7 +1007,7 @@ top: 47%;
 
 .mainTalk {
     font-family: "Kode Mono", monospace;
-    position: fixed;
+    position: absolute;
     z-index: 4;
     width: 97%;
     height: 144px;
@@ -1019,7 +1020,7 @@ top: 47%;
 }
 
 .nextBtn {
-  position: fixed;
+  position: absolute;
   z-index: 6;
   left: 42%;
   top: 90%;
@@ -1038,7 +1039,7 @@ top: 47%;
 
 .mainEnemy {
   width: 40%;
-  position: fixed;
+  position: absolute;
   top: 30px;
   right: 7%;
   /* z-index: -20; */
@@ -1049,7 +1050,7 @@ top: 47%;
 }
 
 .mainTalkTwo {
-  position: fixed;
+  position: absolute;
   z-index: 3;
   width: 80%;
   height: 20%;
@@ -1062,7 +1063,7 @@ top: 47%;
 }
 
 .nextBtnTwo {
-  position: fixed;
+  position: absolute;
   z-index: 4;
   left: 40%;
   top: 90%;
@@ -1152,7 +1153,7 @@ top: 47%;
 /* #region Scoring + Clock Display */
 .mainGameScores {
     visibility: visible;
-    position: relative;
+    position: absolute;
     top: 60px;
     font-size: 20px;
     z-index: -100;
@@ -1224,8 +1225,8 @@ top: 47%;
 /* #region Music and Audio Buttons */
 
 .musicButton {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 10px;
     padding: 10px 20px;
     font-size: 16px;
     border: 2px solid #600817;
@@ -1238,11 +1239,12 @@ top: 47%;
 
 
 .audioScroll {
-  position: fixed;
-  /* margin-top: 209%; */
-  margin-left: 15%;
+  position: absolute;
+  width: 100%;
+ margin-top: 0;
+  margin-left: 0;
   z-index: -1;
-  animation: scrollText 5s linear infinite;
+  animation: scrollText 10s linear infinite;
 }
 
 .musicButtonTwo {
@@ -1261,7 +1263,8 @@ top: 47%;
 
 .audioScrollTwo {
     color: #600817;
-    position: fixed;
+    position: absolute;
+    width: 100%;
     font-style: italic;
     top: 30px;
     left: 0;

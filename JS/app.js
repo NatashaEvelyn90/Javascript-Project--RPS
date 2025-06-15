@@ -158,7 +158,7 @@ function reload() {
 const yesBtn = document.getElementById("yesBtn"); 
 
 //? "PLAY / PAUSE" Audio 
-
+musicButtonThree.style.visibility = 'hidden';
 musicButtonOne.removeAttribute("hidden");
 musicButtonOne.addEventListener("click", audioPause);
 function audioPause() {
@@ -574,6 +574,7 @@ function beginBattle() {
     console.log("Battle started — gameActive is now", gameActive);
 
 //? Remove announcer + add music
+musicButtonThree.style.visibility = 'visible';
     titleScrollThree.removeAttribute("hidden");
     titleScrollTwo.style.visibility = 'hidden';
     musicButtonTwo.style.visibility = 'hidden';
