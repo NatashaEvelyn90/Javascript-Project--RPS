@@ -69,8 +69,8 @@
 .flowerImg { 
   width: 100%;
   max-width: -webkit-fill-available;
-  height: 100%;
-  position: absolute;
+  height: auto;
+  position: fixed;
   z-index: -97;
   opacity: 1;
 }
@@ -78,8 +78,8 @@
 .bubbleImg {
   width: 100%;
   max-width: -webkit-fill-available;
-  height: 100%;
-  position: absolute;
+  height: auto;
+  position: fixed;
   z-index: -99;
 }
 
@@ -87,7 +87,7 @@
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: -100;
 }
 
@@ -95,7 +95,7 @@
   width: 100%;
   max-width: -webkit-fill-available;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: -101;
 }
 /* #endregion*/
@@ -103,9 +103,9 @@
 /* #region "Yes or No" popup */
 .headers {
     background-color: black;
-    position: absolute;
+    position: fixed;
     width: 100%;
-    height: -webkit-fill-available;
+        height: -webkit-fill-available;
     z-index: 1;
     
 }
@@ -173,7 +173,7 @@ strong {
 }
 
 .gameTitle {
-  position: absolute;
+  position: fixed;
   left: 48%;
   top: 12%;
   font-size: 400px;
@@ -184,7 +184,7 @@ strong {
 }
 
 .mainMenu {
-  position: absolute;
+  position: fixed;
         top: 37%;
         margin-left: 12%;
         text-align: center;
@@ -239,7 +239,7 @@ strong {
   height: 0px;
   box-sizing: border-box;
   z-index: 2;
-  position: absolute;
+  position: fixed;
   opacity: 0;
   animation: slideTop 4s forwards;
 }
@@ -249,7 +249,7 @@ strong {
   height: 0px;
   box-sizing: border-box;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   top: 81%;
   opacity: 0;
   animation: slideBottom 4s forwards;
@@ -265,10 +265,9 @@ strong {
 
 /* #region "DIALOG" Section */
 .announcerGuy {
-  width: 40%;
-  position: fixed;
-  top: 30px;
-  /* z-index: -20; */
+  width: 605px;
+  position: absolute;
+  top: 0;
 }
 
 .announcerSlide {
@@ -279,28 +278,29 @@ strong {
   font-family: "Kode Mono", monospace;
   position: fixed;
   z-index: 4;
-  width: 50%;
+  width: 85%;
   height: 20%;
   top: 83%;
-  font-size: x-large;
+  font-size: 30px;
   color: #cf72bd;
-  left: 4%;
-  bottom: 95px;
+  left: 0;
+  bottom: 0;
+  text-align: center;
 }
 
 .nextBtn {
   position: fixed;
   z-index: 4;
-  left: 80%;
-  top: 86%;
+  left: 90%;
+  top: 90%;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 30px;
   border: none;
   border-radius: 10px;
   background-color: blue;
   color: white;
   cursor: pointer;
-  animation: nextText 870ms ease 0s infinite normal none;
+  animation: nextText 5s ease 0s infinite normal none;
   &:hover {
     background-color: #ffbc00;
   }
@@ -321,28 +321,29 @@ strong {
 .mainTalkTwo {
   position: fixed;
   z-index: 3;
-  width: 50%;
+  width: 100%;
   height: 20%;
   top: 83%;
-  font-size: x-large;
+  font-size: 30px;
   color: orange;
-  left: 4%;
-  bottom: 95px;
+  left: 0;
+  bottom: 0;
+  text-align: center;
 }
 
 .nextBtnTwo {
   position: fixed;
   z-index: 4;
-  left: 80%;
-  top: 86%;
+  left: 90%;
+  top: 90%;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 30px;
   border: none;
   border-radius: 10px;
   background-color: green;
   color: white;
   cursor: pointer;
-  animation: nextText 870ms ease 0s infinite normal none;
+  animation: nextText 5s ease 0s infinite normal none;
   &:hover {
     background-color: #600817;
   }
@@ -598,34 +599,34 @@ font-family: "Pixelify Sans", sans-serif;
 
  .timer {
   position: absolute;
-  margin-left: 45%;
-  bottom: 112px;
+  margin-left: 50%;
+  top: 40%;
   z-index: 3;
 }
 
 .ifTie {
   color: rgb(65, 177, 228);
   font-family: "Jersey 10", sans-serif;
-  font-size: 75px;
+  font-size: 85px;
 }
 
 .plusOne {
   color: green;
   font-family: "Jersey 10", sans-serif;
-  font-size: xxx-large;
+  font-size: 85px;
 }
 
 .keepTrying {
   color: red;
   font-family: "Jersey 10", sans-serif;
-  font-size: xxx-large;
+  font-size: 85px;
 }
 
 .alligatorSurprise {
   color: yellow;
   font-family: "Jersey 10", sans-serif;
   animation: alligator 500ms ease 0s infinite normal none;
-  font-size: xxx-large;
+  font-size: 85px;
 }
 
 @keyframes alligator {
@@ -643,21 +644,23 @@ font-family: "Pixelify Sans", sans-serif;
 
 .countdownTime {
   position: absolute;
+  width: 100%;
   top: 75px;
-  margin-left: 30%;
-  color: mediumspringgreen;
+  margin-left: 0;
+  color: red;
   font-size: 100px;
   font-weight:500;
+  text-align: center;
 }
 
 .playerName {
     text-decoration: underline;
     text-underline-offset: 5px;
-    color: pink;
+    color: #4dff03;
 }
 
 .playerScore {
-    color: pink;
+    color: #4dff03;
     font-size: 50px;
 }
 
@@ -699,11 +702,11 @@ font-family: "Pixelify Sans", sans-serif;
 
 .audioScroll {
    color: #600817;
-  font-style: italic;
-  position: fixed;
+ position: fixed;
+  width: 100%;
   top: 3%;
   z-index: -1;
-  animation: scrollText 5s linear infinite;
+  animation: scrollText 20s linear infinite;
 }
 
 .musicButtonTwo {
@@ -723,11 +726,12 @@ font-family: "Pixelify Sans", sans-serif;
 .audioScrollTwo {
     color: #600817;
     position: fixed;
+    width: 100%;
     font-style: italic;
     top: 15px;
     left: 0;
     z-index: 3;
-    animation: scrollText 10s linear infinite;
+    animation: scrollText 20s linear infinite;
     font-size: 20px;
 }
 
@@ -790,8 +794,8 @@ animation: theEnd 870s ease 0 infinite normal none;
 /* #region  */
 @media only screen and (max-width: 575px) {
   /* #region Header section */
-  .headers {
-     position: absolute;
+  /* .headers {
+     position: fixed;
       z-index: 3;
       width: 100%;
   }
@@ -809,7 +813,7 @@ animation: theEnd 870s ease 0 infinite normal none;
     position: absolute;
     width: 100%;
     top: 50%;
-    /* left: 25%; */
+    
   }
 
   .yesBtn {
@@ -853,47 +857,41 @@ animation: theEnd 870s ease 0 infinite normal none;
 .refreshBtn {
 position: fixed;
 top: 47%;
-}
+} */
 /* #endregion */
 
 /* #region Background Images */
-.backSmImg {
-    position: absolute;
+/* .backSmImg {
+    position: fixed;
     width: 100%;
-    height: -webkit-fill-available;
- }
+}
 
 .bubbleImg {
-        position: absolute;
+        position: fixed;
         z-index: -1;
         width: 100%;
-        max-width: -webkit-fill-available;
- }
+}
 
  .spaceImg {
-   position: absolute;
+   position: fixed;
     width: 100%;
-    max-width: -webkit-fill-available;
-    height: 100%;
     z-index: -100;
  }
 
 .blossomImg {
-  position: absolute;
+  position: fixed;
     width: 100%;
-    max-width: -webkit-fill-available;
-    height: 100%;
     z-index: -101;
-}
+} */
 /* #endregion */
 
 /* #region Main Menu options + Music */
-.gameTitle {
+/* .gameTitle {
   position: absolute;
   width: 100%;
   left: 0;
     font-size: 150px;
-    /* margin-top: 25%; */
+  
 }
 
 .mainMenu {
@@ -938,11 +936,11 @@ top: 47%;
   background-color: #ffc0cb7f;
   color: #600817;
   border-radius: 16px;
-}
+} */
 /* #endregion */
 
 /* #region Animations */
-@keyframes fadeout {
+/* @keyframes fadeout {
   0% {opacity: 1;}
   100% {opacity: 0;}
 }
@@ -958,7 +956,7 @@ top: 47%;
 }
 
 100% {
-    transform: translateY(145px);
+    transform: translateY(0px);
 }
 }
 
@@ -966,14 +964,23 @@ top: 47%;
     100% {border-block: 130px solid black; opacity: 1;}
 }
 
+@keyframes enemySlide {
+0% {
+  transform: translateX(-750px);
+  }
+
+  100% {
+  transform: translateY(0px);
+  }
+} */
 /* #endregion */
 
 /* #region After clicking START */
-.blackBarTop {
+/* .blackBarTop {
   width: 100%;
   height: auto;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   top: 0;
   opacity: 0;
   animation: slideTop 4s forwards;
@@ -983,7 +990,7 @@ top: 47%;
   width: 100%;
   height: auto;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   top: 510px;
   left: 0;
   opacity: 0;
@@ -994,13 +1001,14 @@ top: 47%;
   animation-name: fadeout;
   animation-duration: 4s;
   animation-fill-mode: forwards;
-}
+} */
 /* #endregion */
 
 /* #region Dialogue section*/
-.announcerGuy {
+/* .announcerGuy {
   width: 100%;
-    position: absolute;
+  max-width: 576px;
+    position: relative;
   height: auto;
 }
 .announcerSlide {
@@ -1009,14 +1017,14 @@ top: 47%;
 
 .mainTalk {
     font-family: "Kode Mono", monospace;
-    position: absolute;
+    position: fixed;
     z-index: 4;
-    width: 97%;
+    width: 100%;
     height: 144px;
-    top: 70%;
-    font-size: 18px;
+    top: 75%;
+    font-size: 20px;
     color: #cf72bd;
-    left: 2px;
+    left: 0;
     bottom: 0;
     text-align: center;
 }
@@ -1027,7 +1035,7 @@ top: 47%;
   left: 42%;
   top: 90%;
   padding: 10px 10px;
-  font-size: 16px;
+  font-size: 25px;
   border: none;
   border-radius: 10px;
   background-color: blue;
@@ -1040,11 +1048,12 @@ top: 47%;
 }
 
 .mainEnemy {
-  width: 40%;
+  width: 100%;
+  max-width: 576px;
+  height: auto;
   position: absolute;
-  top: 30px;
-  right: 7%;
-  /* z-index: -20; */
+  top: 20px;
+  right: 0;
 }
 
 .enemySlide {
@@ -1052,25 +1061,25 @@ top: 47%;
 }
 
 .mainTalkTwo {
-  position: absolute;
+  position: fixed;
   z-index: 3;
-  width: 80%;
+  width: 100%;
   height: 20%;
-  top: 70%;
+  top: 75%;
   font-size: x-large;
   color: orange;
-  left: 10%;
-  bottom: 95px;
+  left: 0;
+  bottom: 0;
   text-align: center;
 }
 
 .nextBtnTwo {
   position: absolute;
-  z-index: 4;
+  z-index: 5;
   left: 40%;
   top: 90%;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 25px;
   border: none;
   border-radius: 10px;
   background-color: green;
@@ -1117,9 +1126,11 @@ top: 47%;
     font-weight: 700;
     font-style: normal;
     font-size: 55px;
-    position: fixed;
+    position: absolute;
+    width: 100%;
+    text-align: center;
     top: 30%;
-    left: 20%;
+    left: 0;
 }    
 
 .cowardBtn {
@@ -1133,7 +1144,7 @@ top: 47%;
   width: 100px;
   height: 75px;
   border-radius: 18px;
-  z-index: 3;
+  z-index: 4;
 }
 
 .comebackBtn {
@@ -1147,15 +1158,16 @@ top: 47%;
   width: 100px;
   height: 75px;
   border-radius: 18px;
-  z-index: 3;
-}
+  z-index: 4;
+} */
 
 /* #endregion */
 
 /* #region Scoring + Clock Display */
-.mainGameScores {
+/* .mainGameScores {
     visibility: visible;
-    position: absolute;
+    position: fixed;
+    width: 100%;
     top: 60px;
     font-size: 20px;
     z-index: -100;
@@ -1174,9 +1186,9 @@ top: 47%;
 
 .timer {
     position: absolute;
-    margin-left: 45%;
+    margin-left: 50%;
     bottom: 112px;
-    z-index: 3;
+    z-index: 5;
 }
 
 .scoreDisplay {
@@ -1219,14 +1231,14 @@ top: 47%;
   font-family: "Jersey 10", sans-serif;
   animation: alligator 500ms ease 0s infinite normal none;
   font-size: 30px;
-}
+} */
 
 
 /* #endregion */
 
 /* #region Music and Audio Buttons */
 
-.musicButton {
+/* .musicButton {
     position: absolute;
     top: 10px;
     padding: 10px 20px;
@@ -1241,7 +1253,7 @@ top: 47%;
 
 
 .audioScroll {
-  position: absolute;
+  position: fixed;
   width: 100%;
  margin-top: 0;
   margin-left: 0;
@@ -1251,9 +1263,9 @@ top: 47%;
 
 .musicButtonTwo {
     position: fixed;
-    top: 8px;
+    top: 12px;
     left: 0;
-    padding: 10px 20px;
+    padding: 15px 20px;
     font-size: 16px;
     border: none;
     border-radius: 10px;
@@ -1265,7 +1277,7 @@ top: 47%;
 
 .audioScrollTwo {
     color: #600817;
-    position: absolute;
+    position: fixed;
     width: 100%;
     font-style: italic;
     top: 30px;
@@ -1286,7 +1298,7 @@ top: 47%;
     background-color: #cf72bd;
     color: #600817;
     cursor: pointer;
-    /* z-index: 3; */
+    
 }
 
 .audioScrollThree {
@@ -1297,13 +1309,13 @@ top: 47%;
     left: 0;
     z-index: 0;
     animation: scrollText 5s linear infinite;
-}
+} */
 
 /* #endregion */
 
-
+}
 /* #region Cards */
-.container {
+/* .container {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -1473,8 +1485,8 @@ top: 47%;
   background: #ffcf4d;
   border: 1px solid rgba(255, 0, 88, 0.4);
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
-}
+} */
 /* #endregion */
 
-}
+
 /* #endregion */

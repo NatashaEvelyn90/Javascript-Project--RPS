@@ -249,7 +249,7 @@ function start() {
     audioButtonOne.classList.add("fadeOut");
     titleScroll.classList.add("fadeOut");
     //? The sparkles is for the smaller screen
-    sparkles.classList.add("fadeOut"); 
+    // sparkles.classList.add("fadeOut"); 
     scoringSection.style.visibility = 'hidden';
     
     setTimeout(theAnnouncement, 4000);
@@ -455,7 +455,7 @@ function updateScoreDisplays() {
 
 
 const tieResults = document.getElementById('tieBreaker');
-const resultText = document.getElementById("trueWinnerSm");
+const resultText = document.getElementById("trueWinner");
 
 
 //? Button choices 
@@ -671,478 +671,482 @@ musicButtonThree.style.visibility = 'visible';
 
 
 //* SMALL SECTION 
-//#region SMALL Section
+// //#region SMALL Section
 
-//* "TUTORIAL" section
-// #region "Learn the game"
-const tutorialSm = document.getElementById("tutorialBtnSm");
-tutorialSm.addEventListener("click", smallLearn);
+// //* "TUTORIAL" section
+// // #region "Learn the game"
+// const tutorialSm = document.getElementById("tutorialBtnSm");
+// tutorialSm.addEventListener("click", smallLearn);
 
-function smallLearn() {
-const tutorialDrop = document.getElementById("dropTutorialSm");
-const isHiddenSm = tutorialDrop.style.display === "none" || tutorialDrop.style.display === "";
+// function smallLearn() {
+// const tutorialDrop = document.getElementById("dropTutorialSm");
+// const isHiddenSm = tutorialDrop.style.display === "none" || tutorialDrop.style.display === "";
     
-    tutorialDrop.style.display = isHiddenSm ? "block" : "none";
+//     tutorialDrop.style.display = isHiddenSm ? "block" : "none";
 
-    if (isHiddenSm) {
-        tutorialDrop.style.border = "4px solid #cb738289";
-        const learnSpanSm = tutorialDrop.querySelectorAll(".rulesSm");
-        learnSpanSm[0].innerText = "R-P-S is Rock Paper Scissors; just like the classic game!";
-        learnSpanSm[1].innerText = "The rules are simple, rock beats scissors, scissors beat paper, paper beats rock. However, there might be something special within the game as well. Will this secret appear in your game?";
-    }
-}
-// #endregion
+//     if (isHiddenSm) {
+//         tutorialDrop.style.border = "4px solid #cb738289";
+//         const learnSpanSm = tutorialDrop.querySelectorAll(".rulesSm");
+//         learnSpanSm[0].innerText = "R-P-S is Rock Paper Scissors; just like the classic game!";
+//         learnSpanSm[1].innerText = "The rules are simple, rock beats scissors, scissors beat paper, paper beats rock. However, there might be something special within the game as well. Will this secret appear in your game?";
+//     }
+// }
+// // #endregion
 
-//* "CREDITS" section
-// #region "Give thanks"
-const smallThanks = document.getElementById("creditsBtnSm");
-smallThanks.addEventListener("click", theHelp);
+// //* "CREDITS" section
+// // #region "Give thanks"
+// const smallThanks = document.getElementById("creditsBtnSm");
+// smallThanks.addEventListener("click", theHelp);
 
-function theHelp() {
-    const creditDrop = document.getElementById("dropCredits");
-    const isHiddenC = creditDrop.style.display === "none" || creditDrop.style.display === "";
-    creditDrop.style.display = isHiddenC ? "block" : "none";
+// function theHelp() {
+//     const creditDrop = document.getElementById("dropCredits");
+//     const isHiddenC = creditDrop.style.display === "none" || creditDrop.style.display === "";
+//     creditDrop.style.display = isHiddenC ? "block" : "none";
 
-    if (isHiddenC) {
-        creditDrop.style.border = "4px solid #cb738289";
-        const creditSpansSm = creditDrop.querySelectorAll(".staffSm");
-        creditSpansSm[0].innerText = "Music: Natasha E. || Mattias Häggström Gerdt";
-        creditSpansSm[1].innerText = "Game Design: Natasha E.";
-        creditSpansSm[2].innerText = "Art: Natasha E. || Madeline E. || Alexander E.";
-        creditSpansSm[3].innerText = "Extra Credits: Google Fonts || Bootstrap || Pixabay.com || ChatGPT";
-    }
-}
-// #endregion
+//     if (isHiddenC) {
+//         creditDrop.style.border = "4px solid #cb738289";
+//         const creditSpansSm = creditDrop.querySelectorAll(".staffSm");
+//         creditSpansSm[0].innerText = "Music: Natasha E. || Mattias Häggström Gerdt";
+//         creditSpansSm[1].innerText = "Game Design: Natasha E.";
+//         creditSpansSm[2].innerText = "Art: Natasha E. || Madeline E. || Alexander E.";
+//         creditSpansSm[3].innerText = "Extra Credits: Google Fonts || Bootstrap || Pixabay.com || ChatGPT";
+//     }
+// }
+// // #endregion
 
-//* Clicking the "START" button on the menu
-// #region 
-const mainMenuButtonsSm = document.getElementById("mainButtonsSm");
-const sparkles = document.querySelector("#sparkles"); //* Background for small screen
-const titleOfGameSm = document.getElementById("gameTitleSm");
-const startGameSm = document.getElementById("mainStartBtnSm");
-const topBarSm = document.getElementById("movieTopSm");
-const bottomBarSm = document.getElementById("movieBottomSm");
+// //* Clicking the "START" button on the menu
+// // #region 
+// const mainMenuButtonsSm = document.getElementById("mainButtonsSm");
+// const sparkles = document.querySelector("#sparkles"); //* Background for small screen
+// const titleOfGameSm = document.getElementById("gameTitleSm");
+// const startGameSm = document.getElementById("mainStartBtnSm");
+// const topBarSm = document.getElementById("movieTopSm");
+// const bottomBarSm = document.getElementById("movieBottomSm");
 
-startGameSm.addEventListener("click", startSm);
-function startSm() {
-    titleMusic.pause();
-    titleMusic.currentTime = 0;
+// startGameSm.addEventListener("click", startSm);
+// function startSm() {
+//     titleMusic.pause();
+//     titleMusic.currentTime = 0;
 
-    topBarSm.removeAttribute("hidden");
-    bottomBarSm.removeAttribute("hidden");
+//     topBarSm.removeAttribute("hidden");
+//     bottomBarSm.removeAttribute("hidden");
 
-    mainMenuButtonsSm.classList.add("fadeOut");
-    flowerImage.classList.add("fadeOut");    
-    audioButtonOne.classList.add("fadeOut");
-    titleScroll.classList.add("fadeOut");
-    //? The sparkles is for the smaller screen
-    sparkles.classList.add("fadeOut"); 
+//     mainMenuButtonsSm.classList.add("fadeOut");
+//     flowerImage.classList.add("fadeOut");    
+//     audioButtonOne.classList.add("fadeOut");
+//     titleScroll.classList.add("fadeOut");
+//     //? The sparkles is for the smaller screen
+//     sparkles.classList.add("fadeOut"); 
     
-    setTimeout(theAnnouncementSm, 4000);
-}
-// #endregion
+//     setTimeout(theAnnouncementSm, 4000);
+// }
+// // #endregion
 
-//* "DIALOG" Section 
-// #region Whole Dialog Section
-// #region TOXTILL + CRAZPICC Lines
-function theAnnouncementSm() {
-    let speechStop = false;
-    announcerMusic.play();
+// //* "DIALOG" Section 
+// // #region Whole Dialog Section
+// // #region TOXTILL + CRAZPICC Lines
+// function theAnnouncementSm() {
+//     let speechStop = false;
+//     announcerMusic.play();
 
-    // *From Main Menu (hiding)
-    titleOfGameSm.style.visibility = 'hidden';
-    mainMenuButtonsSm.style.visibility = 'hidden';
-    flowerImage.style.visibility = 'hidden';    
-    musicButtonOne.style.visibility = 'hidden';
-    titleScroll.style.visibility = 'hidden';
-    sparkles.style.visibility = 'hidden';
+//     // *From Main Menu (hiding)
+//     titleOfGameSm.style.visibility = 'hidden';
+//     mainMenuButtonsSm.style.visibility = 'hidden';
+//     flowerImage.style.visibility = 'hidden';    
+//     musicButtonOne.style.visibility = 'hidden';
+//     titleScroll.style.visibility = 'hidden';
+//     sparkles.style.visibility = 'hidden';
     
-    //? "PAUSE / PLAY" audio Section    
-    titleScrollTwo.removeAttribute("hidden");
+//     //? "PAUSE / PLAY" audio Section    
+//     titleScrollTwo.removeAttribute("hidden");
 
-    musicButtonTwo.removeAttribute("hidden");
-    musicButtonTwo.addEventListener("click", audioPauseTwo);
-    function audioPauseTwo() {
-        if(announcerMusic.paused) {
-            announcerMusic.play();
-            musicButtonTwo.innerText = "PAUSE";
-        } else {
-            announcerMusic.pause();
-            musicButtonTwo.innerText = "🎵";
-        }
-    }
+//     musicButtonTwo.removeAttribute("hidden");
+//     musicButtonTwo.addEventListener("click", audioPauseTwo);
+//     function audioPauseTwo() {
+//         if(announcerMusic.paused) {
+//             announcerMusic.play();
+//             musicButtonTwo.innerText = "PAUSE";
+//         } else {
+//             announcerMusic.pause();
+//             musicButtonTwo.innerText = "🎵";
+//         }
+//     }
 
-    nextBtnSm.removeAttribute("hidden");
+//     nextBtnSm.removeAttribute("hidden");
 
-    //! Toxtill Section
-    const announcerDialogLinesSm = [
-        "Welcome to the final round of R-P-S!",
-        "Everyone give them a round of applause!",
-        "*audience cheers*",
-        "I am your announcer, Toxtill, coming to you live with the action!",
-        "Today we have an amazing game that will keep you on your toes!",
-        "So we have--OH! It that the reigning champion I see?",
-        "I DON'T BELIVE IT FOLKS! THIS R-P-S BEGINNER IS UP AGAINST CRAZPICC, THE REIGNING CHAMPION FOR THE PAST 15 YEARS!"
-    ]
+//     //! Toxtill Section
+//     const announcerDialogLinesSm = [
+//         "Welcome to the final round of R-P-S!",
+//         "Everyone give them a round of applause!",
+//         "*audience cheers*",
+//         "I am your announcer, Toxtill, coming to you live with the action!",
+//         "Today we have an amazing game that will keep you on your toes!",
+//         "So we have--OH! It that the reigning champion I see?",
+//         "I DON'T BELIVE IT FOLKS! THIS R-P-S BEGINNER IS UP AGAINST CRAZPICC, THE REIGNING CHAMPION FOR THE PAST 15 YEARS!"
+//     ]
 
-    let currentLineSm = 0;
+//     let currentLineSm = 0;
 
-    //! Toxtill Buttons / Section
-    announcerSm.removeAttribute('hidden');
-    announcerSm.classList.add("announcerSlide");
-    mainTalkSm.innerText = announcerDialogLinesSm[currentLineSm];
+//     //! Toxtill Buttons / Section
+//     announcerSm.removeAttribute('hidden');
+//     announcerSm.classList.add("announcerSlide");
+//     mainTalkSm.innerText = announcerDialogLinesSm[currentLineSm];
 
-    nextBtnSm.addEventListener("click", announcerSpeech);
-    function announcerSpeech() {
-        currentLineSm++;
-        if(currentLineSm < announcerDialogLinesSm.length) {
-            mainTalkSm.textContent = announcerDialogLinesSm[currentLineSm];
-        } else {
-            currentLineSm = 0;
-            speechStop = true;
-            mainTalkSm.style.visibility = 'hidden';
-            nextBtnSm.style.visibility ='hidden';
-            nextBtnTwoSm.removeAttribute("hidden");
-            document.querySelector("#crazpiccLinesSm").removeAttribute("hidden");
-            crazpiccSpeech();
-        }
-    }
+//     nextBtnSm.addEventListener("click", announcerSpeech);
+//     function announcerSpeech() {
+//         currentLineSm++;
+//         if(currentLineSm < announcerDialogLinesSm.length) {
+//             mainTalkSm.textContent = announcerDialogLinesSm[currentLineSm];
+//         } else {
+//             currentLineSm = 0;
+//             speechStop = true;
+//             mainTalkSm.style.visibility = 'hidden';
+//             nextBtnSm.style.visibility ='hidden';
+//             nextBtnTwoSm.removeAttribute("hidden");
+//             announcerSm.classList.remove("announcerSlide");
+//             announcerSm.classList.add("fadeOut");
+//             // announcerSm.style.visibility = 'hidden';
+//             document.querySelector("#crazpiccLinesSm").removeAttribute("hidden");
+//             crazpiccSpeech();
+//         }
+//     }
     
-    //! CRAZPICC Section
-    const crazpiccDialogLinesSm = [
-        "Well, well well...",
-        "*stares judgingly*",
-        "I see that you are my opponent?",
-        "Pathetic.",
-        "Let's just get this over with so I can go home to my dog.",
-        "You ready to be beaten?"
-    ]
+//     //! CRAZPICC Section
+//     const crazpiccDialogLinesSm = [
+//         "Well, well well...",
+//         "*stares judgingly*",
+//         "I see that you are my opponent?",
+//         "Pathetic.",
+//         "Let's just get this over with so I can go home to my dog.",
+//         "You ready to be beaten?"
+//     ]
 
-    let currentLineTwoSm = 0;
+//     let currentLineTwoSm = 0;
 
-    //! CRAZPICC Buttons / Section
-    mainEnemySm.classList.add("enemySlide");
+//     //! CRAZPICC Buttons / Section
+//     mainEnemySm.classList.add("enemySlide");
     
-    nextBtnTwoSm.addEventListener("click", crazpiccSpeech);
-    function crazpiccSpeech() {
-        mainEnemySm.removeAttribute("hidden");
-        mainTalkTwoSm.innerText = crazpiccDialogLinesSm[currentLineTwoSm];
-        currentLineTwoSm++;
-        if(currentLineTwoSm < crazpiccDialogLinesSm.length) {
-            mainTalkTwoSm.innerText = crazpiccDialogLinesSm[currentLineTwoSm];
-        } else {
-            speechStop = true;
-            currentLineTwoSm = 0;
-            timerStartSm.removeAttribute("hidden");
-            nextBtnTwoSm.style.visibility = 'hidden';
-        }
-    }
-    // #endregion
+//     nextBtnTwoSm.addEventListener("click", crazpiccSpeech);
+//     function crazpiccSpeech() {
+//         mainEnemySm.removeAttribute("hidden");
+//         mainTalkTwoSm.innerText = crazpiccDialogLinesSm[currentLineTwoSm];
+//         currentLineTwoSm++;
+//         if(currentLineTwoSm < crazpiccDialogLinesSm.length) {
+//             mainTalkTwoSm.innerText = crazpiccDialogLinesSm[currentLineTwoSm];
+//         } else {
+//             speechStop = true;
+//             currentLineTwoSm = 0;
+//             timerStartSm.removeAttribute("hidden");
+//             nextBtnTwoSm.style.visibility = 'hidden';
+//         }
+//     }
+//     // #endregion
 
-     //! Click "NO" to CRAZPICC
-    // #region Button "NO"
-    //? If you say "NO" to CRAZPICC, this stuff happens
-    const crazpiccDialogLinesNoSm = [
-        "Didn't expect you to be such a coward."
-    ]
-    let currentLineTwoBSm = 0;
+//      //! Click "NO" to CRAZPICC
+//     // #region Button "NO"
+//     //? If you say "NO" to CRAZPICC, this stuff happens
+//     const crazpiccDialogLinesNoSm = [
+//         "Didn't expect you to be such a coward."
+//     ]
+//     let currentLineTwoBSm = 0;
     
-    noGameStartSm.addEventListener("click", battleOver);
-    function battleOver() {
-        nextBtnTwo.removeAttribute("hidden");
-        mainTalkTwoSm.innerText = crazpiccDialogLinesNoSm[currentLineTwoBSm]
-        currentLineTwoBSm++;
-        if(currentLineTwoBSm < crazpiccDialogLinesNoSm.length) {
-            mainTalkTwoSm.innerText = crazpiccDialogLinesNoSm[currentLineTwoBSm];   
-        } else {
-            speechStop = true;
-            currentLineTwoBSm = 0;
-            spaceImgSm.style.visibility = 'hidden',
-            timerStartSm.style.visibility = 'hidden';
+//     noGameStartSm.addEventListener("click", battleOver);
+//     function battleOver() {
+//         nextBtnTwo.removeAttribute("hidden");
+//         mainTalkTwoSm.innerText = crazpiccDialogLinesNoSm[currentLineTwoBSm]
+//         currentLineTwoBSm++;
+//         if(currentLineTwoBSm < crazpiccDialogLinesNoSm.length) {
+//             mainTalkTwoSm.innerText = crazpiccDialogLinesNoSm[currentLineTwoBSm];   
+//         } else {
+//             speechStop = true;
+//             currentLineTwoBSm = 0;
+//             spaceImgSm.style.visibility = 'hidden',
+//             timerStartSm.style.visibility = 'hidden';
+//             nextBtnTwoSm.style.visibility = 'hidden';
 
-            setTimeout(theCloseSm, 4000)
-        }
-    }
-    // #endregion
+//             setTimeout(theCloseSm, 4000)
+//         }
+//     }
+//     // #endregion
 
-    //! "GAME OVER" Section
-    // #region GAME OVER functions
-    //? Everything basically fades away and closes
-    function theCloseSm() {
-        mainTalkTwoSm.classList.add("fadeOut");
-        bgImageBlSm.classList.add("fadeOut");
+//     //! "GAME OVER" Section
+//     // #region GAME OVER functions
+//     //? Everything basically fades away and closes
+//     function theCloseSm() {
+//         mainTalkTwoSm.classList.add("fadeOut");
+//         bgImageBlSm.classList.add("fadeOut");
 
-        //* Removing old animation// replace with new
-        announcerSm.classList.remove("announcerSlide");
-        announcerSm.classList.add("fadeOut");
+//         //* Removing old animation// replace with new
+//         // announcerSm.classList.remove("announcerSlide");
+//         // announcerSm.classList.add("fadeOut");
 
-        //* Removing old animation// replace with new
-        mainEnemySm.classList.remove("enemySlide");
-        mainEnemySm.classList.add("fadeOut");
+//         //* Removing old animation// replace with new
+//         mainEnemySm.classList.remove("enemySlide");
+//         mainEnemySm.classList.add("fadeOut");
 
-        setTimeout(theEnd, 3000)
-    }
+//         setTimeout(theEnd, 3000)
+//     }
 
-    //* Announcer and Crazpicc leave; new title appears 
-    function theEnd() {
-        announcerSm.style.visibility = 'hidden';
-        mainEnemySm.style.visibility = 'hidden';
-        mainTalkTwoSm.style.visibility = 'hidden';
-        bgImageBlSm.style.visibility = 'hidden';
+//     //* Announcer and Crazpicc leave; new title appears 
+//     function theEnd() {
+//         announcerSm.style.visibility = 'hidden';
+//         mainEnemySm.style.visibility = 'hidden';
+//         mainTalkTwoSm.style.visibility = 'hidden';
+//         bgImageBlSm.style.visibility = 'hidden';
       
-        gameOverSm.removeAttribute("hidden");
+//         gameOverSm.removeAttribute("hidden");
 
-        setTimeout(revivalSm, 2000)
+//         setTimeout(revivalSm, 2000)
 
-        //? Two choices: Leave or Try again 
-        document.addEventListener("click", revivalSm);
-        function revivalSm() {
-            cowardBtnSm.removeAttribute("hidden");
-            comebackBtnSm.removeAttribute("hidden");
-        }
-        // TODO MUST FIGURE OUT SOMETHING ELSE FOR THIS SECTION
-        //! If you click "COWARD" button
-        cowardBtnSm.addEventListener("click", goodbyeSm);
-        function goodbyeSm() {
-            window.close();
-        }
-        //! If you click "COMEBACK" button
-        comebackBtnSm.addEventListener("click", startAnewSm);
-        function startAnewSm() {
-            window.location.reload();
-        }
-    }
-}
-    // #endregion
+//         //? Two choices: Leave or Try again 
+//         document.addEventListener("click", revivalSm);
+//         function revivalSm() {
+//             cowardBtnSm.removeAttribute("hidden");
+//             comebackBtnSm.removeAttribute("hidden");
+//         }
+//         // TODO MUST FIGURE OUT SOMETHING ELSE FOR THIS SECTION
+//         //! If you click "COWARD" button
+//         cowardBtnSm.addEventListener("click", goodbyeSm);
+//         function goodbyeSm() {
+//             window.close();
+//         }
+//         //! If you click "COMEBACK" button
+//         comebackBtnSm.addEventListener("click", startAnewSm);
+//         function startAnewSm() {
+//             window.location.reload();
+//         }
+//     }
+// }
+//     // #endregion
     
-    // #endregion
+//     // #endregion
 
-// #endregion
-
-
+// // #endregion
 
 
-// TODO MUST WORK ON THIS SECTION BELOW!
-// * RPS Small Section 
-
-// #region R-P-S GAMEPLAY
-//! Main Game Section
-//? This section includes a "COUNTDOWN TIMER", "CARDS" and "MISC"
-let playerScoreSm = 0;
-let opponentScoreSm = 0;
-let alligatorUsedAtSm = [];
-let gameActiveSm = false;
-let timerIntervalSm;
 
 
-const timerDisplaySm = document.getElementById('clockDisplaySm');
-const playerScoreBoardsSm = document.querySelectorAll('#playerPointsSm, #playerScoreSm');
-const opponentScoreBoardsSm = document.querySelectorAll('#opponentPointsSm, #opponentScoreSm');
+// // TODO MUST WORK ON THIS SECTION BELOW!
+// // * RPS Small Section 
 
-function updateScoreDisplaysSm() {
-  playerScoreBoardsSm.forEach(el => el.innerText = playerScoreSm);
-  opponentScoreBoardsSm.forEach(el => el.innerText = opponentScoreSm);
-}
-// console.log(playerScoreBoards, opponentScoreBoards);
-
-
-const tieResultsSm = document.getElementById('tieBreakerSm');
-const resultTextSm = document.getElementById("trueWinnerSm");
+// // #region R-P-S GAMEPLAY
+// //! Main Game Section
+// //? This section includes a "COUNTDOWN TIMER", "CARDS" and "MISC"
+// let playerScoreSm = 0;
+// let opponentScoreSm = 0;
+// let alligatorUsedAtSm = [];
+// let gameActiveSm = false;
+// let timerIntervalSm;
 
 
-//? Button choices 
-const rockBtnSm = document.getElementById('rockSm');
-const paperBtnSm = document.getElementById('paperSm');
-const scissorBtnSm = document.getElementById('scissorsSm');
-const alligatorBtnSm = document.getElementById('alligatorSm');
-const alligatorAppearanceSm = [7, 19, 31, 40, 51, 69];
+// const timerDisplaySm = document.getElementById('clockDisplaySm');
+// const playerScoreBoardsSm = document.querySelectorAll('#playerPointsSm, #playerScoreSm');
+// const opponentScoreBoardsSm = document.querySelectorAll('#opponentPointsSm, #opponentScoreSm');
 
-//! Event Listeners for the button/cards
-rockBtnSm.addEventListener("click", () => {
-    if (!gameActiveSm) return;
-    const opponentSm = computerChoicesSm();
-    checkWinnerSm("rockSm", opponentSm);
-});
+// function updateScoreDisplaysSm() {
+//   playerScoreBoardsSm.forEach(el => el.innerText = playerScoreSm);
+//   opponentScoreBoardsSm.forEach(el => el.innerText = opponentScoreSm);
+// }
+// // console.log(playerScoreBoards, opponentScoreBoards);
 
-paperBtnSm.addEventListener("click", () => {
-    if (!gameActiveSm) return;
-    const opponentSm = computerChoicesSm();
-    checkWinnerSm("paperSm", opponentSm);
-});
 
-scissorBtnSm.addEventListener("click", () => {
-    if (!gameActiveSm) return;
-    const opponentSm = computerChoicesSm();
-    checkWinnerSm("scissorsSm", opponentSm);
-});
+// const tieResultsSm = document.getElementById('tieBreakerSm');
+// const resultTextSm = document.getElementById("trueWinnerSm");
 
-alligatorBtnSm.addEventListener("click", () => {
-    if (!gameActiveSm) return;
+
+// //? Button choices 
+// const rockBtnSm = document.getElementById('rockSm');
+// const paperBtnSm = document.getElementById('paperSm');
+// const scissorBtnSm = document.getElementById('scissorsSm');
+// const alligatorBtnSm = document.getElementById('alligatorSm');
+// const alligatorAppearanceSm = [7, 19, 31, 40, 51, 69];
+
+// //! Event Listeners for the button/cards
+// rockBtnSm.addEventListener("click", () => {
+//     if (!gameActiveSm) return;
+//     const opponentSm = computerChoicesSm();
+//     checkWinnerSm("rockSm", opponentSm);
+// });
+
+// paperBtnSm.addEventListener("click", () => {
+//     if (!gameActiveSm) return;
+//     const opponentSm = computerChoicesSm();
+//     checkWinnerSm("paperSm", opponentSm);
+// });
+
+// scissorBtnSm.addEventListener("click", () => {
+//     if (!gameActiveSm) return;
+//     const opponentSm = computerChoicesSm();
+//     checkWinnerSm("scissorsSm", opponentSm);
+// });
+
+// alligatorBtnSm.addEventListener("click", () => {
+//     if (!gameActiveSm) return;
     
-    clearStatusSm();
-    playerScoreSm += 5;
-   updateScoreDisplaysSm();
-    tieResultsSm.innerText = "GATOR POWER! +5 POINTS!";
-    tieResultsSm.classList.add("alligatorSurprise");
-    const usedTriggerSm = alligatorAppearanceSm.find(trigger => playerScoreSm - 5 < trigger && playerScoreSm >= trigger);
-    if (usedTriggerSm !== undefined) {
-    alligatorUsedAtSm.push(usedTriggerSm);
-}
+//     clearStatusSm();
+//     playerScoreSm += 5;
+//    updateScoreDisplaysSm();
+//     tieResultsSm.innerText = "GATOR POWER! +5 POINTS!";
+//     tieResultsSm.classList.add("alligatorSurprise");
+//     const usedTriggerSm = alligatorAppearanceSm.find(trigger => playerScoreSm - 5 < trigger && playerScoreSm >= trigger);
+//     if (usedTriggerSm !== undefined) {
+//     alligatorUsedAtSm.push(usedTriggerSm);
+// }
 
-    alligatorBtnSm.setAttribute('hidden', true);
+//     alligatorBtnSm.setAttribute('hidden', true);
     
-    setTimeout(() => {
-        clearStatusSm();
-        tieResultsSm.innerText = "";
-    }, 5000);
+//     setTimeout(() => {
+//         clearStatusSm();
+//         tieResultsSm.innerText = "";
+//     }, 5000);
     
-    showAlligatorAppearanceReachedSm(); 
-});
+//     showAlligatorAppearanceReachedSm(); 
+// });
 
-//! COMPUTER CHOICES 
-function computerChoicesSm() {
-        const opponentOptionsSm = ['rockSm', 'paperSm', 'scissorsSm']
-        const choiceNumberSm = Math.floor(Math.random() * 3);
-        return opponentOptionsSm[choiceNumberSm];
-    }
+// //! COMPUTER CHOICES 
+// function computerChoicesSm() {
+//         const opponentOptionsSm = ['rockSm', 'paperSm', 'scissorsSm']
+//         const choiceNumberSm = Math.floor(Math.random() * 3);
+//         return opponentOptionsSm[choiceNumberSm];
+//     }
 
-//! CHECK WINNER Section 
-    function checkWinnerSm(playerSm, opponentSm) {
-        if(!gameActiveSm) return;
+// //! CHECK WINNER Section 
+//     function checkWinnerSm(playerSm, opponentSm) {
+//         if(!gameActiveSm) return;
 
-        clearStatusSm();
+//         clearStatusSm();
         
-        if (playerSm === opponentSm) {
-            tieResultsSm.innerText = 'TIE!';
-            tieResultsSm.classList.add("ifTie");
-        } else if (
-            (playerSm === 'rockSm' && opponentSm === 'scissorsSm') ||
-            (playerSm === 'scissorsSm' && opponentSm === 'paperSm') ||
-            (playerSm === 'paperSm' && opponentSm === 'rockSm')
-        ) {
-            playerScoreSm++;
-           updateScoreDisplaysSm();
-            tieResultsSm.innerText = "+1 POINT!";
-            tieResultsSm.classList.add("plusOne");
-        } else {
-            opponentScoreSm++;
-        updateScoreDisplaysSm();
-            tieResultsSm.innerText = "KEEP GOING!";
-            tieResultsSm.classList.add("keepTrying");
-        }
-        setTimeout(() => {
-            tieResultsSm.innerText = "";
-            clearStatusSm();
-        }, 3000);
+//         if (playerSm === opponentSm) {
+//             tieResultsSm.innerText = 'TIE!';
+//             tieResultsSm.classList.add("ifTie");
+//         } else if (
+//             (playerSm === 'rockSm' && opponentSm === 'scissorsSm') ||
+//             (playerSm === 'scissorsSm' && opponentSm === 'paperSm') ||
+//             (playerSm === 'paperSm' && opponentSm === 'rockSm')
+//         ) {
+//             playerScoreSm++;
+//            updateScoreDisplaysSm();
+//             tieResultsSm.innerText = "+1 POINT!";
+//             tieResultsSm.classList.add("plusOne");
+//         } else {
+//             opponentScoreSm++;
+//         updateScoreDisplaysSm();
+//             tieResultsSm.innerText = "KEEP GOING!";
+//             tieResultsSm.classList.add("keepTrying");
+//         }
+//         setTimeout(() => {
+//             tieResultsSm.innerText = "";
+//             clearStatusSm();
+//         }, 3000);
         
-        showAlligatorAppearanceReachedSm();
-    }
+//         showAlligatorAppearanceReachedSm();
+//     }
 
-    function showAlligatorAppearanceReachedSm() {
-        if (alligatorAppearanceSm.includes(playerScoreSm) && !alligatorUsedAtSm.includes(playerScoreSm)) {
-            alligatorBtnSm.removeAttribute('hidden');
-        }
-    }  
+//     function showAlligatorAppearanceReachedSm() {
+//         if (alligatorAppearanceSm.includes(playerScoreSm) && !alligatorUsedAtSm.includes(playerScoreSm)) {
+//             alligatorBtnSm.removeAttribute('hidden');
+//         }
+//     }  
 
-//! CLEAR STATUS Section 
-function clearStatusSm() {
-    tieResultsSm.classList.remove("plusOne", "keepTrying", "alligatorSurprise", "ifTie");
-}
-// ? AUDIO Section
-musicButtonThree.removeAttribute("hidden");
-musicButtonThree.removeEventListener("click", audioPauseThree);
-musicButtonThree.addEventListener("click", audioPauseThree);
-function audioPauseThree() {
-    if(battleTheme.paused) {
-        battleTheme.play();
-        musicButtonThree.textContent = "PAUSE";
-    } else {
-        battleTheme.pause();
-        musicButtonThree.textContent = "🎵";
-    }
-}
+// //! CLEAR STATUS Section 
+// function clearStatusSm() {
+//     tieResultsSm.classList.remove("plusOne", "keepTrying", "alligatorSurprise", "ifTie");
+// }
+// // ? AUDIO Section
+// musicButtonThree.removeAttribute("hidden");
+// musicButtonThree.removeEventListener("click", audioPauseThree);
+// musicButtonThree.addEventListener("click", audioPauseThree);
+// function audioPauseThree() {
+//     if(battleTheme.paused) {
+//         battleTheme.play();
+//         musicButtonThree.textContent = "PAUSE";
+//     } else {
+//         battleTheme.pause();
+//         musicButtonThree.textContent = "🎵";
+//     }
+// }
 
-//! R-P-S BATTLE BEGINS HERE 
-yesGameStartSm.addEventListener("click", beginBattleSm);
-function beginBattleSm() {
-    gameActiveSm = true;
-    // console.log("Battle started — gameActiveSm is now", gameActiveSm);
+// //! R-P-S BATTLE BEGINS HERE 
+// yesGameStartSm.addEventListener("click", beginBattleSm);
+// function beginBattleSm() {
+//     gameActiveSm = true;
+//     // console.log("Battle started — gameActiveSm is now", gameActiveSm);
 
-//? Remove announcer + add music
-    titleScrollThree.removeAttribute("hidden");
-    titleScrollTwo.style.visibility = 'hidden';
-    musicButtonTwo.style.visibility = 'hidden';
+// //? Remove announcer + add music
+//     titleScrollThree.removeAttribute("hidden");
+//     titleScrollTwo.style.visibility = 'hidden';
+//     musicButtonTwo.style.visibility = 'hidden';
 
-    announcerSm.style.visibility = 'hidden';
-    mainEnemySm.style.visibility = 'hidden';
-    mainTalkTwoSm.style.visibility = 'hidden';
+//     announcerSm.style.visibility = 'hidden';
+//     mainEnemySm.style.visibility = 'hidden';
+//     mainTalkTwoSm.style.visibility = 'hidden';
 
-    announcerMusic.pause();
-    titleMusic.currentTime = 0;
+//     announcerMusic.pause();
+//     titleMusic.currentTime = 0;
 
-    battleTheme.play();
-
-
-//? Game design options
-    yesStartSm.style.display = "none";
-    noStartSm.style.display = "none";
-    mainGameScoresSm.style.visibility = "visible";
-    bgImageBlSm.style.visibility = 'hidden';
-    document.getElementById("cardGameSm").removeAttribute('hidden');
-    movieTopSm.style.visibility = "hidden";
-    movieBottomSm.style.visibility = "hidden";
+//     battleTheme.play();
 
 
-//! TIME Section
-    playerScoreSm = 0;
-    opponentScoreSm = 0;
-    alligatorUsedAtSm = [];
+// //? Game design options
+//     yesStartSm.style.display = "none";
+//     noStartSm.style.display = "none";
+//     mainGameScoresSm.style.visibility = "visible";
+//     bgImageBlSm.style.visibility = 'hidden';
+//     document.getElementById("cardGameSm").removeAttribute('hidden');
+//     movieTopSm.style.visibility = "hidden";
+//     movieBottomSm.style.visibility = "hidden";
 
-   updateScoreDisplaysSm();
-    resultTextSm.innerText = "";
 
-    let timeLeftSm = 120; // 2 minutes in seconds
+// //! TIME Section
+//     playerScoreSm = 0;
+//     opponentScoreSm = 0;
+//     alligatorUsedAtSm = [];
 
-    function updateTimerSm() {
-        const minutesSm = Math.floor(timeLeftSm / 60);
-        const secondsSm = timeLeftSm % 60;
-        timerDisplaySm.innerText = `${String(minutesSm).padStart(2, '0')}:${String(secondsSm).padStart(2, '0')}`;
+//    updateScoreDisplaysSm();
+//     resultTextSm.innerText = "";
+
+//     let timeLeftSm = 120; // 2 minutes in seconds
+
+//     function updateTimerSm() {
+//         const minutesSm = Math.floor(timeLeftSm / 60);
+//         const secondsSm = timeLeftSm % 60;
+//         timerDisplaySm.innerText = `${String(minutesSm).padStart(2, '0')}:${String(secondsSm).padStart(2, '0')}`;
         
-        if (timeLeftSm <= 0) {
-            clearInterval(timerIntervalSm);
-            timerDisplaySm.innerText = "Game Over!";
-            gameActiveSm = false;
-            disableChoiceButtonsSm();
-            showFinalResultSm();
-        }else {
-            timeLeftSm--;
-        }
-    }
-    updateTimerSm();
-    timerIntervalSm = setInterval(updateTimerSm, 1000);
+//         if (timeLeftSm <= 0) {
+//             clearInterval(timerIntervalSm);
+//             timerDisplaySm.innerText = "Game Over!";
+//             gameActiveSm = false;
+//             disableChoiceButtonsSm();
+//             showFinalResultSm();
+//         }else {
+//             timeLeftSm--;
+//         }
+//     }
+//     updateTimerSm();
+//     timerIntervalSm = setInterval(updateTimerSm, 1000);
 
 
-    function disableChoiceButtonsSm() {
-        rockBtnSm.disabled = true;
-        paperBtnSm.disabled = true;
-        scissorBtnSm.disabled = true;
-        alligatorBtnSm.disabled = true;
-    }
+//     function disableChoiceButtonsSm() {
+//         rockBtnSm.disabled = true;
+//         paperBtnSm.disabled = true;
+//         scissorBtnSm.disabled = true;
+//         alligatorBtnSm.disabled = true;
+//     }
 
 
-//! FINAL RESULT Section
-    function showFinalResultSm() {
-    if (playerScoreSm > opponentScoreSm) {
-        resultTextSm.textContent = "YOU WIN!";
-        resultTextSm.style.color = "limegreen";
-    } else if (playerScoreSm < opponentScoreSm) {
-        resultTextSm.textContent = "YOU LOSE!";
-        resultTextSm.style.color = "red";
-    } else {
-        resultTextSm.textContent = "IT'S A TIE!";
-        resultTextSm.style.color = "gold";
-    }
-}   
-}
-    // #endregion
+// //! FINAL RESULT Section
+//     function showFinalResultSm() {
+//     if (playerScoreSm > opponentScoreSm) {
+//         resultTextSm.textContent = "YOU WIN!";
+//         resultTextSm.style.color = "limegreen";
+//     } else if (playerScoreSm < opponentScoreSm) {
+//         resultTextSm.textContent = "YOU LOSE!";
+//         resultTextSm.style.color = "red";
+//     } else {
+//         resultTextSm.textContent = "IT'S A TIE!";
+//         resultTextSm.style.color = "gold";
+//     }
+// }   
+// }
+//     // #endregion
 
