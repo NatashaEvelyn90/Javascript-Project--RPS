@@ -1,5 +1,5 @@
 /* #region Animations */
-/* @keyframes letterR {
+@keyframes letterR {
   0%,
   50%,
   100% {
@@ -61,12 +61,12 @@
   75% {
     opacity: 0;
   }
-} */
+}
 
 /* #endregion */
 
 /* #region BACKGROUNDS */
-/* .flowerImg { 
+.flowerImg { 
   width: 100%;
   max-width: -webkit-fill-available;
   height: auto;
@@ -97,11 +97,11 @@
   height: 100%;
   position: fixed;
   z-index: -101;
-} */
+}
 /* #endregion*/
 
 /* #region "Yes or No" popup */
-/* .headers {
+.headers {
     background-color: black;
     position: fixed;
     width: 100%;
@@ -163,11 +163,11 @@
     width: 145px;
     height: 75px;
     border-radius: 18px;
-} */
+}
 /* #endregion */
 
 /* #region Main menu + game Title */
-/* strong {
+strong {
     color: #840419;
     animation: letterR 5s ease-in-out 0s infinite normal none;
 }
@@ -202,11 +202,11 @@
         background-color: rgba(240, 128, 128, 0.555);
         color: white;
     }
-} */
+}
 /* #endregion  */
 
 /* #region "Tutorial and Credits" buttons */
-/* .howToPlay {
+.howToPlay {
   font-family: "Kode Mono", monospace;
   position: fixed;
   top: 80%;
@@ -225,11 +225,11 @@
     background-color: #ffc0cb80;
     color: #600817;
     margin-left: 130px;
-} */
+}
 /* #endregion */
 
 /* #region After clicking "START" button */
-/* .blackBarTop {
+.blackBarTop {
   width: 100%;
   height: 0px;
   box-sizing: border-box;
@@ -254,12 +254,12 @@
   animation-name: fadeout;
   animation-duration: 4s;
   animation-fill-mode: forwards;
-} */
+}
 
 /* #endregion */
 
 /* #region "DIALOG" Section */
-/* .announcerGuy {
+.announcerGuy {
   width: 605px;
   position: absolute;
   top: 0;
@@ -397,12 +397,12 @@ font-family: "Pixelify Sans", sans-serif;
     width: 172px;
     height: 75px;
     border-radius: 18px;
-} */
+}
 
 /* #endregion */
 
 /* #region "CARD DESIGN" Section */
-/* .container {
+.container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -572,12 +572,12 @@ font-family: "Pixelify Sans", sans-serif;
   background: #ffcf4d;
   border: 1px solid rgba(255, 0, 88, 0.4);
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
-} */
+}
 
 /* #endregion */
 
 /* #region "SCORING + CARD POWER" Section */
-/* .mainGameScores {
+.mainGameScores {
   visibility: visible;
   position: relative;
   top: 225px;
@@ -675,12 +675,12 @@ font-family: "Pixelify Sans", sans-serif;
     font-size: 70px;
     color: #fff;
     text-shadow: 1px 1px 4px #000;
-} */
+}
 
 /* #endregion */
 
 /* #region "MUSIC" Section */
-/* .musicButton {
+.musicButton {
     position: fixed;
     top: 8px;
     padding: 10px 20px;
@@ -752,11 +752,11 @@ font-family: "Pixelify Sans", sans-serif;
     left: 0;
     z-index: -2;
     animation: scrollText 30s linear infinite;
-} */
+}
 /* #endregion */
 
 /* #region "NO BATTLE" Section */
-/* .gameOver {
+.gameOver {
 font-family: "Silkscreen", sans-serif;
 font-weight: 700;
 font-style: normal;
@@ -782,7 +782,7 @@ animation: theEnd 870s ease 0 infinite normal none;
 	opacity: 0;
 	transform: scale(2.2);
   }
-} */
+}
 /* #endregion */
 
 /*! small section */
@@ -1407,7 +1407,6 @@ strong {
 
 /* #endregion */
 
-}
 /* #region Cards */
 .container {
   display: flex;
@@ -1581,6 +1580,6 @@ strong {
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
 }
 /* #endregion */
-
+}
 
 /* #endregion */
