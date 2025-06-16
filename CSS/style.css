@@ -253,6 +253,7 @@ strong {
   z-index: 2;
   position: fixed;
   opacity: 0;
+  top: 0;
   animation: slideTop 4s forwards;
 }
 
@@ -291,17 +292,17 @@ strong {
   position: fixed;
   z-index: 4;
   width: 85%;
-  /* height: 20%; */
-  /* top: 83%; */
+  height: 20%;
+  top: 83%;
   font-size: 30px;
   color: #cf72bd;
   left: 0;
   bottom: 0;
   text-align: center;
 
-   top: 0px;
+   /* top: 0px;
     right: 0px;
-    height: 0px;
+    height: 0px; */
 }
 
 .nextBtn {
@@ -337,16 +338,16 @@ strong {
   position: fixed;
   z-index: 3;
   width: 100%;
-  /* height: 20%; */
-  /* top: 83%; */
+  height: 20%;
+  top: 83%;
   font-size: 30px;
   color: orange;
   left: 0;
   bottom: 0;
   text-align: center;
 
-  top: 0px;
-    height: 0px;
+  /* top: 0px;
+    height: 0px; */
 }
 
 .nextBtnTwo {
@@ -365,6 +366,13 @@ strong {
   &:hover {
     background-color: #600817;
   }
+}
+
+.timer {
+  position: fixed;
+  margin-left: 50%;
+  top: 40%;
+  z-index: 3;
 }
 
 .yesGameStart {
@@ -615,12 +623,6 @@ font-family: "Pixelify Sans", sans-serif;
   font-family: "Kode Mono", monospace;
 }
 
- .timer {
-  position: absolute;
-  margin-left: 50%;
-  top: 40%;
-  z-index: 3;
-}
 
 .ifTie {
   color: rgb(65, 177, 228);
@@ -818,7 +820,7 @@ animation: theEnd 870s ease 0 infinite normal none;
   background-color: black;
   color: red;
   position: fixed;
-  z-index: 3;
+  z-index: 7;
   width: 100%;
   height: -webkit-fill-available;
 } 
@@ -896,27 +898,28 @@ animation: theEnd 870s ease 0 infinite normal none;
 /* #region Background Images */
 .backSmImg {
   position: fixed;
+  z-index: 2;
   width: 100%;
   height: -webkit-fill-available;
 }
 
 .bubbleImg {
   position: fixed;
-  z-index: -1;
+  z-index: 0;
   width: 100%;
   height: -webkit-fill-available;
 }
   
 .spaceImg {
   position: fixed;
-  z-index: -100;
+  /* z-index: 2; */
   width: 100%;
   height: -webkit-fill-available;
  }
 
 .blossomImg {
   position: fixed;
-  z-index: -101;
+  z-index: -1;
   width: 100%;
   height: -webkit-fill-available;
 }
@@ -1005,6 +1008,7 @@ strong {
   -webkit-text-stroke-width: 5px;
   -webkit-text-stroke-color: #cb7382;
   color: #ffc0cb89;
+  z-index: 4;
   
 }
 
@@ -1014,6 +1018,7 @@ strong {
   top: 37%;
   margin-left: 0;
   text-align: center;
+  z-index: 4;
 }
 
 .mainButton {
@@ -1024,6 +1029,7 @@ strong {
   background-color: #ffc0cb7f;
   color: #600817;
   border-radius: 16px;
+  z-index: 4;
   &:hover {
     background-color: rgba(240, 128, 128, 0.555);
     color: white;
@@ -1036,6 +1042,7 @@ strong {
   white-space: normal;
   background-color: #ffc0cb80;
   text-align: center;
+  z-index: 4;
 
 }
 
@@ -1045,6 +1052,7 @@ strong {
   background-color: #ffc0cb80;
   color: #600817;
   white-space: normal;
+  z-index: 4;
 }
 
 .appreciationSm {
@@ -1052,6 +1060,7 @@ strong {
   top: 500px;
   background-color: #ffc0cb80;
   color: #600817;
+  z-index: 4;
 }
 
 .learningTutorial, .givingCredits  {
@@ -1062,6 +1071,7 @@ strong {
   background-color: #ffc0cb7f;
   color: #600817;
   border-radius: 16px;
+  z-index: 4;
 }
 /* #endregion */
 
@@ -1111,21 +1121,21 @@ strong {
   position: fixed;
   z-index: 4;
   width: 100%;
-  /* height: 144px; */
-  /* top: 75%; */
+  height: 144px;
+  top: 75%;
   font-size: 20px;
   color: #cf72bd;
   left: 0;
   bottom: 0;
   text-align: center;
 
-  top: 0px;
+  /* top: 0px;
     right: 0px;
-    height: 0px;
+    height: 0px; */
 }
 
 .nextBtn {
-  position: absolute;
+  position: fixed;
   z-index: 6;
   left: 42%;
   top: 90%;
@@ -1136,7 +1146,7 @@ strong {
   background-color: blue;
   color: white;
   cursor: pointer;
-  /* animation: nextText 870ms ease 0s infinite normal none; */
+  animation: none;
   &:hover {
     background-color: #ffbc00;
   }
@@ -1146,7 +1156,7 @@ strong {
   width: 100%;
   max-width: 576px;
   height: auto;
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 0;
 }
@@ -1169,7 +1179,7 @@ strong {
 }
 
 .nextBtnTwo {
-  position: absolute;
+  position: fixed;
   z-index: 5;
   left: 40%;
   top: 90%;
@@ -1180,10 +1190,17 @@ strong {
   background-color: green;
   color: white;
   cursor: pointer;
-  /* animation: nextText 870ms ease 0s infinite normal none; */
+  animation: none;
   &:hover {
     background-color: #600817;
   }
+}
+
+.timer {
+  position: relative;
+  margin-left: 50%;
+  top: 60px;
+  z-index: 5;
 }
 
 .yesGameStart {
@@ -1221,7 +1238,7 @@ strong {
   font-weight: 700;
   font-style: normal;
   font-size: 55px;
-  position: absolute;
+  position: fixed;
   width: 100%;
   text-align: center;
   top: 37%;
@@ -1239,7 +1256,7 @@ strong {
   width: 120px;
   height: 75px;
   border-radius: 18px;
-  z-index: 4;
+  z-index: 5;
 }
 
 .comebackBtn {
@@ -1253,7 +1270,7 @@ strong {
   width: 120px;
   height: 75px;
   border-radius: 18px;
-  z-index: 4;
+  z-index: 5;
 }
 
 /* #endregion */
@@ -1272,7 +1289,7 @@ strong {
 .countdownTime {
   position: fixed;
   top: 25%;
-  left: 24%;
+  /* left: 24%; */
   width: 100%;
   margin: 0px;
   color: mediumspringgreen;
@@ -1280,12 +1297,6 @@ strong {
   font-weight: 500;
 }
 
-.timer {
-  position: absolute;
-  margin-left: 50%;
-  bottom: 112px;
-  z-index: 5;
-}
 
 .scoreDisplay {
   border: 5px double #840419;

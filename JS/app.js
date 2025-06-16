@@ -41,60 +41,51 @@ const musicPlayerC = document.getElementById("musicPlayerThree");
 const announcer = document.getElementById("toxTill"); 
 const nextBtn = document.getElementById("toxTillBtn");
 const mainTalk = document.getElementById("toxTillLines");
+//* Announcer info SMALL 
+const announcerSm = document.getElementById("toxTillSm");
+const nextBtnSm = document.getElementById("toxTillBtnSm");
+const mainTalkSm = document.getElementById("toxTillLinesSm");
 
 //? CRAZPICC info LARGE
 const mainEnemy = document.getElementById("crazpicc");
 const nextBtnTwo = document.getElementById("crazpiccBtn");
 const mainTalkTwo = document.getElementById("crazpiccLines");
+//* CRAZPICC info SMALL
+const mainEnemySm = document.getElementById("crazpiccSm");
+const nextBtnTwoSm = document.getElementById("crazpiccBtnSm");
+const mainTalkTwoSm = document.getElementById("crazpiccLinesSm");
 
 //? TIMER 
 const timerStart = document.getElementById("gameTime");
+const timerStartSm = document.getElementById("gameTimeSm")
 
 //? GAME OVER 
 const gameOver = document.getElementById("superOver");
 const noGameStart = document.getElementById("noStart");
+const gameOverSm = document.getElementById("superOverSm");
+const noGameStartSm = document.getElementById("noStartSm")
+
+// *Buttons to end game or start over
 const cowardBtn = document.getElementById("coward");
 const comebackBtn = document.getElementById("comeback");
+const cowardBtnSm = document.getElementById("cowardSm");
+const comebackBtnSm = document.getElementById("comebackSm");
 
 //? Children's Card Game Section  
 const yesGameStart = document.getElementById("yesStart");
 const playCards = document.getElementById("cardGame");
 const mainGameScores = document.getElementById("scoringSection");
-
-const mainMenuButtons = document.getElementById("mainButtons"); 
-const flowerImage = document.querySelector("#flowerImg"); //* Background image for main menu
-const bgImageBl = document.querySelector("#pinkBubbles"); //* Background image for dialog section
-const spaceImg = document.querySelector("#spacey"); //* Background image for R-P-S section
-const blossomImg = document.querySelector("#blossoms");
-// #endregion
-
-//* SMALL
-// #region Small Section
-//* Announcer info SMALL 
-const announcerSm = document.getElementById("toxTillSm");
-const nextBtnSm = document.getElementById("toxTillBtnSm");
-const mainTalkSm = document.getElementById("toxTillLinesSm");
-//* CRAZPICC info SMALL 
-const mainEnemySm = document.getElementById("crazpiccSm");
-const nextBtnTwoSm = document.getElementById("crazpiccBtnSm");
-const mainTalkTwoSm = document.getElementById("crazpiccLinesSm");
-
-// *TIMER
-    const timerStartSm = document.getElementById("gameTimeSm")
-
-// *Game Over cues
-    const gameOverSm = document.getElementById("superOverSm");
-    const noGameStartSm = document.getElementById("noStartSm")
-    
-// *Buttons to end game or start over
-    const cowardBtnSm = document.getElementById("cowardSm");
-    const comebackBtnSm = document.getElementById("comebackSm");
-
-   //* Children's Card Game Section  
+//* Children's Card Game Section  
 const yesGameStartSm = document.getElementById("yesStartSm");
 const playCardsSm = document.getElementById("cardGameSm");
 const mainGameScoresSm = document.getElementById("scoringSectionSm");
 
+const mainMenuButtons = document.getElementById("mainButtons"); 
+const mainMenuButtonsSm = document.getElementById("mainButtonsSm");
+const flowerImage = document.querySelector("#flowerImg"); //* Background image for main menu
+const bgImageBl = document.querySelector("#pinkBubbles"); //* Background image for dialog section
+const spaceImg = document.querySelector("#spacey"); //* Background image for R-P-S section
+const blossomImg = document.querySelector("#blossoms");
 // const mainMenuButtons = document.getElementById("mainButtons"); 
 // const flowerImage = document.querySelector("#flowerImg"); //* Background image for main menu
 const bgImageBlSm = document.querySelector("#pinkBubblesSm"); //* Background image for dialog section
@@ -102,7 +93,6 @@ const spaceImgSm = document.querySelector("#spaceySm"); //* Background image for
 const blossomImgSm = document.querySelector("#blossomsSm");
 // #endregion
 
-// #endregion
 
 // ? - - - - - - - - - - - - - - - - - 
 // * - - - - - - - - - - - - - - - - - 
@@ -236,8 +226,16 @@ function showCredits() {
 //? Starts the beginning of the dialog section
 const titleOfGame = document.getElementById("gameTitle");
 const startGame = document.getElementById("mainStartBtn");
+const startGameSm = document.getElementById("mainStartBtnSm")
 const topBar = document.getElementById("movieTop");
 const bottomBar = document.getElementById("movieBottom");
+const sparkles = document.querySelector("#sparkles"); //* Background for small screen
+const titleOfGameSm = document.getElementById("gameTitleSm");
+// const startGameSm = document.getElementById("mainStartBtnSm");
+const topBarSm = document.getElementById("movieTopSm");
+const bottomBarSm = document.getElementById("movieBottomSm");
+
+
 
 startGame.addEventListener("click", start);
 function start() {
@@ -246,16 +244,35 @@ function start() {
 
     topBar.removeAttribute("hidden");
     bottomBar.removeAttribute("hidden");
+    topBarSm.removeAttribute("hidden");
+    bottomBarSm.removeAttribute("hidden");
 
     mainMenuButtons.classList.add("fadeOut");
-    flowerImage.classList.add("fadeOut");    
+    mainMenuButtonsSm.classList.add("fadeOut");
+    flowerImage.classList.add("fadeOut");        
     audioButtonOne.classList.add("fadeOut");
     titleScroll.classList.add("fadeOut");
-    //? The sparkles is for the smaller screen
-    // sparkles.classList.add("fadeOut"); 
+    sparkles.classList.add("fadeOut"); 
     scoringSection.style.visibility = 'hidden';
     
     setTimeout(theAnnouncement, 4000);
+}
+
+startGameSm.addEventListener("click", startSm);
+function startSm() {
+    titleMusic.pause();
+    titleMusic.currentTime = 0;
+
+    topBarSm.removeAttribute("hidden");
+    bottomBarSm.removeAttribute("hidden");
+
+    mainMenuButtonsSm.classList.add("fadeOut");       
+    audioButtonOne.classList.add("fadeOut");
+    titleScroll.classList.add("fadeOut");
+    sparkles.classList.add("fadeOut"); 
+    scoringSectionSm.style.visibility = 'hidden';
+    
+    setTimeout(theAnnouncementSm, 4000);
 }
 // #endregion
 
@@ -376,6 +393,7 @@ function theAnnouncement() {
             currentLineTwoB = 0;
             spaceImg.style.visibility = 'hidden',
             timerStart.style.visibility = 'hidden';
+            spaceImgSm.style.visibility = 'hidden';
 
             setTimeout(theClose, 4000)
         }
@@ -404,6 +422,7 @@ function theAnnouncement() {
     function theEnd() {
         announcer.style.visibility = 'hidden';
         mainEnemy.style.visibility = 'hidden';
+        mainTalk.style.visibility = 'hidden';
         mainTalkTwo.style.visibility = 'hidden';
         bgImageBl.style.visibility = 'hidden';
         
@@ -721,30 +740,7 @@ function theHelp() {
 
 //* Clicking the "START" button on the menu
 // #region 
-const mainMenuButtonsSm = document.getElementById("mainButtonsSm");
-const sparkles = document.querySelector("#sparkles"); //* Background for small screen
-const titleOfGameSm = document.getElementById("gameTitleSm");
-const startGameSm = document.getElementById("mainStartBtnSm");
-const topBarSm = document.getElementById("movieTopSm");
-const bottomBarSm = document.getElementById("movieBottomSm");
 
-startGameSm.addEventListener("click", startSm);
-function startSm() {
-    titleMusic.pause();
-    titleMusic.currentTime = 0;
-
-    topBarSm.removeAttribute("hidden");
-    bottomBarSm.removeAttribute("hidden");
-
-    mainMenuButtonsSm.classList.add("fadeOut");
-    // flowerImage.classList.add("fadeOut");    
-    audioButtonOne.classList.add("fadeOut");
-    titleScroll.classList.add("fadeOut");
-    //? The sparkles is for the smaller screen
-    sparkles.classList.add("fadeOut"); 
-    
-    setTimeout(theAnnouncementSm, 4000);
-}
 // #endregion
 
 //* "DIALOG" Section 
@@ -896,6 +892,7 @@ function theAnnouncementSm() {
     function theEnd() {
         announcerSm.style.visibility = 'hidden';
         mainEnemySm.style.visibility = 'hidden';
+        mainTalkSm.style.visibility = 'hidden';
         mainTalkTwoSm.style.visibility = 'hidden';
         bgImageBlSm.style.visibility = 'hidden';
       

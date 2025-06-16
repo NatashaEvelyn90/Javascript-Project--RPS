@@ -37,6 +37,7 @@
             <!--* Background Images -->
             <!-- #region -->
                 <img src="./Media/decorative-10389.gif" alt="sparkly animated image" class="backSmImg bColor d-sm-none d-block" id="sparkles">
+
                 <img src="./Media/bokeh-2072271.jpg" alt="sparkly pink backround with bubbles" class="bubbleImg d-block d-sm-none" id="pinkBubblesSm">
                 <img src="./Media/space background.jpg" alt="space" class="spaceImg d-block d-sm-none" id="spaceySm">
                 <img src="./Media/sakura-5470.gif" alt="sakuras falling from the sky" class="blossomImg d-block d-sm-none" id="blossomsSm">
@@ -80,10 +81,12 @@
     
             <!--* Speaking Section  -->
             <!-- #region  -->     
-            <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="toxTillSm" hidden>
-            <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" id="crazpiccSm" hidden>
+             <div class="smallImages d-block d-sm-none">
+                 <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="toxTillSm" hidden>
+                 <img src="./Media/Crazpicc.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" id="crazpiccSm" hidden>
+             </div>
                 
-            <div id="dialogBox">
+            <div id="dialogBox d-block d-sm-none">
                 <!--! Toxtill's Section -->
                 <div class="mainTalk" id="toxTillLinesSm"></div>
                 <button class="nextBtn" id="toxTillBtnSm" hidden>NEXT</button>
@@ -198,7 +201,7 @@
                 <div class="mainMenuButtons" id="mainButtons">
                     <div class="gameTitle text-center" id="gameTitle"><strong>R</strong>PS</div>
                     <div class="mainMenu">
-                        <button class="mainButton mainStart col-12 mb-3" id="mainStartBtn">START</button>
+                        <button class="mainButton mainStart col-12 mb-3" id="mainStarBtn">START</button>
                         <button class="mainButton learningCurve col-12 mb-3" id="tutorialBtn">Tutorial</button>
                         <button class="mainButton giveThanks col-12 mb-3" id="creditsBtn">Credits</button>   
                     </div>
@@ -231,11 +234,12 @@
             
             <!--? Speaking Section  -->
             <!-- #region -->
+            <div class="largeImg d-none d-sm-block">
+                <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="toxTill" hidden>
+                <img src="./Media/Crazpicc.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" id="crazpicc" hidden> 
+            </div>
             
-            <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="toxTill" hidden>
-            <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" id="crazpicc" hidden> 
-            
-            <div id="dialogBox">
+            <div id="dialogBox d-none d-sm-block">
 
                 <!--! Toxtill Section  -->
                 <div class="mainTalk" id="toxTillLines"></div>
