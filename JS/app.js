@@ -80,15 +80,15 @@ const nextBtnTwoSm = document.getElementById("crazpiccBtnSm");
 const mainTalkTwoSm = document.getElementById("crazpiccLinesSm");
 
 // *TIMER
-const timerStartSm = document.getElementById("gameTimeSm")
+    const timerStartSm = document.getElementById("gameTimeSm")
 
 // *Game Over cues
- const gameOverSm = document.getElementById("superOverSm");
-const noGameStartSm = document.getElementById("noStartSm")
+    const gameOverSm = document.getElementById("superOverSm");
+    const noGameStartSm = document.getElementById("noStartSm")
     
 // *Buttons to end game or start over
-const cowardBtnSm = document.getElementById("cowardSm");
-const comebackBtnSm = document.getElementById("comebackSm");
+    const cowardBtnSm = document.getElementById("cowardSm");
+    const comebackBtnSm = document.getElementById("comebackSm");
 
    //* Children's Card Game Section  
 const yesGameStartSm = document.getElementById("yesStartSm");
@@ -120,6 +120,8 @@ const ageVerify = document.querySelector("#loadingText");
 document.getElementById("refreshBtn").style.display = "none";
 window.onload = function(){
     ageVerify.innerText = "Are you over the Age of 18?";
+    mainGameScoresSm.style.visibility = 'hidden';
+    mainGameScores.style.visibility = 'hidden';
 }
 // #endregion
 
@@ -591,8 +593,8 @@ musicButtonThree.style.visibility = 'visible';
 
 
 //? Game design options
-    yesGameStart.style.display = "none";
-    noGameStart.style.display = "none";
+    yesStart.style.display = "none";
+    noStart.style.display = "none";
     mainGameScores.style.visibility = "visible";
     bgImageBl.style.visibility = 'hidden';
     document.getElementById("cardGame").removeAttribute('hidden');
@@ -668,7 +670,10 @@ musicButtonThree.style.visibility = 'visible';
 // #endregion 
 // #endregion
 
-//!- - - - - - - - - - - - - - - - - - - - - -  
+
+
+
+
 
 //* SMALL SECTION 
 //#region SMALL Section
@@ -921,7 +926,14 @@ function theAnnouncementSm() {
     
     // #endregion
 
+// #endregion
+
+
+
+
+// TODO MUST WORK ON THIS SECTION BELOW!
 // * RPS Small Section 
+
 // #region R-P-S GAMEPLAY
 //! Main Game Section
 //? This section includes a "COUNTDOWN TIMER", "CARDS" and "MISC"
@@ -1142,7 +1154,3 @@ function beginBattleSm() {
 }   
 }
     // #endregion
-// #endregion
-
-
-

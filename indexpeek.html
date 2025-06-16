@@ -1,37 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Kode+Mono:wght@400..700&family=Pixelify+Sans:wght@400..700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&amp;family=Kode+Mono:wght@400..700&amp;family=Pixelify+Sans:wght@400..700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
     <title>Let's Rock!</title>
 </head>
 <body>
     <!--! Yes or No buttons -->
     <!-- #region -->
-    <header>
+    <!-- <header>
         <div class="headers">
-            <!-- ? This is the "Age Verify" Text  -->
+            ? This is the "Age Verify" Text 
             <h1 class="text-center loadingText" id="loadingText"></h1>
     
-            <!-- ? This is the "TOO OLD" Text  -->
+            ? This is the "TOO OLD" Text 
             <h1 class="textAge" id="textAge"></h1>
     
-            <!-- ? "YES + NO + REFRESH" buttons  -->
+            ? "YES + NO + REFRESH" buttons 
             <div class="d-flex flex-wrap justify-content-center headerMain">
                 <button class="yesBtn me-3" id="yesBtn">Y</button>
                 <button class="noBtn" id="noBtn">N</button>
                 <button class="refreshBtn" id="refreshBtn">Refresh</button>
             </div>
         </div>
-    </header>
+    </header> -->
     <!-- #endregion -->
 
-    <main>
+    <main style="
+    top: 0;
+    position: absolute;
+    height: -50px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 0px;
+">
         <!--* "SMALL" Screen Section  -->
         <!-- #region SMALL section -->
             <!--* Background Images -->
@@ -56,8 +62,8 @@
                    </div>
                </div>
             </div>
-            <div class="blackBarTop"  id="movieTopSm" hidden></div>
-            <div class="blackBarBottom"  id="movieBottomSm" hidden></div>
+            <div class="blackBarTop" id="movieTopSm" hidden=""></div>
+            <div class="blackBarBottom" id="movieBottomSm" hidden=""></div>
             <!-- #endregion -->
     
             <!--* "Tutorial" info  -->
@@ -80,30 +86,34 @@
     
             <!--* Speaking Section  -->
             <!-- #region  -->     
-            <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="toxTillSm" hidden>
-            <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" id="crazpiccSm" hidden>
+            <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="toxTillSm" hidden="">
+            <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" id="crazpiccSm" hidden="">
                 
             <div id="dialogBox">
                 <!--! Toxtill's Section -->
-                <div class="mainTalk" id="toxTillLinesSm"></div>
-                <button class="nextBtn" id="toxTillBtnSm" hidden>NEXT</button>
+                <div class="mainTalk" id="toxTillLinesSm" style="
+    top: 0px;
+    right: 0px;
+    height: 0px;
+"></div>
+                <button class="nextBtn" id="toxTillBtnSm" hidden="">NEXT</button>
                 
                 <!--! Crazpicc's Section  -->
-                <div class="mainTalkTwo" id="crazpiccLinesSm" hidden></div>
-                <button class="nextBtnTwo" id="crazpiccBtnSm" hidden>NEXT</button>
+                <div class="mainTalkTwo" id="crazpiccLinesSm" hidden=""></div>
+                <button class="nextBtnTwo" id="crazpiccBtnSm" hidden="">NEXT</button>
                 
                 <!--! GAME OVER Section  -->
-                <div class="gameOver" id="superOverSm" hidden>GAME OVER</div>
+                <div class="gameOver" id="superOverSm" hidden="">GAME OVER</div>
                 <div class="d-flex justify-content-center">
-                    <button class="comebackBtn" id="comebackSm" hidden>Comeback</button>
-                    <button class="cowardBtn" id="cowardSm" hidden>Coward</button>
+                    <button class="comebackBtn" id="comebackSm" hidden="">Comeback</button>
+                    <button class="cowardBtn" id="cowardSm" hidden="">Coward</button>
                 </div>
             </div>
             <!-- #endregion -->
               
             <!--* Card Design Section -->
             <!-- #region -->
-            <div class="container p-0 cards" id="cardGameSm" hidden>
+            <div class="container p-0 cards" id="cardGameSm" hidden="">
                 <!--? ROCK -->
                 <button class="box rock" id="rockSm">
                   <span></span>
@@ -132,7 +142,7 @@
                 </button>
     
                 <!--? ALLIGATOR -->
-                <button class="box alligator" id="alligatorSm" hidden>
+                <button class="box alligator" id="alligatorSm" hidden="">
                   <span></span>
                   <div class="content">
                     <h2>A</h2>
@@ -146,7 +156,7 @@
             <!-- #region -->
             <div class="countdownTime" id="clockDisplaySm"></div>
 
-            <div class="timer" id="gameTimeSm" hidden>
+            <div class="timer" id="gameTimeSm" hidden="">
                 <button class="yesGameStart" id="yesStartSm">YES</button>
                 <button class="noGameStart" id="noStartSm">NO</button>
             </div> 
@@ -154,10 +164,10 @@
 
             <!--* Scoring Section  -->
             <!-- #region -->
-            <div class="mainGameScores d-flex justify-content-between" id="scoringSectionSm" hidden>
+            <div class="mainGameScores d-flex justify-content-between" id="scoringSectionSm" hidden="">
                 <!--! PLAYER SCORES  -->
                 <div class="scoreDisplay text-center d-flex justify-content-center" id="playerDisplaySm">
-                    <div class="youText ms-3"  id="youText">
+                    <div class="youText ms-3" id="youText">
                         <span class="me-3 playerName">PLAYER</span>
                         <span class="playerScore d-flex justify-content-center" id="playerPointsSm">0</span>
                     </div>
@@ -186,7 +196,9 @@
         
             <!--? Background Images  -->
             <!-- #region -->
-            <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="d-none d-sm-block flowerImg" id="flowerImg">
+            <img src="./Media/flower-4349.gif" alt="animated gif of a pink flower" class="d-none d-sm-block flowerImg" id="flowerImg" style="
+    top: 0px;
+">
             <img src="./Media/bokeh-2072271.jpg" alt="sparkly pink backround with bubbles" class="bubbleImg d-none d-sm-block" id="pinkBubbles">
             <img src="./Media/space background.jpg" alt="space" class="spaceImg" id="spacey">
             <img src="./Media/sakura-5470.gif" alt="sakuras falling from the sky" class="blossomImg" id="blossoms">
@@ -205,8 +217,8 @@
                 </div>
             </div>         
             
-            <div class="blackBarTop"  id="movieTop" hidden></div>
-            <div class="blackBarBottom"  id="movieBottom" hidden></div>
+            <div class="blackBarTop" id="movieTop" hidden=""></div>
+            <div class="blackBarBottom" id="movieBottom" hidden=""></div>
             <!--#endregion  -->
              
             <!--? "TUTORIAL" Section -->
@@ -232,25 +244,32 @@
             <!--? Speaking Section  -->
             <!-- #region -->
             
-            <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="toxTill" hidden>
-            <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" id="crazpicc" hidden> 
+            <img src="./Media/announcer.png" alt="announcer for the game" class="announcerGuy" id="toxTill" hidden="">
+            <img src="./Media/unlock character.png" alt="picture of woman with orange hair and blue eyes" class="mainEnemy" id="crazpicc" hidden=""> 
             
             <div id="dialogBox">
 
                 <!--! Toxtill Section  -->
-                <div class="mainTalk" id="toxTillLines"></div>
-                <button class="nextBtn" id="toxTillBtn" hidden>NEXT</button>
+                <div class="mainTalk" id="toxTillLines" style="
+    top: 0px;
+    right: 0px;
+    height: 0px;
+"></div>
+                <button class="nextBtn" id="toxTillBtn" hidden="">NEXT</button>
                 
                 <!--! Crazpicc Section  -->
-                <div class="mainTalkTwo" id="crazpiccLines"></div>
-                <button class="nextBtnTwo" id="crazpiccBtn" hidden>NEXT</button>
+                <div class="mainTalkTwo" id="crazpiccLines" style="
+    top: 0px;
+    height: 0px;
+"></div>
+                <button class="nextBtnTwo" id="crazpiccBtn" hidden="">NEXT</button>
                 
 
                 <!--! GAME OVER Section  -->
-                <div class="gameOver" id="superOver" hidden>GAME OVER</div>
+                <div class="gameOver" id="superOver" hidden="">GAME OVER</div>
                 <div class="d-flex justify-content-center">
-                    <button class="comebackBtn" id="comeback" hidden>Comeback</button>
-                    <button class="cowardBtn" id="coward" hidden>Coward</button>
+                    <button class="comebackBtn" id="comeback" hidden="">Comeback</button>
+                    <button class="cowardBtn" id="coward" hidden="">Coward</button>
                 </div>
             </div>  
                 
@@ -258,7 +277,7 @@
         
             <!--? Card Design Section -->
             <!-- #region -->
-            <div class="cards" id="cardGame" hidden>
+            <div class="cards" id="cardGame" hidden="">
                 <div class="container">
                     <!--? ROCK -->
                     <button class="box rock" id="rock">
@@ -288,7 +307,7 @@
                     </button>
                     
                     <!--? ALLIGATOR -->
-                    <button class="box alligators" id="alligator" hidden>
+                    <button class="box alligators" id="alligator" hidden="">
                         <span></span>
                         <div class="content">
                             <h2>ALLIGATOR</h2>
@@ -303,7 +322,7 @@
             <!-- #region -->
             <div class="countdownTime" id="clockDisplay"></div>
          
-            <div class="timer" id="gameTime" hidden>
+            <div class="timer" id="gameTime" hidden="">
                 <button class="yesGameStart" id="yesStart">YES</button>
                 <button class="noGameStart" id="noStart">NO</button>
             </div>
@@ -314,7 +333,7 @@
             <div class="mainGameScores d-flex justify-content-between" id="scoringSection">
                 
                 <div class="scoreDisplay text-center d-flex justify-content-center" id="playerDisplay">
-                    <div class="youText ms-3"  id="youText">
+                    <div class="youText ms-3" id="youText">
                         <span class="me-3 playerName">YOU</span>
                         <span class="playerScore d-flex justify-content-center me-3" id="playerPoints">0</span>
                     </div>
@@ -340,18 +359,18 @@
         <!--TODO Title Theme  -->
         <!-- #region  buttonOne-->
         <div class="musicPlayer" id="MusicPlayerOne">
-            <audio id="titleMusic" src="./Media/R-P-S Menu theme.m4a" type="m4a" preload="auto" hidden loop></audio>
-            <button class="musicButton" id="audioButtonOne" hidden>🎵</button>
-            <div class="audioScroll" id="titleScroll" hidden>R-P-S Menu Theme</div>
+            <audio id="titleMusic" src="./Media/R-P-S Menu theme.m4a" type="m4a" preload="auto" hidden="" loop=""></audio>
+            <button class="musicButton" id="audioButtonOne" hidden="">🎵</button>
+            <div class="audioScroll" id="titleScroll" hidden="">R-P-S Menu Theme</div>
         </div>
         <!-- #endregion -->
         
         <!-- TODO Dialog Music -->
          <!-- #region buttonTwo-->
         <div class="musicPlayer" id="musicPlayerTwo">
-            <audio id="announcerMusic" src="./Media/Armored Core- Apex.mp3" type="mp3" hidden loop></audio>
-            <button class="musicButtonTwo" id="audioButtonTwo" hidden>🎵</button>
-            <div class="audioScrollTwo" id="titleScrollTwo" hidden>Armored Core-"Apex in TECHNO (Apex in Circle)"</div>
+            <audio id="announcerMusic" src="./Media/Armored Core- Apex.mp3" type="mp3" hidden="" loop=""></audio>
+            <button class="musicButtonTwo" id="audioButtonTwo" hidden="">🎵</button>
+            <div class="audioScrollTwo" id="titleScrollTwo" hidden="">Armored Core-"Apex in TECHNO (Apex in Circle)"</div>
         </div>
         <!-- #endregion -->
 
@@ -359,11 +378,11 @@
          <!-- #region buttonThree-->
         <div class="musicPlayer" id="musicPlayerThree">
             <audio id="opponentMusic" src="./Media/R-P-S.m4a" type="m4a" hidden="hidden"></audio>
-            <button class="musicButtonThree" id="audioButtonThree" hidden>🎵</button>
-            <div class="audioScrollThree" id="titleScrollThree" hidden>R-P-S Main Battle Theme</div>
+            <button class="musicButtonThree" id="audioButtonThree" hidden="">🎵</button>
+            <div class="audioScrollThree" id="titleScrollThree" hidden="">R-P-S Main Battle Theme</div>
         </div>
         <!-- #endregion -->
     </footer>
     <script src="./JS/app.js"></script>
-</body>
-</html>
+
+</body></html>
