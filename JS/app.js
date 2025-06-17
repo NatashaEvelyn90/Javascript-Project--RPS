@@ -438,7 +438,6 @@ function theAnnouncement() {
         document.addEventListener("click", revival);
         function revival() {
             cutie.removeAttribute("hidden");
-            // cutie.classList.add("mannySlide");
             cowardBtn.removeAttribute("hidden");
             comebackBtn.removeAttribute("hidden");
         }
