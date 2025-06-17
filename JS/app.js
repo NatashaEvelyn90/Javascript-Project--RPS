@@ -46,6 +46,8 @@ const announcerSm = document.getElementById("toxTillSm");
 const nextBtnSm = document.getElementById("toxTillBtnSm");
 const mainTalkSm = document.getElementById("toxTillLinesSm");
 
+const cutie = document.getElementById("manny");
+
 //? CRAZPICC info LARGE
 const mainEnemy = document.getElementById("crazpicc");
 const nextBtnTwo = document.getElementById("crazpiccBtn");
@@ -74,6 +76,7 @@ const comebackBtnSm = document.getElementById("comebackSm");
 //? Children's Card Game Section  
 const yesGameStart = document.getElementById("yesStart");
 const playCards = document.getElementById("cardGame");
+const cardContainer = document.getElementById("cardContainer");
 const mainGameScores = document.getElementById("scoringSection");
 //* Children's Card Game Section  
 const yesGameStartSm = document.getElementById("yesStartSm");
@@ -112,6 +115,7 @@ window.onload = function(){
     ageVerify.innerText = "Are you over the Age of 18?";
     mainGameScoresSm.style.visibility = 'hidden';
     mainGameScores.style.visibility = 'hidden';
+    cardContainer.style.visibility = 'hidden';
 }
 // #endregion
 
@@ -390,6 +394,7 @@ function theAnnouncement() {
             speechStop = true;
             currentLineTwoB = 0;
             spaceImg.style.visibility = 'hidden',
+            spaceImg.style.visibility = 'hidden';
             timerStart.style.visibility = 'hidden';
             spaceImgSm.style.visibility = 'hidden';
 
@@ -432,6 +437,7 @@ function theAnnouncement() {
         //? Two choices: Leave or Try again 
         document.addEventListener("click", revival);
         function revival() {
+            mainEnemy.removeAttribute("hidden");
             cowardBtn.removeAttribute("hidden");
             comebackBtn.removeAttribute("hidden");
         }
@@ -591,6 +597,7 @@ function audioPauseThree() {
 yesGameStart.addEventListener("click", beginBattle);
 function beginBattle() {
     gameActive = true;
+    cardContainer.style.visibility = 'visible';
     console.log("Battle started — gameActive is now", gameActive);
 
 //? Remove announcer + add music
@@ -614,9 +621,14 @@ musicButtonThree.style.visibility = 'visible';
     noGameStart.style.display = "none";
     mainGameScores.style.visibility = "visible";
     bgImageBl.style.visibility = 'hidden';
+
+    const topBars = [document.getElementById("movieTop"), document.getElementById("movieTopSm")];
+    const bottomBars = [document.getElementById("movieBottom"), document.getElementById("movieBottomSm")];
     document.getElementById("cardGame").removeAttribute('hidden');
-    movieTop.style.visibility = "hidden";
-    movieBottom.style.visibility = "hidden";
+    topBars.forEach(bar => { if (bar) bar.style.visibility = 'hidden'});
+    bottomBars.forEach(bar => { if (bar) bar.style.visibility = 'hidden'});
+    // movieTop.style.visibility = "hidden";
+    // movieBottom.style.visibility = "hidden";
 
 //? Audio pause section
     musicButtonThree.removeAttribute("hidden");
@@ -686,10 +698,6 @@ musicButtonThree.style.visibility = 'visible';
 }
 // #endregion 
 // #endregion
-
-
-
-
 
 
 //* SMALL SECTION 
@@ -870,6 +878,7 @@ function theAnnouncementSm() {
     function theCloseSm() {
         mainTalkTwoSm.classList.add("fadeOut");
         bgImageBlSm.classList.add("fadeOut");
+        spaceImgSm.style.visibility = 'hidden';
 
         //* Removing old animation// replace with new
         // announcerSm.classList.remove("announcerSlide");
@@ -889,6 +898,7 @@ function theAnnouncementSm() {
         mainTalkSm.style.visibility = 'hidden';
         mainTalkTwoSm.style.visibility = 'hidden';
         bgImageBlSm.style.visibility = 'hidden';
+        spaceImgSm.style.visibility = 'hidden';
       
         gameOverSm.removeAttribute("hidden");
 
@@ -919,10 +929,6 @@ function theAnnouncementSm() {
 
 // #endregion
 
-
-
-
-// TODO MUST WORK ON THIS SECTION BELOW!
 // * RPS Small Section 
 
 // #region R-P-S GAMEPLAY
@@ -1089,8 +1095,12 @@ function beginBattleSm() {
     mainGameScoresSm.style.visibility = "visible";
     bgImageBlSm.style.visibility = 'hidden';
     document.getElementById("cardGameSm").removeAttribute('hidden');
-    movieTopSm.style.visibility = "hidden";
-    movieBottomSm.style.visibility = "hidden";
+
+    const topBars = [document.getElementById("movieTop"), document.getElementById("movieTopSm")];
+    const bottomBars = [document.getElementById("movieBottom"), document.getElementById("movieBottomSm")];
+    document.getElementById("cardGame").removeAttribute('hidden');
+    topBars.forEach(bar => { if (bar) bar.style.visibility = 'hidden'});
+    bottomBars.forEach(bar => { if (bar) bar.style.visibility = 'hidden'});
 
 
 //! TIME Section

@@ -59,6 +59,17 @@ main {top: 0;
   }
 }
 
+@keyframes mannySlide {
+  0% {
+	transform: translateY(0);
+  }
+
+  100% {
+	transform: translateY(-100px);
+  }
+}
+
+
 @keyframes nextText {
   0%,
   50%,
@@ -405,6 +416,17 @@ strong {
         z-index: 7;
 }
 
+.cutiePatootie {
+  width: 100%;
+  max-width: 576px;
+  height: auto;
+  top: 20px;
+}
+
+.mannySlide {
+  animation: mannySlide 2s ease 0s 1 normal forwards;
+}
+
 .cowardBtn {
 position: fixed;
 top: 55%;
@@ -611,7 +633,7 @@ font-family: "Pixelify Sans", sans-serif;
 /* #region "SCORING + CARD POWER" Section */
 .mainGameScores {
   visibility: visible;
-  position: relative;
+  position: static;
   top: 225px;
   z-index: -100;
 }
@@ -663,9 +685,10 @@ font-family: "Pixelify Sans", sans-serif;
 }
 
 .countdownTime {
-  position: absolute;
-  width: 100%;
-  top: 75px;
+  position: fixed;
+  width: 40%;
+  left: 8%;
+  top: 100x;
   margin-left: 0;
   color: red;
   font-size: 100px;
@@ -697,7 +720,8 @@ font-family: "Pixelify Sans", sans-serif;
 
 .gameResultText {
   position: fixed;
-  left: 37%;
+  left: 40%;
+  top: 86%;
     font-size: 70px;
     color: #fff;
     text-shadow: 1px 1px 4px #000;
@@ -912,14 +936,14 @@ animation: theEnd 870s ease 0 infinite normal none;
   
 .spaceImg {
   position: fixed;
-  /* z-index: 2; */
+  z-index: -1;
   width: 100%;
   height: -webkit-fill-available;
  }
 
 .blossomImg {
   position: fixed;
-  z-index: -1;
+  z-index: -2;
   width: 100%;
   height: -webkit-fill-available;
 }
@@ -1164,6 +1188,7 @@ strong {
 .enemySlide {
   animation: enemySlide 1s ease-in normal forwards;
 }
+
 
 .mainTalkTwo {
   position: fixed;
