@@ -154,6 +154,8 @@ const yesBtn = document.getElementById("yesBtn");
 
 yesBtn.addEventListener("click", gameMenu);
 function gameMenu() {
+
+
     musicButtonOne.removeAttribute("hidden");
     musicButtonOne.addEventListener("click", audioPause);
     function audioPause() {
@@ -222,7 +224,8 @@ function showCredits() {
 // #endregion
 
 //? Clicking the "START" button on the menu
-// #region "START" button on menu
+//* Combined
+// #region
 //? Starts the beginning of the dialog section
 const titleOfGame = document.getElementById("gameTitle");
 const startGame = document.getElementById("mainStartBtn");
@@ -231,49 +234,45 @@ const topBar = document.getElementById("movieTop");
 const bottomBar = document.getElementById("movieBottom");
 const sparkles = document.querySelector("#sparkles"); //* Background for small screen
 const titleOfGameSm = document.getElementById("gameTitleSm");
-// const startGameSm = document.getElementById("mainStartBtnSm");
 const topBarSm = document.getElementById("movieTopSm");
 const bottomBarSm = document.getElementById("movieBottomSm");
 
+// Attach shared function to both buttons
+document.getElementById("mainStartBtn").addEventListener("click", start);
+document.getElementById("mainStartBtnSm").addEventListener("click", start);
 
-
-startGame.addEventListener("click", start);
 function start() {
+    // Stop music
     titleMusic.pause();
     titleMusic.currentTime = 0;
 
-    topBar.removeAttribute("hidden");
-    bottomBar.removeAttribute("hidden");
-    topBarSm.removeAttribute("hidden");
-    bottomBarSm.removeAttribute("hidden");
+    const topBars = [document.getElementById("movieTop"), document.getElementById("movieTopSm")];
+    const bottomBars = [document.getElementById("movieBottom"), document.getElementById("movieBottomSm")];
 
-    mainMenuButtons.classList.add("fadeOut");
-    mainMenuButtonsSm.classList.add("fadeOut");
-    flowerImage.classList.add("fadeOut");        
-    audioButtonOne.classList.add("fadeOut");
-    titleScroll.classList.add("fadeOut");
-    sparkles.classList.add("fadeOut"); 
-    scoringSection.style.visibility = 'hidden';
+    topBars.forEach(bar => { if (bar) bar.removeAttribute("hidden"); });
+    bottomBars.forEach(bar => { if (bar) bar.removeAttribute("hidden"); });
+
     
-    setTimeout(theAnnouncement, 4000);
+    const mainMenus = [document.getElementById("mainButtons"), document.getElementById("mainButtonsSm")];
+    mainMenus.forEach(menu => { if (menu) menu.classList.add("fadeOut"); });
+
+    
+    if (flowerImage) flowerImage.classList.add("fadeOut");
+    if (audioButtonOne) audioButtonOne.classList.add("fadeOut");
+    if (titleScroll) titleScroll.classList.add("fadeOut");
+    if (sparkles) sparkles.classList.add("fadeOut");
+
+
+    const scoreSections = [document.getElementById("scoringSection"), document.getElementById("scoringSectionSm")];
+    scoreSections.forEach(sec => { if (sec) sec.style.visibility = "hidden"; });
+
+    if (window.matchMedia("(max-width: 575px)").matches) {
+        setTimeout(theAnnouncementSm, 4000);
+    } else {
+        setTimeout(theAnnouncement, 4000);
+    }
 }
 
-startGameSm.addEventListener("click", startSm);
-function startSm() {
-    titleMusic.pause();
-    titleMusic.currentTime = 0;
-
-    topBarSm.removeAttribute("hidden");
-    bottomBarSm.removeAttribute("hidden");
-
-    mainMenuButtonsSm.classList.add("fadeOut");       
-    audioButtonOne.classList.add("fadeOut");
-    titleScroll.classList.add("fadeOut");
-    sparkles.classList.add("fadeOut"); 
-    scoringSectionSm.style.visibility = 'hidden';
-    
-    setTimeout(theAnnouncementSm, 4000);
-}
 // #endregion
 
 //? DIALOG Section
@@ -294,7 +293,6 @@ function theAnnouncement() {
     
     //? "PAUSE / PLAY" audio Section    
     titleScrollTwo.removeAttribute("hidden");
-
     musicButtonTwo.removeAttribute("hidden");
     musicButtonTwo.addEventListener("click", audioPauseTwo);
     function audioPauseTwo() {
@@ -345,11 +343,11 @@ function theAnnouncement() {
     //! CRAZPICC Section
     const crazpiccDialogLines = [
         "Well, well well...",
-        "*stares judgingly*",
-        "I see that you are my opponent?",
+        "*Judges you*",
+        "I see that you are my final opponent?",
         "Pathetic.",
         "Let's just get this over with so I can go home to my dog.",
-        "You ready to be beaten?"
+        "You ready to go home and cry?"
     ]
 
     let currentLineTwo = 0;
@@ -612,8 +610,8 @@ musicButtonThree.style.visibility = 'visible';
 
 
 //? Game design options
-    yesStart.style.display = "none";
-    noStart.style.display = "none";
+    yesGameStart.style.display = "none";
+    noGameStart.style.display = "none";
     mainGameScores.style.visibility = "visible";
     bgImageBl.style.visibility = 'hidden';
     document.getElementById("cardGame").removeAttribute('hidden');
@@ -738,10 +736,6 @@ function theHelp() {
 }
 // #endregion
 
-//* Clicking the "START" button on the menu
-// #region 
-
-// #endregion
 
 //* "DIALOG" Section 
 // #region Whole Dialog Section
