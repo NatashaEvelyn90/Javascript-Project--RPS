@@ -420,12 +420,11 @@ strong {
   width: 100%;
   max-width: 576px;
   height: auto;
-  top: 20px;
+  top: 0;
+  left: 842px;
+  position: fixed;
 }
 
-.mannySlide {
-  animation: mannySlide 2s ease 0s 1 normal forwards;
-}
 
 .cowardBtn {
 position: fixed;
@@ -810,7 +809,7 @@ font-family: "Pixelify Sans", sans-serif;
 font-family: "Silkscreen", sans-serif;
 font-weight: 700;
 font-style: normal;
-font-size: 100px;
+font-size: 80px;
 position: fixed;
 top: 30%;
 left: 20%;

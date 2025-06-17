@@ -115,7 +115,7 @@ window.onload = function(){
     ageVerify.innerText = "Are you over the Age of 18?";
     mainGameScoresSm.style.visibility = 'hidden';
     mainGameScores.style.visibility = 'hidden';
-    cardContainer.style.visibility = 'hidden';
+    playCards.style.visibility = 'hidden';
 }
 // #endregion
 
@@ -437,7 +437,8 @@ function theAnnouncement() {
         //? Two choices: Leave or Try again 
         document.addEventListener("click", revival);
         function revival() {
-            mainEnemy.removeAttribute("hidden");
+            cutie.removeAttribute("hidden");
+            // cutie.classList.add("mannySlide");
             cowardBtn.removeAttribute("hidden");
             comebackBtn.removeAttribute("hidden");
         }
@@ -597,7 +598,7 @@ function audioPauseThree() {
 yesGameStart.addEventListener("click", beginBattle);
 function beginBattle() {
     gameActive = true;
-    cardContainer.style.visibility = 'visible';
+    playCards.style.visibility = 'visible';
     console.log("Battle started — gameActive is now", gameActive);
 
 //? Remove announcer + add music
