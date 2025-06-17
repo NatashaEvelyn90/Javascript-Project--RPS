@@ -89,7 +89,7 @@ main {top: 0;
 .flowerImg { 
   width: 100%;
   max-width: -webkit-fill-available;
-  height: auto;
+  height: 100%;
   position: fixed;
   z-index: -97;
   opacity: 1;
@@ -100,7 +100,7 @@ main {top: 0;
 .bubbleImg {
   width: 100%;
   max-width: -webkit-fill-available;
-  height: auto;
+  height: 100%;
   position: fixed;
   z-index: -99;
 
@@ -138,6 +138,11 @@ main {top: 0;
     
 }
 
+.headerMain {
+  /* position: absolute; */
+  top: 400px;
+}
+
 .textAge {
   position: absolute;
   left: 0;
@@ -157,8 +162,8 @@ main {top: 0;
 
 .yesBtn {
   position: absolute;
-  left: 43%;
-  top: 50%;
+  left: 42%;
+  top: 55%;
     font-family: "Pixelify Sans", sans-serif;
     background-color: rgb(41, 197, 38);
     color: white;
@@ -170,8 +175,8 @@ main {top: 0;
 
 .noBtn {
   position: absolute;
-  left: 49%;
-  top: 50%;
+  left: 52%;
+  top: 55%;
     font-family: "Pixelify Sans", sans-serif;
     background-color: #840419;
     color: white;
@@ -290,7 +295,7 @@ strong {
 /* #region "DIALOG" Section */
 .announcerGuy {
   width: 605px;
-  position: absolute;
+  position: fixed;
   top: 0;
 }
 
