@@ -351,7 +351,7 @@ function theAnnouncement() {
         "I see that you are my final opponent?",
         "Pathetic.",
         "Let's just get this over with so I can go home to my dog.",
-        "You ready to go home and cry?"
+        "You ready to battle?"
     ]
 
     let currentLineTwo = 0;
@@ -583,15 +583,15 @@ function clearStatus() {
     tieResults.classList.remove("plusOne", "keepTrying", "alligatorSurprise", "ifTie");
 }
 
-function audioPauseThree() {
-    if(battleTheme.paused) {
-        battleTheme.play();
-        musicButtonThree.textContent = "PAUSE";
-    } else {
-        battleTheme.pause();
-        musicButtonThree.textContent = "🎵";
-    }
-}
+// function audioPauseThree() {
+//     if(battleTheme.paused) {
+//         battleTheme.play();
+//         musicButtonThree.textContent = "PAUSE";
+//     } else {
+//         battleTheme.pause();
+//         musicButtonThree.textContent = "🎵";
+//     }
+// }
 
 //! R-P-S BATTLE BEGINS HERE 
 yesGameStart.addEventListener("click", beginBattle);
