@@ -474,8 +474,8 @@ const playerScoreBoards = document.querySelectorAll('#playerPoints, #playerScore
 const opponentScoreBoards = document.querySelectorAll('#opponentPoints, #opponentScore');
 
 function updateScoreDisplays() {
-  playerScoreBoards.forEach(el => el.innerText = playerScore);
-  opponentScoreBoards.forEach(el => el.innerText = opponentScore);
+    playerScoreBoards.forEach(el => el.innerText = playerScore);
+    opponentScoreBoards.forEach(el => el.innerText = opponentScore);
 }
 // console.log(playerScoreBoards, opponentScoreBoards);
 
@@ -515,7 +515,7 @@ alligatorBtn.addEventListener("click", () => {
     
     clearStatus();
     playerScore += 5;
-   updateScoreDisplays();
+    updateScoreDisplays();
     tieResults.innerText = "GATOR POWER! +5 POINTS!";
     tieResults.classList.add("alligatorSurprise");
     const usedTrigger = alligatorAppearance.find(trigger => playerScore - 5 < trigger && playerScore >= trigger);
@@ -555,7 +555,7 @@ function computerChoices() {
             (player === 'paper' && opponent === 'rock')
         ) {
             playerScore++;
-           updateScoreDisplays();
+            updateScoreDisplays();
             tieResults.innerText = "+1 POINT!";
             tieResults.classList.add("plusOne");
         } else {
